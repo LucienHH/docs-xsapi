@@ -2,20 +2,26 @@
 
 {% api-method method="get" host="https://profile.xboxlive.com" path="/users/:userId/profile/settings" %}
 {% api-method-summary %}
-Get Cakes
+Get Profile
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This endpoint allows you to get free cakes.  
+Gets a user or users profile
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=true %}
-Can be either 'gt\(myG
+{% api-method-parameter name="userId" type="string" required=true %}
+Can be either 'xuid\(12345\)', 'gt\(myGamertag\)', or 'me'.
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="settings" type="string" required=true %}
+
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -26,16 +32,6 @@ Cake successfully retrieved.
 
 ```
 {    "name": "Cake's name",    "recipe": "Cake's recipe name",    "cake": "Binary cake"}
-```
-{% endapi-method-response-example %}
-
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-Could not find a cake matching this query.
-{% endapi-method-response-example-description %}
-
-```
-{    "message": "Ain't no cake like that."}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
