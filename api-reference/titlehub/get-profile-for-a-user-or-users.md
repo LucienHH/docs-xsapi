@@ -27,11 +27,35 @@ A comma-delimited list of setting names.
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-Cake successfully retrieved.
+
 {% endapi-method-response-example-description %}
 
 ```
-{    "name": "Cake's name",    "recipe": "Cake's recipe name",    "cake": "Binary cake"}
+{
+      "profileUsers":[
+         {
+            "id":"2533274791381930",
+            "settings":[
+               {
+                  "id":"GameDisplayName",
+                  "value":"John Smith"
+               },
+               {
+                  "id":"GameDisplayPicRaw",
+                  "value":"http://images-eds.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToBrrCmIEEXHC9UNrdJ6P7KIN0gxC2r1YECCd3mf2w1FDdmFCpSokJWa2z7xtVrlzOyVSc6pPRdWEXmYtpS2xE4F&format=png&w=64&h=64"
+               },
+               {
+                  "id":"Gamerscore",
+                  "value":"0"
+               },
+               {
+                  "id":"Gamertag",
+                  "value":"CracklierJewel9"
+               }
+            ]
+         }
+      ]
+   }
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
