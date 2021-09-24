@@ -1,25 +1,16 @@
 # Welcome
 
-## Getting Super Powers
+## Import fork to Gitbook
 
-Becoming a super hero is a fairly straight forward process:
+To easily edit the project first fork the repo and then log in to Gitbook using your Github account.   
+  
+Create a new private space and call it XSAPI \(this isn't necessary but stays consistent\), once created head to **Integrations** and enable the Github integration.  
+  
+Select your forked repo, sync the master branch and make sure to select **I write my content on GitHub**   
+  
+****Congrats you've successfully forked the repo to Gitbook, once you've made any changes click save and merge it to your repo and then create a PR.
 
-```
-$ give me super-powers
-```
-
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
-
-Once you're strong enough, save the world:
-
-{% code title="hello.sh" %}
-```bash
-# Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
-{% endcode %}
+\*\*\*\*
 
 
 
