@@ -19,7 +19,7 @@ Can be either 'xuid\(12345\)', 'gt\(myGamertag\)', or 'me'.
 
 {% api-method-query-parameters %}
 {% api-method-parameter name="settings" type="string" required=true %}
-
+A comma-delimited list of setting names.
 {% endapi-method-parameter %}
 {% endapi-method-query-parameters %}
 {% endapi-method-request %}
@@ -37,6 +37,30 @@ Cake successfully retrieved.
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
+```text
+# Available setting
+
+[
+    'GameDisplayPicRaw',
+    'Gamerscore',
+    'Gamertag',
+    'AccountTier',
+    'XboxOneRep',
+    'PreferredColor',
+    'RealName',
+    'Bio',
+    'Location',
+    'ModernGamertag',
+    'ModernGamertagSuffix',
+    'UniqueModernGamertag',
+    'RealNameOverride',
+    'TenureLevel',
+    'Watermarks',
+    'IsQuarantined',
+    'DisplayedLinkedAccounts',
+]
+```
 
 
 
