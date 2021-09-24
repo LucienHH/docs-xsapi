@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Welcome](README.md)
+* [Contribute](contribute.md)
 
 ## Authentication
 
