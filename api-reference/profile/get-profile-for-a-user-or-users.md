@@ -30,7 +30,7 @@ A comma-delimited list of setting names.
 
 {% endapi-method-response-example-description %}
 
-```
+```text
 {
       "profileUsers":[
          {
@@ -85,6 +85,4 @@ A comma-delimited list of setting names.
     'DisplayedLinkedAccounts',
 ]
 ```
-
-
 

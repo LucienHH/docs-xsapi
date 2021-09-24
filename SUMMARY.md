@@ -15,6 +15,6 @@
 
 ## API Reference
 
-* [Profile](api-reference/titlehub/README.md)
-  * [GET Profile for a user or users](api-reference/titlehub/get-profile-for-a-user-or-users.md)
+* [Profile](api-reference/profile/README.md)
+  * [GET Profile for a user or users](api-reference/profile/get-profile-for-a-user-or-users.md)
 
