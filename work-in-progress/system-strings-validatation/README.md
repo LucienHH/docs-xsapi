@@ -1,2 +1,0 @@
-# System Strings Validatation
-

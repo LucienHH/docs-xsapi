@@ -1,2 +1,0 @@
-# /users/me/groups/:moniker
-

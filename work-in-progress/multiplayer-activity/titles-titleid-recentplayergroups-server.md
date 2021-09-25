@@ -1,2 +1,0 @@
-# /titles/:titleId/recentplayergroups/server
-

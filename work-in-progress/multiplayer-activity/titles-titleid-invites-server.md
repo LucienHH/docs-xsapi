@@ -1,2 +1,0 @@
-# /titles/:titleId/invites/server
-

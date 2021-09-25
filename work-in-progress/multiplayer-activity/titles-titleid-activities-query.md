@@ -1,2 +1,0 @@
-# /titles/:titleId/activities/query
-

@@ -1,1 +1,0 @@
-# /users/xuid(:xuid)/groups/:moniker

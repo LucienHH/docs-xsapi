@@ -1,2 +1,0 @@
-# /users/:requestorId/permission/validate
-

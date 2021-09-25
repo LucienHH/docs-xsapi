@@ -1,2 +1,0 @@
-# /serviceconfigs/:scid/hoppers/:name/stats
-
