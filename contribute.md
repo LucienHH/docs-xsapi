@@ -8,5 +8,5 @@ Create a new private space and call it XSAPI \(this isn't necessary but stays co
 
 Select your forked repo, sync the master branch and make sure to select **I write my content on GitHub** as this will ensure it imports correctly
 
-_\*\*_Congrats you've successfully forked the repo to Gitbook, once you've made any changes click save and merge it to your repo and then create a PR.
+Congrats you've successfully forked the repo to Gitbook, once you've made any changes click save and merge it to your repo and then create a PR.
 
