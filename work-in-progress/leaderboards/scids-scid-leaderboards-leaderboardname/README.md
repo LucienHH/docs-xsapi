@@ -1,0 +1,2 @@
+# /scids/:scid/leaderboards/:leaderboardname
+

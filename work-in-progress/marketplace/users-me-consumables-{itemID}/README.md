@@ -1,1 +1,0 @@
-# /users/me/consumables/:itemID

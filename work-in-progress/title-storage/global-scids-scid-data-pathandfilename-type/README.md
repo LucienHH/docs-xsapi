@@ -1,0 +1,2 @@
+# /global/scids/:scid/data/:pathAndFileName,:type
+

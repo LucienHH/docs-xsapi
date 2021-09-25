@@ -1,1 +1,0 @@
-# /users/:ownerId/people/avoid

@@ -17,10 +17,12 @@ Wip
 {% api-method-response-example-description %}
 
 {% endapi-method-response-example-description %}
-```
+
+```text
 
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
