@@ -1,0 +1,1 @@
+# /trustedplatform/users/xuid(:xuid)/scids/:scid

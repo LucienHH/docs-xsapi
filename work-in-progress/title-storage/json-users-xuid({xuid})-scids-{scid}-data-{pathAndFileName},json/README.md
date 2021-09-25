@@ -1,0 +1,1 @@
+# /json/users/xuid(:xuid)/scids/:scid/data/:pathAndFileName,json

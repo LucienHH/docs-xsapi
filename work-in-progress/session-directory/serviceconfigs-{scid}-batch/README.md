@@ -1,0 +1,1 @@
+# /serviceconfigs/:scid/batch

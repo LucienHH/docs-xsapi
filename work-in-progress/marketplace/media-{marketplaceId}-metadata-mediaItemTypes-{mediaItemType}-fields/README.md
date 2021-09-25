@@ -1,0 +1,1 @@
+# /media/:marketplaceId/metadata/mediaItemTypes/:mediaItemType/fields

@@ -1,0 +1,1 @@
+# /users/:ownerId/people/mute
