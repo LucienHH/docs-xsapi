@@ -1,0 +1,1 @@
+# json/users/batch/scids/:scid/data/:pathAndFileName,json
