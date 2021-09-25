@@ -1,1 +1,0 @@
-# users/xuid\(:xuid\)/scids/:scid/stats

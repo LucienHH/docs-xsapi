@@ -8,7 +8,7 @@ async function main() {
 
     const reference = doc.items[0].children[0].children.slice(1)
 
-    let string = '', l = 1
+    let string = ''
 
     for (let i = 0; i < reference.length; i++) {
         const parent = reference[i];
@@ -24,6 +24,13 @@ async function main() {
         for (let j = 1; j < parent.children.length; j++) {
             const child = parent.children[j];
 
+            const childTitle = child.toc_title.slice(1).replace(/\//g, '-').replace(/\?|\|/g, '~').replace(/\{statname\)/g, '{statname}').replace(/\(\{xuid\}\)/g, '{xuid}');
+            const childTitleClean = child.toc_title.slice(1).replace(/{/g, ':').replace(/}/g, '').replace(/\(/g, '\\(').replace(/\)/g, '\\)')
+
+            await initFolder(`${parentTitle}/${childTitle}`, childTitleClean)
+
+            string += `  * [${childTitleClean}](work-in-progress/${parentTitle}/${childTitle}/README.md)\n`
+
             const removeUri = child.children.filter(res => !res.toc_title.includes('URI'))
 
             for (let k = 1; k < removeUri.length; k++) {
@@ -37,14 +44,12 @@ async function main() {
 
                 const body = formatRequestPage(method, host, urlPath, 'Wip', 'Wip')
 
-                const fileName = `${method}-${urlPath.split('/')[1]}`
+                const fileName = `${method}-${childTitle.split('-')[0]}`
                 const formatedfileName = fileName.toLowerCase().replace(/\//g, '-')
 
-                await fs.promises.writeFile(`./work-in-progress/${parentTitle}/${formatedfileName}-${l}.md`, body)
+                await fs.promises.writeFile(`./work-in-progress/${parentTitle}/${childTitle}/${formatedfileName}-${k}.md`, body)
 
-                string += `  * [${method} ${urlPath.split('/')[1]}](work-in-progress/${parentTitle}/${formatedfileName}-${l}.md)\n`
-
-                l++
+                string += `    * [${method} ${childTitle.split('-')[0]}](work-in-progress/${parentTitle}/${childTitle}/${formatedfileName}-${k}.md)\n`
 
             }
         }
