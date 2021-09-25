@@ -1,1 +1,1 @@
-# /users/:ownerId/people/avoid
+# users/:ownerId/people/avoid

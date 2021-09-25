@@ -1,1 +1,1 @@
-# /system/strings/validate
+# system/strings/validate

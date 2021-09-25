@@ -1,1 +1,1 @@
-# /users/xuid(:xuid)/devices/current/titles/current
+# users/xuid\(:xuid\)/devices/current/titles/current

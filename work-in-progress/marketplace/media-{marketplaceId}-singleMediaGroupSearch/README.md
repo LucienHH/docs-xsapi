@@ -1,1 +1,1 @@
-# /media/:marketplaceId/singleMediaGroupSearch
+# media/:marketplaceId/singleMediaGroupSearch

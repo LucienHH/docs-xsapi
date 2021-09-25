@@ -1,1 +1,1 @@
-# /users/batch/profile/settings
+# users/batch/profile/settings

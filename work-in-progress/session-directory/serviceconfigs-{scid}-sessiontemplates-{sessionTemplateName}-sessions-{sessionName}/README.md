@@ -1,1 +1,1 @@
-# /serviceconfigs/:scid/sessiontemplates/:sessionTemplateName/sessions/:sessionName
+# serviceconfigs/:scid/sessiontemplates/:sessionTemplateName/sessions/:sessionName

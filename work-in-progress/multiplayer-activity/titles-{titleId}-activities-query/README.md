@@ -1,1 +1,1 @@
-# /titles/:titleId/activities/query
+# titles/:titleId/activities/query

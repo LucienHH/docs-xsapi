@@ -1,1 +1,1 @@
-# /users/xuid(:xuid)
+# users/xuid\(:xuid\)

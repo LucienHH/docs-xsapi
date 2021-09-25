@@ -1,1 +1,1 @@
-# /media/:marketplaceId/metadata/mediaItemTypes/:mediaitemtype/queryrefiners/:queryRefiner/subQueryRefinerValues
+# media/:marketplaceId/metadata/mediaItemTypes/:mediaitemtype/queryrefiners/:queryRefiner/subQueryRefinerValues

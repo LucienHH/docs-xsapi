@@ -1,1 +1,1 @@
-# /titles/:titleId/users/:xuid/activities
+# titles/:titleId/users/:xuid/activities

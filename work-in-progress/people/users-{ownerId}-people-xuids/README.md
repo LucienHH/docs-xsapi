@@ -1,1 +1,1 @@
-# /users/:ownerId/people/xuids
+# users/:ownerId/people/xuids

@@ -1,1 +1,1 @@
-# /serviceconfigs/:scid/sessiontemplates/:sessionTemplateName/batch
+# serviceconfigs/:scid/sessiontemplates/:sessionTemplateName/batch

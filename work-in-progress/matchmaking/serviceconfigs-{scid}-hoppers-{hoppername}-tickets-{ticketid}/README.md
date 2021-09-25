@@ -1,1 +1,1 @@
-# /serviceconfigs/:scid/hoppers/:hoppername/tickets/:ticketid
+# serviceconfigs/:scid/hoppers/:hoppername/tickets/:ticketid

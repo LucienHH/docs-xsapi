@@ -1,1 +1,1 @@
-# /media/:marketplaceId/contentRating
+# media/:marketplaceId/contentRating

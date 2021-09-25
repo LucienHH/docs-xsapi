@@ -1,1 +1,1 @@
-# /untrustedplatform/users/xuid(:xuid)/scids/:scid/data/:path
+# untrustedplatform/users/xuid\(:xuid\)/scids/:scid/data/:path

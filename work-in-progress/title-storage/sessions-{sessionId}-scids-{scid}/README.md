@@ -1,1 +1,1 @@
-# /sessions/:sessionId/scids/:scid
+# sessions/:sessionId/scids/:scid

@@ -14,22 +14,26 @@ async function main() {
         const parent = reference[i];
 
         const parentTitle = `${parent.toc_title.replace(/ URIs/g, '').replace(/ /g, '-').toLowerCase()}`
+        const parentTitleClean = `${parent.toc_title.replace(/ URIs/g, '').toLowerCase()}`
 
-        await initFolder(parentTitle, parent.toc_title.replace(/ URIs/g, ''))
+        await initFolder(parentTitle, parentTitleClean)
 
-        string += `* [${parent.toc_title.replace(/ URIs/g, '')}](work-in-progress/${parentTitle}/README.md)\n`
+        string += `* [${parentTitleClean}](work-in-progress/${parentTitle}/README.md)\n`
 
         for (let j = 1; j < parent.children.length; j++) {
             const child = parent.children[j];
 
             const childTitle = child.toc_title.slice(1).replace(/\//g, '-').replace(/\?|\|/g, '~');
+            const childTitleClean = child.toc_title.slice(1).replace(/{/g, ':').replace(/}/g, '').replace(/\(/g, '\\(').replace(/\)/g, '\\)')
 
-            await initFolder(`${parentTitle}/${childTitle}`, child.toc_title.replace(/{/g, ':').replace(/}/g, ''))
+            await initFolder(`${parentTitle}/${childTitle}`, childTitleClean)
 
-            string += `  * [${child.toc_title.replace(/{/g, ':').replace(/}/g, '').replace(/\(/g, '\\(').replace(/\)/g, '\\)')}](work-in-progress/${parentTitle}/${childTitle}/README.md)\n`
+            string += `  * [${childTitleClean}](work-in-progress/${parentTitle}/${childTitle}/README.md)\n`
 
-            for (let k = 1; k < child.children.filter(res => !res.toc_title.includes('URI')).length; k++) {
-                const item = child.children.filter(res => !res.toc_title.includes('URI'))[k];
+            const removeUri = child.children.filter(res => !res.toc_title.includes('URI'))
+
+            for (let k = 1; k < removeUri.length; k++) {
+                const item = removeUri[k];
 
                 const args = item.toc_title.split(' ')
 
@@ -44,7 +48,7 @@ async function main() {
 
                 await fs.promises.writeFile(`./work-in-progress/${parentTitle}/${childTitle}/${formatedfileName}-${k}.md`, body)
 
-                string += `    * [${method} ${urlPath.replace(/\(/g, '\\(').replace(/\)/g, '\\)')}](work-in-progress/${parentTitle}/${childTitle}/${formatedfileName}-${k}.md)\n`
+                string += `    * [${method} ${childTitle.split('-')[0]}](work-in-progress/${parentTitle}/${childTitle}/${formatedfileName}-${k}.md)\n`
 
             }
         }

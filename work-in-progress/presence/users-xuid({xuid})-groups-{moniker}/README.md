@@ -1,1 +1,1 @@
-# /users/xuid(:xuid)/groups/:moniker
+# users/xuid\(:xuid\)/groups/:moniker

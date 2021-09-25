@@ -1,1 +1,1 @@
-# /users/:userId/profile/settings/people/:userList?settings=:settings
+# users/:userId/profile/settings/people/:userList?settings=:settings

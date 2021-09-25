@@ -1,1 +1,1 @@
-# /titles/:titleId/recentplayergroups/server
+# titles/:titleId/recentplayergroups/server

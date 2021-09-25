@@ -1,1 +1,1 @@
-# /users/xuid(xuid)/lists/PINS/:listname/RemoveItems
+# users/xuid\(xuid\)/lists/PINS/:listname/RemoveItems

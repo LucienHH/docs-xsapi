@@ -1,1 +1,1 @@
-# /users/:ownerId/people/mute
+# users/:ownerId/people/mute

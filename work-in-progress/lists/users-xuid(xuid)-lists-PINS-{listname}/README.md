@@ -1,1 +1,1 @@
-# /users/xuid(xuid)/lists/PINS/:listname
+# users/xuid\(xuid\)/lists/PINS/:listname

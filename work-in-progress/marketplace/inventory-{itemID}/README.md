@@ -1,1 +1,1 @@
-# /inventory/:itemID
+# inventory/:itemID

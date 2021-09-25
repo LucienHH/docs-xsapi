@@ -1,1 +1,1 @@
-# /serviceconfigs/:scid/sessions
+# serviceconfigs/:scid/sessions

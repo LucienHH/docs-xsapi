@@ -1,1 +1,1 @@
-# /media/:marketplaceId/browse
+# media/:marketplaceId/browse

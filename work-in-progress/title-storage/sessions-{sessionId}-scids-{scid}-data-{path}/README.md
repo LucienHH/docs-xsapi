@@ -1,1 +1,1 @@
-# /sessions/:sessionId/scids/:scid/data/:path
+# sessions/:sessionId/scids/:scid/data/:path

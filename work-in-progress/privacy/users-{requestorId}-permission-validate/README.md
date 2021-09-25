@@ -1,1 +1,1 @@
-# /users/:requestorId/permission/validate
+# users/:requestorId/permission/validate

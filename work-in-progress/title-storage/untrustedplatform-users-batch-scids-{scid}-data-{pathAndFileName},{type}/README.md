@@ -1,1 +1,1 @@
-# /untrustedplatform/users/batch/scids/:scid/data/:pathAndFileName,:type
+# untrustedplatform/users/batch/scids/:scid/data/:pathAndFileName,:type

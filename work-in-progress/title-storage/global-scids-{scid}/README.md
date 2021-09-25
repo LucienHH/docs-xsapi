@@ -1,1 +1,1 @@
-# /global/scids/:scid
+# global/scids/:scid

@@ -1,1 +1,1 @@
-# /handles/query
+# handles/query

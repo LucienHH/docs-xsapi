@@ -1,1 +1,1 @@
-# /batch
+# batch

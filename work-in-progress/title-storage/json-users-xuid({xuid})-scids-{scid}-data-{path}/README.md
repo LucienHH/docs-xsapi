@@ -1,1 +1,1 @@
-# /json/users/xuid(:xuid)/scids/:scid/data/:path
+# json/users/xuid\(:xuid\)/scids/:scid/data/:path

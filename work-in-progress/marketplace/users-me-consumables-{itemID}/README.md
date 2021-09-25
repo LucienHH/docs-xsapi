@@ -1,1 +1,1 @@
-# /users/me/consumables/:itemID
+# users/me/consumables/:itemID

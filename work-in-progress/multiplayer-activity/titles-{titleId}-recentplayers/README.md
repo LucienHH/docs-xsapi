@@ -1,1 +1,1 @@
-# /titles/:titleId/recentplayers
+# titles/:titleId/recentplayers

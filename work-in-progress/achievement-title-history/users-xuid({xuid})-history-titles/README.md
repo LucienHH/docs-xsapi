@@ -1,1 +1,1 @@
-# /users/xuid(:xuid)/history/titles
+# users/xuid\(:xuid\)/history/titles

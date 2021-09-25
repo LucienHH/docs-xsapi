@@ -1,1 +1,1 @@
-# /users/xuid(:xuid)/scids/:scid/stats/:statname)/people/:all|favorite
+# users/xuid\(:xuid\)/scids/:scid/stats/:statname\)/people/:all|favorite

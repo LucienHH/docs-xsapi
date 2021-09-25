@@ -1,1 +1,1 @@
-# System Strings Validatation
+# system strings validatation

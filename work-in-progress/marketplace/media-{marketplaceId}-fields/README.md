@@ -1,1 +1,1 @@
-# /media/:marketplaceId/fields
+# media/:marketplaceId/fields

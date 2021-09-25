@@ -1,1 +1,1 @@
-# /users/xuid(:xuid)/inbox
+# users/xuid\(:xuid\)/inbox

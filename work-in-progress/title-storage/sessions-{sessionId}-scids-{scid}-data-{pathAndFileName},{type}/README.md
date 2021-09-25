@@ -1,1 +1,1 @@
-# /sessions/:sessionId/scids/:scid/data/:pathAndFileName,:type
+# sessions/:sessionId/scids/:scid/data/:pathAndFileName,:type

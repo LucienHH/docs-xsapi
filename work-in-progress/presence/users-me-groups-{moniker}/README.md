@@ -1,1 +1,1 @@
-# /users/me/groups/:moniker
+# users/me/groups/:moniker

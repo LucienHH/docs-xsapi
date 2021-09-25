@@ -1,1 +1,1 @@
-# /users/xuid(xuid)/lists/PINS/:listname/index(:index)?insertIndex=:insertIndex
+# users/xuid\(xuid\)/lists/PINS/:listname/index\(:index\)?insertIndex=:insertIndex

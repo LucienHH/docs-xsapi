@@ -1,1 +1,1 @@
-# /users/xuid(:xuid)/outbox
+# users/xuid\(:xuid\)/outbox

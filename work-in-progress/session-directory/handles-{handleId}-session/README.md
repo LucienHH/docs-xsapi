@@ -1,1 +1,1 @@
-# /handles/:handleId/session
+# handles/:handleId/session

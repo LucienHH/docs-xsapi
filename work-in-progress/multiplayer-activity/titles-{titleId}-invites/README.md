@@ -1,1 +1,1 @@
-# /titles/:titleId/invites
+# titles/:titleId/invites

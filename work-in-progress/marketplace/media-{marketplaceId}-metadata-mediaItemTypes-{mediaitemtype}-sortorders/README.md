@@ -1,1 +1,1 @@
-# /media/:marketplaceId/metadata/mediaItemTypes/:mediaitemtype/sortorders
+# media/:marketplaceId/metadata/mediaItemTypes/:mediaitemtype/sortorders

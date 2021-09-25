@@ -1,1 +1,1 @@
-# /users/me/gamerpic
+# users/me/gamerpic

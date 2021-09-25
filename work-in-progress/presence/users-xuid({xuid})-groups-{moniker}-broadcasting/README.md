@@ -1,1 +1,1 @@
-# /users/xuid(:xuid)/groups/:moniker/broadcasting
+# users/xuid\(:xuid\)/groups/:moniker/broadcasting

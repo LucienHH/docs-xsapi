@@ -1,1 +1,1 @@
-# /users/me/inventory
+# users/me/inventory
