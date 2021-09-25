@@ -8,6 +8,8 @@ async function main() {
 
     const reference = doc.items[0].children[0].children.slice(1)
 
+    let string = ''
+
     for (let i = 1; i < reference.length; i++) {
         const parent = reference[i];
 
@@ -15,12 +17,16 @@ async function main() {
 
         await initFolder(parentTitle, parent.toc_title.replace(/ URIs/g, ''))
 
+        string += `* [${parent.toc_title.replace(/ URIs/g, '')}](work-in-progress/${parentTitle}/README.md)\n`
+
         for (let j = 1; j < parent.children.length; j++) {
             const child = parent.children[j];
 
             const childTitle = child.toc_title.slice(1).replace(/\//g, '-').replace(/\?|\|/g, '~');
 
             await initFolder(`${parentTitle}/${childTitle}`, child.toc_title.replace(/{/g, ':').replace(/}/g, ''))
+
+            string += `  * [${child.toc_title.replace(/{/g, ':').replace(/}/g, '')}](work-in-progress/${parentTitle}/${childTitle}/README.md)\n`
 
             for (let k = 1; k < child.children.filter(res => !res.toc_title.includes('URI')).length; k++) {
                 const item = child.children.filter(res => !res.toc_title.includes('URI'))[k];
@@ -38,9 +44,12 @@ async function main() {
 
                 await fs.promises.writeFile(`./work-in-progress/${parentTitle}/${childTitle}/${formatedfileName}-${k}.md`, body)
 
+                string += `    * [${method} ${urlPath}](work-in-progress/${parentTitle}/${childTitle}/${formatedfileName}-${k}.md)\n`
+
             }
         }
     }
+    await fs.promises.appendFile('./SUMMARY.md', string)
 }
 
 async function initFolder(path, name) {
