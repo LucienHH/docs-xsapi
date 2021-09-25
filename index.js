@@ -29,20 +29,25 @@ async function main() {
             for (let k = 1; k < removeUri.length; k++) {
                 const item = removeUri[k];
 
-                const args = item.toc_title.split(' ')
+                const md = await axios(`https://raw.githubusercontent.com/MicrosoftDocs/xbox-live-docs/docs/xbox-live-docs-pr/api-ref/xbox-live-rest/${item.href}.md`).then(res => res.data).catch(err => console.log(err.message))
 
-                const method = args[0]
-                const host = `${parentTitle.toLowerCase()}.xboxlive.com`
-                const urlPath = args[1].slice(1, -1).replace(/{/g, ':').replace(/}/g, '')
+                if (!md) continue;
+                
+                const regEx = /(?<=title: ).*$/gm
 
-                const body = formatRequestPage(method, host, urlPath, 'Wip', 'Wip')
+                const title = md.match(regEx)[0]
 
-                const fileName = `${method}-${urlPath.split('/')[1]}`
-                const formatedfileName = fileName.toLowerCase().replace(/\//g, '-')
+                console.log(title)
 
-                await fs.promises.writeFile(`./work-in-progress/${parentTitle}/${formatedfileName}-${l}.md`, body)
+                const formattedTitle = title.replace(/[^a-zA-Z]/g, " ")
+                    .toLowerCase()
+                    .split(' ')
+                    .filter(e => e)
+                    .join('-');
 
-                string += `  * [${method} ${urlPath.split('/')[1]}](work-in-progress/${parentTitle}/${formatedfileName}-${l}.md)\n`
+                await fs.promises.writeFile(`./work-in-progress/${parentTitle}/${formattedTitle}.md`, md)
+
+                string += `  * [${escapeRegExp(title)}](work-in-progress/${parentTitle}/${formattedTitle}.md)\n`
 
                 l++
 
@@ -52,15 +57,19 @@ async function main() {
     await fs.promises.appendFile('./SUMMARY.md', string)
 }
 
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
+
 async function initFolder(path, name) {
     await fs.promises.mkdir(`./work-in-progress/${path}`, { recursive: true })
     await fs.promises.writeFile(`./work-in-progress/${path}/README.md`, `# ${name}`)
 }
 
-function formatRequestPage(method, host, path, summary, description) {
-    const body = `# ${method} ${path}\n\n{% api-method method="${method.toLowerCase()}" host="https://${host}" path="${path}" %}\n{% api-method-summary %}\n${summary}\n{% endapi-method-summary %}\n\n{% api-method-description %}\n${description}\n{% endapi-method-description %}\n\n{% api-method-spec %}\n{% api-method-request %}\n\n{% api-method-response %}\n{% api-method-response-example httpCode=200 %}\n{% api-method-response-example-description %}\n\n{% endapi-method-response-example-description %}\n\`\`\`\n\n\`\`\`\n{% endapi-method-response-example %}\n{% endapi-method-response %}\n{% endapi-method-spec %}\n{% endapi-method %}`
+// function formatRequestPage(method, host, path, summary, description) {
+//     const body = `# ${method} ${path}\n\n{% api-method method="${method.toLowerCase()}" host="https://${host}" path="${path}" %}\n{% api-method-summary %}\n${summary}\n{% endapi-method-summary %}\n\n{% api-method-description %}\n${description}\n{% endapi-method-description %}\n\n{% api-method-spec %}\n{% api-method-request %}\n\n{% api-method-response %}\n{% api-method-response-example httpCode=200 %}\n{% api-method-response-example-description %}\n\n{% endapi-method-response-example-description %}\n\`\`\`\n\n\`\`\`\n{% endapi-method-response-example %}\n{% endapi-method-response %}\n{% endapi-method-spec %}\n{% endapi-method %}`
 
-    return body;
-}
+//     return body;
+// }
 
 main()
