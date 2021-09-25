@@ -18,4 +18,6 @@
 
 * [Profile](api-reference/profile/README.md)
   * [GET Profile for a user or users](api-reference/profile/get-profile-for-a-user-or-users.md)
+* [Test Folder Title](api-reference/test-folder-title/README.md)
+  * [GET Title](api-reference/test-folder-title/get-title.md)
 
