@@ -26,7 +26,7 @@ async function main() {
 
             await initFolder(`${parentTitle}/${childTitle}`, child.toc_title.replace(/{/g, ':').replace(/}/g, ''))
 
-            string += `  * [${child.toc_title.replace(/{/g, ':').replace(/}/g, '')}](work-in-progress/${parentTitle}/${childTitle}/README.md)\n`
+            string += `  * [${child.toc_title.replace(/{/g, ':').replace(/}/g, '').replace(/\(/g, '\\(').replace(/\)/g, '\\)')}](work-in-progress/${parentTitle}/${childTitle}/README.md)\n`
 
             for (let k = 1; k < child.children.filter(res => !res.toc_title.includes('URI')).length; k++) {
                 const item = child.children.filter(res => !res.toc_title.includes('URI'))[k];
@@ -44,7 +44,7 @@ async function main() {
 
                 await fs.promises.writeFile(`./work-in-progress/${parentTitle}/${childTitle}/${formatedfileName}-${k}.md`, body)
 
-                string += `    * [${method} ${urlPath}](work-in-progress/${parentTitle}/${childTitle}/${formatedfileName}-${k}.md)\n`
+                string += `    * [${method} ${urlPath.replace(/\(/g, '\\(').replace(/\)/g, '\\)')}](work-in-progress/${parentTitle}/${childTitle}/${formatedfileName}-${k}.md)\n`
 
             }
         }
