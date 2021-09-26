@@ -16,14 +16,6 @@
 
 ## API Reference
 
-* [Profile](api-reference/profile/README.md)
-  * [GET Profile for a user or users](api-reference/profile/get-profile-for-a-user-or-users.md)
-* [Test Folder Title](api-reference/test-folder-title/README.md)
-  * [GET Title\(\)\[\]](api-reference/test-folder-title/get-title/README.md)
-    * [title \(\[\]\)](api-reference/test-folder-title/get-title/title.md)
-
-## Work in Progress
-
 * [Achievements](api-reference/achievements/README.md)
   * [GET \(/users/xuid\(\{xuid\}\)/achievements\)](api-reference/achievements/get-users-xuid-xuid-achievements.md)
   * [GET \(/users/xuid\(\{xuid\}\)/achievements/\{scid\}/\{achievementid\}\)](api-reference/achievements/get-users-xuid-xuid-achievements-scid-achievementid.md)

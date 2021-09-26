@@ -1,6 +1,6 @@
 # PUT /users/me/gamerpic
 
-{% api-method method="put" host="https://`gamerpics.xboxlive.com" path="/users/me/gamerpic" %}{% api-method-description %}
+{% api-method method="put" host="https://gamerpics.xboxlive.com" path="/users/me/gamerpic" %}{% api-method-description %}
 Uploads a 1080x1080 gamerpic.
 {% endapi-method-description %}
 {% api-method-summary %}
