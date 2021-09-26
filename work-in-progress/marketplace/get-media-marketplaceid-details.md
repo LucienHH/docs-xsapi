@@ -1,52 +1,39 @@
 # GET /media/{marketplaceId}/details
 
-{% api-method method="get" host="https://eds.xboxlive.com" path="/media/{marketplaceId}/details" %}
-        {% api-method-description %}
-        Returns offer details and metadata about one or more items. The domain for these URIs is 
-        {% endapi-method-description %}
-        {% api-method-summary %}
-        Returns offer details and metadata about one or more items. The domain for these URIs is 
-        {% endapi-method-summary %}
-        {% api-method-spec %}
-        {% api-method-request %}
-        {% api-method-path-parameters %}
-        
-            {% api-method-parameter name="marketplaceId" type="string" required=true %}
-            Required. String value obtained from the 
-            {% endapi-method-parameter %}
-        {% endapi-method-path-parameters %}
-        {% api-method-query-parameters %}
-        
-            {% api-method-parameter name="ids" type="string" required=false %}
-            Required. All of the IDs (up to 10) for which details will be returned. Note that any ID that contains characters illegal to put in a URL (the ProviderContentId type IDs are normally full URLs themselves and thus contain illegal characters) 
-            {% endapi-method-parameter %}
+{% api-method method="get" host="https://eds.xboxlive.com" path="/media/{marketplaceId}/details" %}{% api-method-description %}
+Returns offer details and metadata about one or more items. The domain for these URIs is 
+{% endapi-method-description %}{% api-method-summary %}
+Returns offer details and metadata about one or more items. The domain for these URIs is 
+{% endapi-method-summary %}{% api-method-spec %}
+{% api-method-request %}{% api-method-path-parameters %}
+{% api-method-parameter name="marketplaceId" type="string" required=true %}
+Required. String value obtained from the 
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}{% api-method-query-parameters %}
+{% api-method-parameter name="ids" type="string" required=false %}
+Required. All of the IDs (up to 10) for which details will be returned. Note that any ID that contains characters illegal to put in a URL (the ProviderContentId type IDs are normally full URLs themselves and thus contain illegal characters) 
+{% endapi-method-parameter %}
+{% api-method-parameter name="IdType" type="string" required=false %}
+Optional. The type of the IDs which are passed in to the 'ids' parameter. Valid values are: 
+{% endapi-method-parameter %}
+{% api-method-parameter name="DesiredMediaItemTypes" type="string" required=false %}
+Required if MediaGroup is not passed. Both should not be passed.
+{% endapi-method-parameter %}
+{% api-method-parameter name="MediaGroup" type="string" required=false %}
+Required if DesiredMediaItemTypes is not passed. Both should not be passed.
+{% endapi-method-parameter %}
+{% api-method-parameter name="ConditionSets" type="string" required=false %}
+Optional
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
 
-            {% api-method-parameter name="IdType" type="string" required=false %}
-            Optional. The type of the IDs which are passed in to the 'ids' parameter. Valid values are: 
-            {% endapi-method-parameter %}
+{% endapi-method-response-example-description %}
 
-            {% api-method-parameter name="DesiredMediaItemTypes" type="string" required=false %}
-            Required if MediaGroup is not passed. Both should not be passed.
-            {% endapi-method-parameter %}
-
-            {% api-method-parameter name="MediaGroup" type="string" required=false %}
-            Required if DesiredMediaItemTypes is not passed. Both should not be passed.
-            {% endapi-method-parameter %}
-
-            {% api-method-parameter name="ConditionSets" type="string" required=false %}
-            Optional
-            {% endapi-method-parameter %}
-        {% endapi-method-query-parameters %}
-{% endapi-method-request %}
-        {% api-method-response %}
-        
-        {% api-method-response-example httpCode=200 %}
-        {% api-method-response-example-description %}
-        
-        {% endapi-method-response-example-description %}
-        
-        ```text
-        {
+```text
+{
     "Items": [{
         "MediaGroup": "GameType",
         "MediaItemType": "DGame",
@@ -154,9 +141,7 @@
     "ImpressionGuid": "8e6bddc2-ded7-4921-b766-b3a887381caa"
 }
 
-        ```
-        {% endapi-method-response-example %}
-        {% endapi-method-response %}
-        
-        {% endapi-method-spec %}
-        {% endapi-method %}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}{% endapi-method-spec %}
+{% endapi-method %}

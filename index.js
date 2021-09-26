@@ -168,13 +168,7 @@ async function main() {
 					.setResponse([response]);
 
 				if (reqInfo['sample-request'] || reqInfo['sample-request-body']) {
-					request += `
-                    \`\`\`text
-                    # Sample Request
-
-                    ${reqInfo['sample-request'] || reqInfo['sample-request-body']}
-                    \`\`\`
-                    `;
+					request += `\`\`\`text\n# Sample Request\n\n${reqInfo['sample-request'] || reqInfo['sample-request-body']}\n\`\`\``;
 				}
 
 				await fs.promises.writeFile(`./work-in-progress/${parentTitle}/${formattedTitle}.md`, request);
@@ -207,43 +201,27 @@ class ApiRequest {
 	}
 
 	setSummary(summary) {
-		this.body += `
-        {% api-method-summary %}
-        ${summary}
-        {% endapi-method-summary %}`;
+		this.body += `{% api-method-summary %}\n${summary}\n{% endapi-method-summary %}`;
 		return this;
 	}
 
 	setDescription(desc) {
-		this.body += `
-        {% api-method-description %}
-        ${desc}
-        {% endapi-method-description %}`;
+		this.body +=
+        `{% api-method-description %}\n${desc}\n{% endapi-method-description %}`;
 		return this;
 	}
 
 	setRequest(pathParams, queryParams, headers) {
-		this.body += `
-        {% api-method-spec %}
-        {% api-method-request %}`;
+		this.body += '{% api-method-spec %}\n{% api-method-request %}';
 
 		if (pathParams) {
-			this.body += `
-        {% api-method-path-parameters %}
-        ${this._createParameters(pathParams)}
-        {% endapi-method-path-parameters %}`;
+			this.body += `{% api-method-path-parameters %}\n${this._createParameters(pathParams)}\n{% endapi-method-path-parameters %}`;
 		}
 		if (queryParams) {
-			this.body += `
-        {% api-method-query-parameters %}
-        ${this._createParameters(queryParams)}
-        {% endapi-method-query-parameters %}`;
+			this.body += `{% api-method-query-parameters %}\n${this._createParameters(queryParams)}\n{% endapi-method-query-parameters %}`;
 		}
 		if (headers.length > 1) {
-			this.body += `
-        {% api-method-headers %}
-        ${this._createParameters(headers)}
-        {% endapi-method-headers %}`;
+			this.body += `{% api-method-headers %}\n${this._createParameters(headers)}\n{% endapi-method-headers %}`;
 		}
 
 		this.body += '\n{% endapi-method-request %}';
@@ -251,38 +229,20 @@ class ApiRequest {
 	}
 
 	setResponse(responses) {
-		this.body += `
-        {% api-method-response %}
-        ${this._createResponses(responses)}
-        {% endapi-method-response %}
-        `;
-		return this.body += `
-        {% endapi-method-spec %}
-        {% endapi-method %}`;
+		this.body += `{% api-method-response %}\n${this._createResponses(responses)}\n{% endapi-method-response %}`;
+		return this.body += '{% endapi-method-spec %}\n{% endapi-method %}';
 	}
 
 	_createResponses(responses) {
 		const temp = responses.map(res => {
-			return `
-        {% api-method-response-example httpCode=${res.code} %}
-        {% api-method-response-example-description %}
-        ${res.description || ''}
-        {% endapi-method-response-example-description %}
-        
-        \`\`\`text
-        ${res.response || ''}
-        \`\`\`
-        {% endapi-method-response-example %}`;
+			return `{% api-method-response-example httpCode=${res.code} %}\n{% api-method-response-example-description %}\n${res.description || ''}\n{% endapi-method-response-example-description %}\n\n\`\`\`text\n${res.response || ''}\`\`\`\n{% endapi-method-response-example %}`;
 		});
 		return temp.join('\n');
 	}
 
 	_createParameters(params) {
 		const temp = params.map(res => {
-			return `
-            {% api-method-parameter name="${res.name}" type="${res.type}" required=${res.required} %}
-            ${res.description}
-            {% endapi-method-parameter %}`;
+			return `{% api-method-parameter name="${res.name}" type="${res.type}" required=${res.required} %}\n${res.description}\n{% endapi-method-parameter %}`;
 		});
 		return temp.join('\n');
 	}
