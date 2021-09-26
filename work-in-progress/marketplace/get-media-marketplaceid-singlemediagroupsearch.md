@@ -1,62 +1,46 @@
 ---
-title: GET (media/{marketplaceId}/singleMediaGroupSearch)
+ms.localizationpriority: medium
+ms.topic: article
+keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
 assetID: 52096f6d-e670-dc07-b191-039ea80c6291
 permalink: en-us/docs/xboxlive/rest/uri-medialocalesinglemediagroupsearchget.html
-
-description: ' GET (media/{marketplaceId}/singleMediaGroupSearch)'
 ms.date: 10/12/2017
-ms.topic: article
-keywords: xbox live, xbox, games, uwp, windows 10, xbox one
-ms.localizationpriority: medium
+title: 'GET (media/{marketplaceId}/singleMediaGroupSearch)'
+description: 'GET (media/{marketplaceId}/singleMediaGroupSearch)'
 ---
-# GET (media/{marketplaceId}/singleMediaGroupSearch)
-Allows search for items within a single media group. 
-The domain for these URIs is `eds.xboxlive.com`.
- 
-  * [Remarks](#ID4EV)
-  * [URI parameters](#ID4EEB)
-  * [Query string parameters](#ID4EPB)
-  * [Response body](#ID4E5B)
- 
-<a id="ID4EV"></a>
 
- 
-## Remarks
- 
-Pages of data returned from this search can be accessed non-sequentially using the skipItems parameter instead of using the continuation token. This API accepts Query Refiners. 
- 
-**SandboxId** is now retrieved from the claim in the XToken and enforced. If the **SandboxId** is not present, then Entertainment Discovery Services (EDS) will throw a 400 Bad request error.
-  
-<a id="ID4EEB"></a>
+# GET \(media/{marketplaceId}/singleMediaGroupSearch\)
 
- 
-## URI parameters
- 
-| Parameter| Type| Description| 
-| --- | --- | --- | 
-| marketplaceId| string| Required. String value obtained from the <b>Windows.Xbox.ApplicationModel.Store.Configuration.MarketplaceId</b>.| 
-  
-<a id="ID4EPB"></a>
+Allows search for items within a single media group. The domain for these URIs is `eds.xboxlive.com`.
 
- 
-## Query string parameters
- 
+* [Remarks](get-media-marketplaceid-singlemediagroupsearch.md#ID4EV)
+* [URI parameters](get-media-marketplaceid-singlemediagroupsearch.md#ID4EEB)
+* [Query string parameters](get-media-marketplaceid-singlemediagroupsearch.md#ID4EPB)
+* [Response body](get-media-marketplaceid-singlemediagroupsearch.md#ID4E5B)
+
+## Remarks <a id="ID4EV"></a>
+
+Pages of data returned from this search can be accessed non-sequentially using the skipItems parameter instead of using the continuation token. This API accepts Query Refiners.
+
+**SandboxId** is now retrieved from the claim in the XToken and enforced. If the **SandboxId** is not present, then Entertainment Discovery Services \(EDS\) will throw a 400 Bad request error.
+
+## URI parameters <a id="ID4EEB"></a>
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| marketplaceId | string | Required. String value obtained from the **Windows.Xbox.ApplicationModel.Store.Configuration.MarketplaceId**. |
+
+## Query string parameters <a id="ID4EPB"></a>
+
 This API accepts the following query parameters: combinedContentRating, desiredMediaItemTypes, fields, maxItems, preferredProvider, q, queryRefiners, skipItems, firstPartyOnly, freeOnly, hasTrailer, latestOnly, subscriptionLevel, and topRatedOnly.
- 
-See [EDS Parameters](../../additional/edsparameters.md) for more information on these parameters.
-  
-<a id="ID4E5B"></a>
 
- 
-## Response body
- 
-<a id="ID4EEC"></a>
+See [EDS Parameters](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edsparameters.md) for more information on these parameters.
 
- 
-### Sample response
- 
+## Response body <a id="ID4E5B"></a>
+
+### Sample response <a id="ID4EEC"></a>
+
 The JSON code below is in response to the call `/media/en-us/singleMediaGroupSearch?q=vector&desiredMediaItemTypes=DGame&fields=all`.
- 
 
 ```cpp
 {
@@ -153,36 +137,23 @@ The JSON code below is in response to the call `/media/en-us/singleMediaGroupSea
     }],
     "ImpressionGuid": "840bae05-776e-4429-b522-e64543ac3a35"
 }
-         
 ```
 
-   
-<a id="ID4ETC"></a>
+## See also <a id="ID4ETC"></a>
 
- 
-## See also
- 
-<a id="ID4EVC"></a>
+#### Parent <a id="ID4EVC"></a>
 
- 
-##### Parent 
+[/media/{marketplaceId}/singleMediaGroupSearch](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/marketplace/uri-medialocalesinglemediagroupsearch.md)
 
-[/media/{marketplaceId}/singleMediaGroupSearch](uri-medialocalesinglemediagroupsearch.md)
+#### Further Information <a id="ID4E6C"></a>
 
-  
-<a id="ID4E6C"></a>
+[EDS Common Headers](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edscommonheaders.md)
 
- 
-##### Further Information 
+[EDS Parameters](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edsparameters.md)
 
-[EDS Common Headers](../../additional/edscommonheaders.md)
+[EDS Query Refiners](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edsqueryrefiners.md)
 
- [EDS Parameters](../../additional/edsparameters.md)
+[Marketplace URIs](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/marketplace/atoc-reference-marketplace.md)
 
- [EDS Query Refiners](../../additional/edsqueryrefiners.md)
+[Additional Reference](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/atoc-xboxlivews-reference-additional.md)
 
- [Marketplace URIs](atoc-reference-marketplace.md)
-
- [Additional Reference](../../additional/atoc-xboxlivews-reference-additional.md)
-
-   

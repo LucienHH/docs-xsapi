@@ -1,57 +1,44 @@
 ---
-title: POST (/handles)
+ms.localizationpriority: medium
+ms.topic: article
+keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
 assetID: 21f3e289-0b0e-2731-befb-bd4c0d71973e
 permalink: en-us/docs/xboxlive/rest/uri-handlespost.html
-
-description: ' POST (/handles)'
 ms.date: 10/12/2017
-ms.topic: article
-keywords: xbox live, xbox, games, uwp, windows 10, xbox one
-ms.localizationpriority: medium
+title: POST (/handles)
+description: POST (/handles)
 ---
-# POST (/handles)
+
+# POST \(/handles\)
+
 Sets the multiplayer session for the user's current activity, and invites session members if required.
 
-> [!IMPORTANT]
-> This method is used by the 2015 Multiplayer and applies only to that multiplayer version and later. It is intended for use with template contract 104/105 or later, and requires a header element of X-Xbl-Contract-Version: 104/105 or later on every request.
+> \[!IMPORTANT\] This method is used by the 2015 Multiplayer and applies only to that multiplayer version and later. It is intended for use with template contract 104/105 or later, and requires a header element of X-Xbl-Contract-Version: 104/105 or later on every request.
 
-  * [Remarks](#ID4ET)
-  * [URI parameters](#ID4EHB)
-  * [HTTP status codes](#ID4EPB)
-  * [Request body](#ID4EVB)
-  * [Response body](#ID4EJC)
+* [Remarks](post-handles.md#ID4ET)
+* [URI parameters](post-handles.md#ID4EHB)
+* [HTTP status codes](post-handles.md#ID4EPB)
+* [Request body](post-handles.md#ID4EVB)
+* [Response body](post-handles.md#ID4EJC)
 
-<a id="ID4ET"></a>
-
-
-## Remarks
+## Remarks <a id="ID4ET"></a>
 
 This HTTP/REST method can be used to set the session for current activity. In this case, the method can be wrapped by **Microsoft.Xbox.Services.Multiplayer.MultiplayerService.SetActivityAsync**. The request body must define the session reference, using the **sessionRef** object in the JSON file, with the type field to "activity". No response body is retrieved. For definitions of the items specified in a session reference, see **Microsoft.Xbox.Services.Multiplayer.MultiplayerSessionReference**.
 
 This POST method can also be used to invite users specified by the handles to a session. In this case, the method can be wrapped by **Microsoft.Xbox.Services.Multiplayer.MultiplayerService.SendInvitesAsync**. This use of the POST method requires your request body to define the session reference, but with the type field set to "invite". The response body is an invite handle.
 
-<a id="ID4EHB"></a>
-
-
-## URI parameters
+## URI parameters <a id="ID4EHB"></a>
 
 None
 
-<a id="ID4EPB"></a>
+## HTTP status codes <a id="ID4EPB"></a>
 
-
-## HTTP status codes
 The service returns an HTTP status code as it applies to MPSD.  
-<a id="ID4EVB"></a>
 
 
-## Request body
+## Request body <a id="ID4EVB"></a>
 
-<a id="ID4E1B"></a>
-
-
-### Request body for setting activity
-
+### Request body for setting activity <a id="ID4E1B"></a>
 
 ```cpp
 {
@@ -64,15 +51,9 @@ The service returns an HTTP status code as it applies to MPSD.
     "name": "session-49"
   },
 }
-
 ```
 
-
-<a id="ID4EBC"></a>
-
-
-### Request body for sending invites
-
+### Request body for sending invites <a id="ID4EBC"></a>
 
 ```cpp
 {
@@ -93,33 +74,23 @@ The service returns an HTTP status code as it applies to MPSD.
    },
    "invitedXuid": "3210",
 }
-
 ```
 
+## Response body <a id="ID4EJC"></a>
 
-<a id="ID4EJC"></a>
+### Response body for setting activity <a id="ID4EOC"></a>
 
-
-## Response body
-
-<a id="ID4EOC"></a>
-
-
-### Response body for setting activity
 None.  
-<a id="ID4ESC"></a>
 
 
-### Response body for sending invites
-An invite handle.   
-<a id="ID4EXC"></a>
+### Response body for sending invites <a id="ID4ESC"></a>
+
+An invite handle.  
 
 
-## See also
+## See also <a id="ID4EXC"></a>
 
-<a id="ID4EZC"></a>
+#### Parent <a id="ID4EZC"></a>
 
+[/handles](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/session-directory/uri-handles.md)
 
-##### Parent
-
-[/handles](uri-handles.md)

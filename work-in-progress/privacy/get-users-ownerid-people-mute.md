@@ -1,114 +1,82 @@
 ---
-title: GET (/users/{ownerId}/people/mute)
+ms.localizationpriority: medium
+ms.topic: article
+keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
 assetID: 49b6c830-95f7-3200-0e46-0a1af573971c
 permalink: en-us/docs/xboxlive/rest/uri-privacyusersowneridpeoplemuteget.html
-
-description: ' GET (/users/{ownerId}/people/mute)'
 ms.date: 10/12/2017
-ms.topic: article
-keywords: xbox live, xbox, games, uwp, windows 10, xbox one
-ms.localizationpriority: medium
+title: 'GET (/users/{ownerId}/people/mute)'
+description: 'GET (/users/{ownerId}/people/mute)'
 ---
-# GET (/users/{ownerId}/people/mute)
+
+# GET \(/users/{ownerId}/people/mute\)
+
 Gets the mute list for a user.
 
-  * [Remarks](#ID4EQ)
-  * [URI parameters](#ID4EZ)
-  * [Effect of privacy settings on resource](#ID4EEB)
-  * [Authorization](#ID4ENB)
-  * [Required Request Headers](#ID4ESC)
-  * [Request body](#ID4EPE)
-  * [HTTP status codes](#ID4E1E)
-  * [Required Response Headers](#ID4E3G)
-  * [Response body](#ID4ETAAC)
+* [Remarks](get-users-ownerid-people-mute.md#ID4EQ)
+* [URI parameters](get-users-ownerid-people-mute.md#ID4EZ)
+* [Effect of privacy settings on resource](get-users-ownerid-people-mute.md#ID4EEB)
+* [Authorization](get-users-ownerid-people-mute.md#ID4ENB)
+* [Required Request Headers](get-users-ownerid-people-mute.md#ID4ESC)
+* [Request body](get-users-ownerid-people-mute.md#ID4EPE)
+* [HTTP status codes](get-users-ownerid-people-mute.md#ID4E1E)
+* [Required Response Headers](get-users-ownerid-people-mute.md#ID4E3G)
+* [Response body](get-users-ownerid-people-mute.md#ID4ETAAC)
 
-<a id="ID4EQ"></a>
-
-
-## Remarks
+## Remarks <a id="ID4EQ"></a>
 
 If a target is given, this URI returns only that user if the user is on the mute list, or else empty if the user is not.
 
-<a id="ID4EZ"></a>
+## URI parameters <a id="ID4EZ"></a>
 
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| ownerId | string | Required. Identifier of the user whose resource is being accessed. The possible values are "me", `xuid({xuid})`, or gt\({gamertag}\). Must be the authenticated user. Example values: `xuid(2603643534573581)`, `gt(SomeGamertag)`. Maximum size: none. |
 
-## URI parameters
-
-| Parameter| Type| Description|
-| --- | --- | --- |
-| ownerId| string| Required. Identifier of the user whose resource is being accessed. The possible values are "me", <code>xuid({xuid})</code>, or gt({gamertag}). Must be the authenticated user. Example values: <code>xuid(2603643534573581)</code>, <code>gt(SomeGamertag)</code>. Maximum size: none. |
-
-<a id="ID4EEB"></a>
-
-
-## Effect of privacy settings on resource
+## Effect of privacy settings on resource <a id="ID4EEB"></a>
 
 None.
 
-<a id="ID4ENB"></a>
+## Authorization <a id="ID4ENB"></a>
 
+Authorization claims used \| Claim\| Type\| Required?\| Example value\| \| --- \| --- \| --- \| --- \| --- \| --- \| --- \| \| Xuid\| 64-bit signed integer\| yes\| 1234567890\|
 
-## Authorization
+## Required Request Headers <a id="ID4ESC"></a>
 
-Authorization claims used | Claim| Type| Required?| Example value|
-| --- | --- | --- | --- | --- | --- | --- |
-| Xuid| 64-bit signed integer| yes| 1234567890|
+| Header | Type | Description |
+| :--- | :--- | :--- |
+| Authorization | string | Authentication credentials for HTTP authentication. Example value: `Xauth=<authtoken>`. Maximum size: none. |
+| X-RequestedServiceVersion | string | Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the authorization token, and so on. Example values: `1`, `vnext`. Maximum size: none. |
+| Accept | string | Content-Types that are acceptable. Example value: `application/json`. Maximum size: none. |
 
-<a id="ID4ESC"></a>
-
-
-## Required Request Headers
-
-| Header| Type| Description|
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Authorization | string| Authentication credentials for HTTP authentication. Example value: <code>Xauth=&lt;authtoken></code>. Maximum size: none.|
-| X-RequestedServiceVersion| string| Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the authorization token, and so on. Example values: <code>1</code>, <code>vnext</code>. Maximum size: none.|
-| Accept| string| Content-Types that are acceptable. Example value: <code>application/json</code>. Maximum size: none.|
-
-<a id="ID4EPE"></a>
-
-
-## Request body
+## Request body <a id="ID4EPE"></a>
 
 No objects are sent in the body of this request.
 
-<a id="ID4E1E"></a>
+## HTTP status codes <a id="ID4E1E"></a>
 
+The service returns one of the status codes in this section in response to a request made with this method on this resource. For a complete list of standard HTTP status codes used with Xbox Live Services, see [Standard HTTP status codes](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/httpstatuscodes.md).
 
-## HTTP status codes
+| Code | Reason phrase | Description |
+| :--- | :--- | :--- |
+| 200 | OK | Successful request for the mute list. |
+| 400 | Bad Request | The target ID specified in the URI is not valid. |
+| 403 | Forbidden | The owner specified in the URI is not the authenticated user. |
+| 404 | Not Found | The owner specified in the URI does not exist. |
 
-The service returns one of the status codes in this section in response to a request made with this method on this resource. For a complete list of standard HTTP status codes used with Xbox Live Services, see [Standard HTTP status codes](../../additional/httpstatuscodes.md).
+## Required Response Headers <a id="ID4E3G"></a>
 
-| Code| Reason phrase| Description|
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 200| OK| Successful request for the mute list.|
-| 400| Bad Request| The target ID specified in the URI is not valid.|
-| 403| Forbidden| The owner specified in the URI is not the authenticated user.|
-| 404| Not Found| The owner specified in the URI does not exist.|
+| Header | Type | Description |
+| :--- | :--- | :--- |
+| Content-Type | string | The MIME type of the body of the request. Example value: `application/json` |
+| Content-Length | string | The number of bytes being sent in the response. Example value: 34 |
+| Cache-Control | string | Polite request from the server to specify caching behavior. Example: `no-cache, no-store` |
 
-<a id="ID4E3G"></a>
+## Response body <a id="ID4ETAAC"></a>
 
+### Sample response <a id="ID4EZAAC"></a>
 
-## Required Response Headers
-
-| Header| Type| Description|
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Content-Type| string| The MIME type of the body of the request. Example value: <code>application/json</code>|
-| Content-Length| string| The number of bytes being sent in the response. Example value: 34|
-| Cache-Control| string| Polite request from the server to specify caching behavior. Example: <code>no-cache, no-store</code>|
-
-<a id="ID4ETAAC"></a>
-
-
-## Response body
-
-<a id="ID4EZAAC"></a>
-
-
-### Sample response
-
-See [UserList](../../json/json-userlist.md).
-
+See [UserList](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/json/json-userlist.md).
 
 ```cpp
 {
@@ -118,18 +86,11 @@ See [UserList](../../json/json-userlist.md).
         { "xuid":"23456" }
     ]
 }
-
 ```
 
+## See also <a id="ID4EJBAC"></a>
 
-<a id="ID4EJBAC"></a>
+#### Parent <a id="ID4ELBAC"></a>
 
+[/users/{ownerId}/people/mute](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/privacy/uri-privacyusersowneridpeoplemute.md)
 
-## See also
-
-<a id="ID4ELBAC"></a>
-
-
-##### Parent
-
-[/users/{ownerId}/people/mute](uri-privacyusersowneridpeoplemute.md)

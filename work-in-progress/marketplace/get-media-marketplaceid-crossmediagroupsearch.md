@@ -1,63 +1,47 @@
 ---
-title: GET (/media/{marketplaceId}/crossMediaGroupSearch)
+ms.localizationpriority: medium
+ms.topic: article
+keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
 assetID: 7c509af1-8dce-f419-c4de-2fad54fd1edb
 permalink: en-us/docs/xboxlive/rest/uri-localecrossmediagroupsearchget.html
-
-description: ' GET (/media/{marketplaceId}/crossMediaGroupSearch)'
 ms.date: 10/12/2017
-ms.topic: article
-keywords: xbox live, xbox, games, uwp, windows 10, xbox one
-ms.localizationpriority: medium
+title: 'GET (/media/{marketplaceId}/crossMediaGroupSearch)'
+description: 'GET (/media/{marketplaceId}/crossMediaGroupSearch)'
 ---
-# GET (/media/{marketplaceId}/crossMediaGroupSearch)
-Gets items from several different media groups. 
-The domain for these URIs is `eds.xboxlive.com`.
- 
-  * [Remarks](#ID4EV)
-  * [URI parameters](#ID4EEB)
-  * [Query string parameters](#ID4EPB)
-  * [Response body](#ID4ETC)
- 
-<a id="ID4EV"></a>
 
- 
-## Remarks
- 
+# GET \(/media/{marketplaceId}/crossMediaGroupSearch\)
+
+Gets items from several different media groups. The domain for these URIs is `eds.xboxlive.com`.
+
+* [Remarks](get-media-marketplaceid-crossmediagroupsearch.md#ID4EV)
+* [URI parameters](get-media-marketplaceid-crossmediagroupsearch.md#ID4EEB)
+* [Query string parameters](get-media-marketplaceid-crossmediagroupsearch.md#ID4EPB)
+* [Response body](get-media-marketplaceid-crossmediagroupsearch.md#ID4ETC)
+
+## Remarks <a id="ID4EV"></a>
+
 The cross-group API allows clients to search for items from several different media groups. This API requires the use of a forward-only continuation token for paging through results. This API accepts Query Refiners.
- 
-**SandboxId** is now retrieved from the claim in the XToken and enforced. If the **SandboxId** is not present, then Entertainment Discovery Services (EDS) will throw a 400 Bad request error.
-  
-<a id="ID4EEB"></a>
 
- 
-## URI parameters
- 
-| Parameter| Type| Description| 
-| --- | --- | --- | 
-| marketplaceId| string| Required. String value obtained from the <b>Windows.Xbox.ApplicationModel.Store.Configuration.MarketplaceId</b>.| 
-  
-<a id="ID4EPB"></a>
+**SandboxId** is now retrieved from the claim in the XToken and enforced. If the **SandboxId** is not present, then Entertainment Discovery Services \(EDS\) will throw a 400 Bad request error.
 
- 
-## Query string parameters
- 
-| Parameter| Type| Description| 
-| --- | --- | --- | --- | --- | --- | 
-| continuationToken| string| Optional. See the ContinuationToken parameter.| 
-| q| string| Required. Query term used in search.| 
-  
-<a id="ID4ETC"></a>
+## URI parameters <a id="ID4EEB"></a>
 
- 
-## Response body
- 
-<a id="ID4EZC"></a>
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| marketplaceId | string | Required. String value obtained from the **Windows.Xbox.ApplicationModel.Store.Configuration.MarketplaceId**. |
 
- 
-### Sample response
- 
+## Query string parameters <a id="ID4EPB"></a>
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| continuationToken | string | Optional. See the ContinuationToken parameter. |
+| q | string | Required. Query term used in search. |
+
+## Response body <a id="ID4ETC"></a>
+
+### Sample response <a id="ID4EZC"></a>
+
 The JSON code below is in response to the call `/media/en-us/crossMediaGroupSearch?q=vector&maxItems=25&fields=all`.
- 
 
 ```cpp
 {
@@ -192,36 +176,23 @@ The JSON code below is in response to the call `/media/en-us/crossMediaGroupSear
     "ContinuationToken": "1-----1",
     "ImpressionGuid": "9e41e6e4-1b2e-4710-abe4-b01ffbaa7605"
 }
-         
 ```
 
-   
-<a id="ID4EID"></a>
+## See also <a id="ID4EID"></a>
 
- 
-## See also
- 
-<a id="ID4EKD"></a>
+#### Parent <a id="ID4EKD"></a>
 
- 
-##### Parent 
+[/media/{marketplaceId}/crossMediaGroupSearch](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/marketplace/uri-localecrossmediagroupsearch.md)
 
-[/media/{marketplaceId}/crossMediaGroupSearch](uri-localecrossmediagroupsearch.md)
+#### Further Information <a id="ID4EUD"></a>
 
-  
-<a id="ID4EUD"></a>
+[EDS Common Headers](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edscommonheaders.md)
 
- 
-##### Further Information 
+[EDS Parameters](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edsparameters.md)
 
-[EDS Common Headers](../../additional/edscommonheaders.md)
+[EDS Query Refiners](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edsqueryrefiners.md)
 
- [EDS Parameters](../../additional/edsparameters.md)
+[Marketplace URIs](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/marketplace/atoc-reference-marketplace.md)
 
- [EDS Query Refiners](../../additional/edsqueryrefiners.md)
+[Additional Reference](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/atoc-xboxlivews-reference-additional.md)
 
- [Marketplace URIs](atoc-reference-marketplace.md)
-
- [Additional Reference](../../additional/atoc-xboxlivews-reference-additional.md)
-
-   

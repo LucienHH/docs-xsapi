@@ -1,58 +1,50 @@
 ---
-title: POST (/untrustedplatform/users/batch/scids/{scid}/data/{pathAndFileName},{type})
-assetID: 6e28d794-b5c6-0b70-6d46-957e8ae6e8ac
-permalink: en-us/docs/xboxlive/rest/uri-untrustedplatformusersbatchscidssciddatapathandfilenametype-post.html
-
-description: ' POST (/untrustedplatform/users/batch/scids/{scid}/data/{pathAndFileName},{type})'
-ms.date: 10/12/2017
-ms.topic: article
-keywords: xbox live, xbox, games, uwp, windows 10, xbox one
 ms.localizationpriority: medium
+ms.topic: article
+keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
+assetID: 6e28d794-b5c6-0b70-6d46-957e8ae6e8ac
+permalink: >-
+  en-us/docs/xboxlive/rest/uri-untrustedplatformusersbatchscidssciddatapathandfilenametype-post.html
+ms.date: 10/12/2017
+title: >-
+  POST
+  (/untrustedplatform/users/batch/scids/{scid}/data/{pathAndFileName},{type})
+description: >-
+  POST
+  (/untrustedplatform/users/batch/scids/{scid}/data/{pathAndFileName},{type})
 ---
-# POST (/untrustedplatform/users/batch/scids/{scid}/data/{pathAndFileName},{type})
-Downloads multiple files from multiple users with the same filename. 
-The domain for these URIs is `titlestorage.xboxlive.com`.
- 
-  * [URI parameters](#ID4EX)
-  * [Authorization](#ID4ECB)
-  * [Request body](#ID4EPB)
-  * [HTTP status codes](#ID4E3C)
-  * [Required Response Headers](#ID4EPAAC)
-  * [Optional Response Headers](#ID4ESBAC)
-  * [Response body](#ID4E3CAC)
- 
-<a id="ID4EX"></a>
 
- 
-## URI parameters
- 
-| Parameter| Type| Description| 
-| --- | --- | --- | 
-| scid| guid| the ID of the service config to look up.| 
-| pathAndFileName| string| Path and file name for the item to be accessed. Valid characters for the path portion (up to and including the final forward slash) include uppercase letters (A-Z), lowercase letters (a-z), numbers (0-9), underscore (_), and forward slash (/). The path portion may be empty. Valid characters for the file name portion (everything after the final forward slash) include uppercase letters (A-Z), lowercase letters (a-z), numbers (0-9), underscore (_), period (.), and hyphen (-). The file name may not be empty, end in a period or contain two consecutive periods.| 
-| type| string| The format of the data. Possible values are binary json.| 
-  
-<a id="ID4ECB"></a>
+# POST \(/untrustedplatform/users/batch/scids/{scid}/data/{pathAndFileName},{type}\)
 
- 
-## Authorization 
- 
-The request must include a valid Xbox LIVE authorization header. If caller is not allowed to access this resource, the service will return a 403 Forbidden response. If the header is invalid or missing, the service will return a 401 Unauthorized response. 
-  
-<a id="ID4EPB"></a>
+Downloads multiple files from multiple users with the same filename. The domain for these URIs is `titlestorage.xboxlive.com`.
 
- 
-## Request body
- 
-| Property| Type| Description| 
-| --- | --- | --- | --- | --- | --- | 
-| xuids| array of unsigned 64-bit integers| The list of XUIDs for which to download files.| 
- 
-<a id="ID4EQC"></a>
+* [URI parameters](post-untrustedplatform-users-batch-scids-scid-data-pathandfilename-type.md#ID4EX)
+* [Authorization](post-untrustedplatform-users-batch-scids-scid-data-pathandfilename-type.md#ID4ECB)
+* [Request body](post-untrustedplatform-users-batch-scids-scid-data-pathandfilename-type.md#ID4EPB)
+* [HTTP status codes](post-untrustedplatform-users-batch-scids-scid-data-pathandfilename-type.md#ID4E3C)
+* [Required Response Headers](post-untrustedplatform-users-batch-scids-scid-data-pathandfilename-type.md#ID4EPAAC)
+* [Optional Response Headers](post-untrustedplatform-users-batch-scids-scid-data-pathandfilename-type.md#ID4ESBAC)
+* [Response body](post-untrustedplatform-users-batch-scids-scid-data-pathandfilename-type.md#ID4E3CAC)
 
- 
-### Sample request
- 
+## URI parameters <a id="ID4EX"></a>
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| scid | guid | the ID of the service config to look up. |
+| pathAndFileName | string | Path and file name for the item to be accessed. Valid characters for the path portion \(up to and including the final forward slash\) include uppercase letters \(A-Z\), lowercase letters \(a-z\), numbers \(0-9\), underscore \(_\), and forward slash \(/\). The path portion may be empty. Valid characters for the file name portion \(everything after the final forward slash\) include uppercase letters \(A-Z\), lowercase letters \(a-z\), numbers \(0-9\), underscore \(_\), period \(.\), and hyphen \(-\). The file name may not be empty, end in a period or contain two consecutive periods. |
+| type | string | The format of the data. Possible values are binary json. |
+
+## Authorization <a id="ID4ECB"></a>
+
+The request must include a valid Xbox LIVE authorization header. If caller is not allowed to access this resource, the service will return a 403 Forbidden response. If the header is invalid or missing, the service will return a 401 Unauthorized response.
+
+## Request body <a id="ID4EPB"></a>
+
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| xuids | array of unsigned 64-bit integers | The list of XUIDs for which to download files. |
+
+### Sample request <a id="ID4EQC"></a>
 
 ```cpp
 {
@@ -63,63 +55,45 @@ The request must include a valid Xbox LIVE authorization header. If caller is no
       78901
     ]
 }
-      
 ```
 
-   
-<a id="ID4E3C"></a>
+## HTTP status codes <a id="ID4E3C"></a>
 
- 
-## HTTP status codes 
- 
-The service returns one of the status codes in this section in response to a request made with this method on this resource. For a complete list of standard HTTP status codes used with Xbox Live Services, see [Standard HTTP status codes](../../additional/httpstatuscodes.md).
- 
-| Code| Reason phrase| Description| 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| 200| OK | The request was successful.| 
-| 201| Created | The entity was created.| 
-| 400| Bad Request | Service could not understand malformed request. Typically an invalid parameter.| 
-| 401| Unauthorized | The request requires user authentication.| 
-| 403| Forbidden | The request is not allowed for the user or service.| 
-| 404| Not Found | The specified resource could not be found.| 
-| 406| Not Acceptable | Resource version is not supported.| 
-| 408| Request Timeout | The request took too long to complete.| 
-| 500| Internal Server Error | The server encountered an unexpected condition which prevented it from fulfilling the request.| 
-| 503| Service Unavailable | Request has been throttled, try the request again after the client-retry value in seconds (e.g. 5 seconds later).| 
-  
-<a id="ID4EPAAC"></a>
+The service returns one of the status codes in this section in response to a request made with this method on this resource. For a complete list of standard HTTP status codes used with Xbox Live Services, see [Standard HTTP status codes](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/httpstatuscodes.md).
 
- 
-## Required Response Headers
- 
-| Header| Description| 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| Content-Disposition| Describes the contents of the part. The "name" and "filename" parts of the header are the XUID of the user that this file belongs to.| 
-| HttpStatusCode| The HTTP status code related to retrieving this particular file.| 
-  
-<a id="ID4ESBAC"></a>
+| Code | Reason phrase | Description |
+| :--- | :--- | :--- |
+| 200 | OK | The request was successful. |
+| 201 | Created | The entity was created. |
+| 400 | Bad Request | Service could not understand malformed request. Typically an invalid parameter. |
+| 401 | Unauthorized | The request requires user authentication. |
+| 403 | Forbidden | The request is not allowed for the user or service. |
+| 404 | Not Found | The specified resource could not be found. |
+| 406 | Not Acceptable | Resource version is not supported. |
+| 408 | Request Timeout | The request took too long to complete. |
+| 500 | Internal Server Error | The server encountered an unexpected condition which prevented it from fulfilling the request. |
+| 503 | Service Unavailable | Request has been throttled, try the request again after the client-retry value in seconds \(e.g. 5 seconds later\). |
 
- 
-## Optional Response Headers
- 
-| Header| Description| 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| ETag| ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL. If the resource content at that URL ever changes, a new and different ETag is assigned.| 
-| Content-Type| If the file was successfully retrieved, this is the Content-Type of the file.| 
-| Content-Range| If the file was successfully retrieved and is a partial download, this is the range of bytes of the file contained in the response. | 
-  
-<a id="ID4E3CAC"></a>
+## Required Response Headers <a id="ID4EPAAC"></a>
 
- 
-## Response body
- 
+| Header | Description |
+| :--- | :--- |
+| Content-Disposition | Describes the contents of the part. The "name" and "filename" parts of the header are the XUID of the user that this file belongs to. |
+| HttpStatusCode | The HTTP status code related to retrieving this particular file. |
+
+## Optional Response Headers <a id="ID4ESBAC"></a>
+
+| Header | Description |
+| :--- | :--- |
+| ETag | ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL. If the resource content at that URL ever changes, a new and different ETag is assigned. |
+| Content-Type | If the file was successfully retrieved, this is the Content-Type of the file. |
+| Content-Range | If the file was successfully retrieved and is a partial download, this is the range of bytes of the file contained in the response. |
+
+## Response body <a id="ID4E3CAC"></a>
+
 If the call is successful, the service will return the contents of the requested files in a multi-part response.
- 
-<a id="ID4EGDAC"></a>
 
- 
-### Sample response 
- 
+### Sample response <a id="ID4EGDAC"></a>
 
 ```cpp
 HTTP/1.1 200 OK
@@ -149,20 +123,11 @@ HttpStatusCode: 404
 --c0a9fd75-d036-4294-8b7b-85fea15a31bb--
 
 0
-
 ```
 
-   
-<a id="ID4EUDAC"></a>
+## See also <a id="ID4EUDAC"></a>
 
- 
-## See also
- 
-<a id="ID4EWDAC"></a>
+#### Parent <a id="ID4EWDAC"></a>
 
- 
-##### Parent 
+[/untrustedplatform/users/batch/scids/{scid}/data/{pathAndFileName},{type}](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/title-storage/uri-untrustedplatformusersbatchscidssciddatapathandfilenametype.md)
 
-[/untrustedplatform/users/batch/scids/{scid}/data/{pathAndFileName},{type}](uri-untrustedplatformusersbatchscidssciddatapathandfilenametype.md)
-
-   

@@ -1,71 +1,54 @@
 ---
-title: PUT (/handles/{handle-id}/session)
+ms.localizationpriority: medium
+ms.topic: article
+keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
 assetID: d8a3d473-1192-ec0c-3935-c301f4f61e03
 permalink: en-us/docs/xboxlive/rest/uri-handleshandleidsessionput.html
-
-description: ' PUT (/handles/{handle-id}/session)'
 ms.date: 10/12/2017
-ms.topic: article
-keywords: xbox live, xbox, games, uwp, windows 10, xbox one
-ms.localizationpriority: medium
+title: 'PUT (/handles/{handle-id}/session)'
+description: 'PUT (/handles/{handle-id}/session)'
 ---
-# PUT (/handles/{handle-id}/session)
+
+# PUT \(/handles/{handle-id}/session\)
+
 Creates or updates a session by dereferencing a handle.
 
-> [!IMPORTANT]
-> This method is used by the 2015 Multiplayer and applies only to that multiplayer version and later. It is intended for use with template contract 104/105 or later, and requires a header element of X-Xbl-Contract-Version: 104/105 or later on every request.
+> \[!IMPORTANT\] This method is used by the 2015 Multiplayer and applies only to that multiplayer version and later. It is intended for use with template contract 104/105 or later, and requires a header element of X-Xbl-Contract-Version: 104/105 or later on every request.
 
-  * [Remarks](#ID4ET)
-  * [URI parameters](#ID4ECB)
-  * [HTTP status codes](#ID4ENB)
-  * [Request body](#ID4EUB)
-  * [Response body](#ID4E6B)
+* [Remarks](put-handles-handle-id-session.md#ID4ET)
+* [URI parameters](put-handles-handle-id-session.md#ID4ECB)
+* [HTTP status codes](put-handles-handle-id-session.md#ID4ENB)
+* [Request body](put-handles-handle-id-session.md#ID4EUB)
+* [Response body](put-handles-handle-id-session.md#ID4E6B)
 
-<a id="ID4ET"></a>
-
-
-## Remarks
+## Remarks <a id="ID4ET"></a>
 
 This HTTP/REST method writes a new or updated session to the multiplayer service, using the supplied session handle ID. The result is an object representing the new or updated session as returned from the server. This method can be wrapped by **Microsoft.Xbox.Services.Multiplayer.MultiplayerService.WriteSessionByHandleAsync**.
 
 The caller of this method obtains the handle ID from a player's **MultiplayerActivityDetails** object. Alternatively, the caller gets the ID from a protocol activation after a user has accepted a game invite.
 
-<a id="ID4ECB"></a>
+## URI parameters <a id="ID4ECB"></a>
 
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| handleId | GUID | The unique ID of the handle for the session. |
 
-## URI parameters
+## HTTP status codes <a id="ID4ENB"></a>
 
-| Parameter| Type| Description|
-| --- | --- | --- | --- |
-| handleId| GUID| The unique ID of the handle for the session.|
-
-<a id="ID4ENB"></a>
-
-
-## HTTP status codes
 The service returns an HTTP status code as it applies to MPSD.  
-<a id="ID4EUB"></a>
 
 
-## Request body
+## Request body <a id="ID4EUB"></a>
 
 No objects are sent in the body of this request.
 
-<a id="ID4E6B"></a>
-
-
-## Response body
+## Response body <a id="ID4E6B"></a>
 
 No objects are sent in the body of the response.
 
-<a id="ID4EKC"></a>
+## See also <a id="ID4EKC"></a>
 
+### Parent <a id="ID4EMC"></a>
 
-## See also
+[/handles/{handleId}/session](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/session-directory/uri-handleshandleidsession.md)
 
-<a id="ID4EMC"></a>
-
-
-##### Parent
-
-[/handles/{handleId}/session](uri-handleshandleidsession.md)

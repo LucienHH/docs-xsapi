@@ -1,52 +1,43 @@
 ---
-title: GET (/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName})
-assetID: 81139619-dc27-1601-30ba-08f6c45aaaca
-permalink: en-us/docs/xboxlive/rest/uri-serviceconfigsscidsessiontemplatessessiontemplatenameget.html
-
-description: ' GET (/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName})'
-ms.date: 10/12/2017
-ms.topic: article
-keywords: xbox live, xbox, games, uwp, windows 10, xbox one
 ms.localizationpriority: medium
+ms.topic: article
+keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
+assetID: 81139619-dc27-1601-30ba-08f6c45aaaca
+permalink: >-
+  en-us/docs/xboxlive/rest/uri-serviceconfigsscidsessiontemplatessessiontemplatenameget.html
+ms.date: 10/12/2017
+title: 'GET (/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName})'
+description: 'GET (/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName})'
 ---
-# GET (/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName})
+
+# GET \(/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}\)
+
 Retrieves a set of session template names.
 
-> [!IMPORTANT]
-> This URI method requires a header element of X-Xbl-Contract-Version: 104/105 or later on every request.
+> \[!IMPORTANT\] This URI method requires a header element of X-Xbl-Contract-Version: 104/105 or later on every request.
 
-  * [URI parameters](#ID4ET)
-  * [HTTP status codes](#ID4E5)
-  * [Request body](#ID4EFB)
-  * [Response body](#ID4EQB)
+* [URI parameters](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename.md#ID4ET)
+* [HTTP status codes](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename.md#ID4E5)
+* [Request body](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename.md#ID4EFB)
+* [Response body](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename.md#ID4EQB)
 
-<a id="ID4ET"></a>
+## URI parameters <a id="ID4ET"></a>
 
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| scid | GUID | Service configuration identifer \(SCID\). Part 1 of the session ID. |
+| sessionTemplateName | string | Name of the current instance of the session template. Part 2 of the session ID. |
 
-## URI parameters
+## HTTP status codes <a id="ID4E5"></a>
 
-| Parameter| Type| Description|
-| --- | --- | --- | --- |
-| scid| GUID| Service configuration identifer (SCID). Part 1 of the session ID.|
-| sessionTemplateName| string| Name of the current instance of the session template. Part 2 of the session ID. |
-
-<a id="ID4E5"></a>
-
-
-## HTTP status codes
 The service returns an HTTP status code as it applies to MPSD.  
-<a id="ID4EFB"></a>
 
 
-## Request body
+## Request body <a id="ID4EFB"></a>
 
 No objects are sent in the body of this request.
 
-<a id="ID4EQB"></a>
-
-
-## Response body
-
+## Response body <a id="ID4EQB"></a>
 
 ```cpp
 {
@@ -67,18 +58,11 @@ No objects are sent in the body of this request.
         }
     ]
 }
-
 ```
 
+## See also <a id="ID4EZB"></a>
 
-<a id="ID4EZB"></a>
+### Parent <a id="ID4E2B"></a>
 
+[/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/session-directory/uri-serviceconfigsscidsessiontemplatessessiontemplatename.md)
 
-## See also
-
-<a id="ID4E2B"></a>
-
-
-##### Parent
-
-[/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}](uri-serviceconfigsscidsessiontemplatessessiontemplatename.md)

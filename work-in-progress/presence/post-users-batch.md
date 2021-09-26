@@ -1,125 +1,94 @@
 ---
-title: POST (/users/batch)
+ms.localizationpriority: medium
+ms.topic: article
+keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
 assetID: bd0b18fe-8a6d-d591-5b13-bcd9643e945a
 permalink: en-us/docs/xboxlive/rest/uri-usersbatchpost.html
-
-description: ' POST (/users/batch)'
 ms.date: 10/12/2017
-ms.topic: article
-keywords: xbox live, xbox, games, uwp, windows 10, xbox one
-ms.localizationpriority: medium
+title: POST (/users/batch)
+description: POST (/users/batch)
 ---
-# POST (/users/batch)
-Get presence for a batch of users.
-The domain for these URIs is `userpresence.xboxlive.com`.
 
-  * [Remarks](#ID4EV)
-  * [Authorization](#ID4EAB)
-  * [Effect of privacy settings on resource](#ID4EDC)
-  * [Required Request Headers](#ID4EYF)
-  * [Optional Request Headers](#ID4EGAAC)
-  * [Request body](#ID4EGBAC)
-  * [Response body](#ID4ESEAC)
+# POST \(/users/batch\)
 
-<a id="ID4EV"></a>
+Get presence for a batch of users. The domain for these URIs is `userpresence.xboxlive.com`.
 
+* [Remarks](post-users-batch.md#ID4EV)
+* [Authorization](post-users-batch.md#ID4EAB)
+* [Effect of privacy settings on resource](post-users-batch.md#ID4EDC)
+* [Required Request Headers](post-users-batch.md#ID4EYF)
+* [Optional Request Headers](post-users-batch.md#ID4EGAAC)
+* [Request body](post-users-batch.md#ID4EGBAC)
+* [Response body](post-users-batch.md#ID4ESEAC)
 
-## Remarks
+## Remarks <a id="ID4EV"></a>
 
 This method should be used by any client, service, or title wanting to learn presence information for a batch of users.
 
 The responses for this batch request can be filters by depth and path. Consumers can use this to find out and display the presence about a set of users. The filters on this API work as ORs in a property, but ANDs across properties.
 
-<a id="ID4EAB"></a>
+## Authorization <a id="ID4EAB"></a>
 
+| Type | Required | Description | Response if missing |
+| :--- | :--- | :--- | :--- |
+| XUID | Yes | Xbox User ID \(XUID\) of the caller | 403 Forbidden |
 
-## Authorization
-
-| Type| Required| Description| Response if missing|
-| --- | --- | --- | --- |
-| XUID| Yes| Xbox User ID (XUID) of the caller| 403 Forbidden|
-
-<a id="ID4EDC"></a>
-
-
-## Effect of privacy settings on resource
+## Effect of privacy settings on resource <a id="ID4EDC"></a>
 
 This method always returns 200 OK, but might not return content in the response body.
 
-| Requesting User| Target User's Privacy Setting| Behavior|
-| --- | --- | --- | --- | --- | --- | --- |
-| me| -| 200 OK|
-| friend| everyone| 200 OK|
-| friend| friends only| 200 OK|
-| friend| blocked| 200 OK|
-| non-friend user| everyone| 200 OK|
-| non-friend user| friends only| 200 OK|
-| non-friend user| blocked| 200 OK|
-| third-party site| everyone| 200 OK|
-| third-party site| friends only| 200 OK|
-| third-party site| blocked| 200 OK|
+| Requesting User | Target User's Privacy Setting | Behavior |
+| :--- | :--- | :--- |
+| me | - | 200 OK |
+| friend | everyone | 200 OK |
+| friend | friends only | 200 OK |
+| friend | blocked | 200 OK |
+| non-friend user | everyone | 200 OK |
+| non-friend user | friends only | 200 OK |
+| non-friend user | blocked | 200 OK |
+| third-party site | everyone | 200 OK |
+| third-party site | friends only | 200 OK |
+| third-party site | blocked | 200 OK |
 
-<a id="ID4EYF"></a>
+## Required Request Headers <a id="ID4EYF"></a>
 
+| Header | Type | Description |
+| :--- | :--- | :--- |
+| Authorization | string | Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=&lt;userhash&gt;;&lt;token&gt;". |
+| x-xbl-contract-version | string | Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Example values: 3, vnext. |
+| Accept | string | Content-Types that are acceptable. The only one supported by Presence is application/json, but it must be specified in the header. |
+| Accept-Language | string | Acceptable locale for strings in the response. Example values: en-US. |
+| Host | string | Domain name of the server. Example value: presencebeta.xboxlive.com. |
+| Content-Length | string | The length of the request body. Example value: 312. |
 
-## Required Request Headers
+## Optional Request Headers <a id="ID4EGAAC"></a>
 
-| Header| Type| Description|
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Authorization| string| Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=&lt;userhash>;&lt;token>".|
-| x-xbl-contract-version| string| Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Example values: 3, vnext.|
-| Accept| string| Content-Types that are acceptable. The only one supported by Presence is application/json, but it must be specified in the header.|
-| Accept-Language| string| Acceptable locale for strings in the response. Example values: en-US.|
-| Host| string| Domain name of the server. Example value: presencebeta.xboxlive.com.|
-| Content-Length| string| The length of the request body. Example value: 312.|
+| Header | Type | Description |
+| :--- | :--- | :--- |
+| X-RequestedServiceVersion |  | Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Default value: 1. |
 
-<a id="ID4EGAAC"></a>
+## Request body <a id="ID4EGBAC"></a>
 
+### Required members <a id="ID4EMBAC"></a>
 
-## Optional Request Headers
+| Member | Description |
+| :--- | :--- |
+| users | List XUIDs of users whose presence you want to learn, with a maximum of 1100 XUIDs at a time. |
 
-| Header| Type| Description|
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| X-RequestedServiceVersion|  | Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Default value: 1.|
+### Optional members <a id="ID4EHCAC"></a>
 
-<a id="ID4EGBAC"></a>
+| Member | Description |
+| :--- | :--- |
+| deviceTypes | List of device types used by the users you want to know about. If the array is left empty, it defaults to all possible device types \(that is, none are filtered out\). |
+| titles | List of device types whose users you want to know about. If the array is left empty, it defaults to all possible titles \(that is, none are filtered out\). |
+| level | Possible values:   The default is "title". |
+| onlineOnly | If this property is true, the batch operation will filter out records for offline users \(including cloaked ones\). If it is not supplied, both online and offline users will be returned. |
 
-
-## Request body
-
-<a id="ID4EMBAC"></a>
-
-
-### Required members
-
-| Member| Description|
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| users| List XUIDs of users whose presence you want to learn, with a maximum of 1100 XUIDs at a time.|
-
-<a id="ID4EHCAC"></a>
-
-
-### Optional members
-
-| Member| Description|
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| deviceTypes| List of device types used by the users you want to know about. If the array is left empty, it defaults to all possible device types (that is, none are filtered out).|
-| titles| List of device types whose users you want to know about. If the array is left empty, it defaults to all possible titles (that is, none are filtered out).|
-| level| Possible values: <ul><li>user - get user nodes</li><li>device - get user and device nodes</li><li>title - get basic title level information</li><li>all - get rich presence information, media information, or both</li></ul><br> The default is "title".|
-| onlineOnly| If this property is true, the batch operation will filter out records for offline users (including cloaked ones). If it is not supplied, both online and offline users will be returned.|
-
-<a id="ID4E4DAC"></a>
-
-
-### Prohibited members
+### Prohibited members <a id="ID4E4DAC"></a>
 
 All other members are prohibited in a request.
 
-<a id="ID4EIEAC"></a>
-
-
-### Sample request
-
+### Sample request <a id="ID4EIEAC"></a>
 
 ```cpp
 {
@@ -130,22 +99,13 @@ All other members are prohibited in a request.
     "7890123456"
   ]
 }
-
 ```
 
+## Response body <a id="ID4ESEAC"></a>
 
-<a id="ID4ESEAC"></a>
+### Sample response <a id="ID4E1EAC"></a>
 
-
-## Response body
-
-<a id="ID4E1EAC"></a>
-
-
-### Sample response
-
-This method returns a [PresenceRecord](../../json/json-presencerecord.md).
-
+This method returns a [PresenceRecord](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/json/json-presencerecord.md).
 
 ```cpp
 {
@@ -194,18 +154,11 @@ This method returns a [PresenceRecord](../../json/json-presencerecord.md).
     }]
   }]
 }
-
 ```
 
+## See also <a id="ID4EKFAC"></a>
 
-<a id="ID4EKFAC"></a>
+#### Parent <a id="ID4EMFAC"></a>
 
+[/users/batch](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/presence/uri-usersbatch.md)
 
-## See also
-
-<a id="ID4EMFAC"></a>
-
-
-##### Parent
-
-[/users/batch](uri-usersbatch.md)

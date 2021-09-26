@@ -1,79 +1,61 @@
 ---
-title: GET (/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions)
-assetID: 9daac964-0b25-3430-fcfd-0f8658aceee1
-permalink: en-us/docs/xboxlive/rest/uri-serviceconfigsscidsessiontemplatessessiontemplatenamesessionsget.html
-
-description: ' GET (/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions)'
-ms.date: 10/12/2017
-ms.topic: article
-keywords: xbox live, xbox, games, uwp, windows 10, xbox one
 ms.localizationpriority: medium
+ms.topic: article
+keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
+assetID: 9daac964-0b25-3430-fcfd-0f8658aceee1
+permalink: >-
+  en-us/docs/xboxlive/rest/uri-serviceconfigsscidsessiontemplatessessiontemplatenamesessionsget.html
+ms.date: 10/12/2017
+title: 'GET (/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions)'
+description: 'GET (/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions)'
 ---
-# GET (/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions)
+
+# GET \(/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions\)
+
 Retrieves session template documents.
 
-> [!IMPORTANT]
-> This URI method requires a header element of X-Xbl-Contract-Version: 104/105 or later on every request.
+> \[!IMPORTANT\] This URI method requires a header element of X-Xbl-Contract-Version: 104/105 or later on every request.
 
-  * [Remarks](#ID4ET)
-  * [URI parameters](#ID4EKB)
-  * [HTTP status codes](#ID4EXB)
-  * [Request body](#ID4EAC)
-  * [Response body](#ID4EKC)
+* [Remarks](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename-sessions.md#ID4ET)
+* [URI parameters](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename-sessions.md#ID4EKB)
+* [HTTP status codes](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename-sessions.md#ID4EXB)
+* [Request body](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename-sessions.md#ID4EAC)
+* [Response body](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename-sessions.md#ID4EKC)
 
-<a id="ID4ET"></a>
-
-
-## Remarks
+## Remarks <a id="ID4ET"></a>
 
 This HTTP/REST method retrieves session template information for the supplied filters. This method can be wrapped by **Microsoft.Xbox.Services.Multiplayer.MultiplayerService.GetSessionsAsync**.
 
+> \[!NOTE\] For 2015 Multiplayer, this method is called by **Microsoft.Xbox.Services.Multiplayer.MultiplayerService.GetSessionsForUsersFilterAsync**.
+>
+> \[!NOTE\] Every call to this method must include either a keyword, an Xbox user ID filter, or both. If the caller does not have correct permissions for the private and reservations parameters, the method returns an error code of 403 Forbidden, whether or not any such sessions actually exist.
 
-> [!NOTE] 
-> For 2015 Multiplayer, this method is called by <b>Microsoft.Xbox.Services.Multiplayer.MultiplayerService.GetSessionsForUsersFilterAsync</b>.  
+## URI parameters <a id="ID4EKB"></a>
 
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| scid | GUID | Service configuration identifier \(SCID\). Part 1 of the session ID. |
+| keyword | string | A keyword used to filter results to just sessions identified with that string. |
+| xuid | GUID | Xbox user IDs for the users for whom to retrieve sessions. The users must be active in the sessions. |
+| reservations | string | Value indicating if the list of sessions includes those that the users have not accepted. This parameter can only be set to true. This setting requires the caller to have server-level access to the session, or the caller's XUID claim to match the Xbox user ID filter. |
+| inactive | string | Value indicating if the list of sessions includes those that the users have accepted but are not actively playing. This parameter can only be set to true. |
+| private | string | Value indicating if the list of sessions includes private sessions. This parameter can only be set to true. It is valid only when querying your own sessions, or when querying server-to-server. Setting this parameter to true requires the caller to have server-level access to the session, or the caller's XUID claim to match the Xbox user ID filter. |
+| visibility | string | An enumeration value indicating visibility status used in filtering results. Currently this parameter can only be set to Open to include open sessions. See **MultiplayerSessionVisibility**. |
+| version | string | A positive integer indicating the major session version or lower of the sessions to include. The value must be less than or equal to the request's contract version modulo 100. |
+| take | string | A positive integer indicating the maximum number of sessions to retrieve. |
 
+## HTTP status codes <a id="ID4EXB"></a>
 
-> [!NOTE] 
-> Every call to this method must include either a keyword, an Xbox user ID filter, or both. If the caller does not have correct permissions for the <i>private</i> and <i>reservations</i> parameters, the method returns an error code of 403 Forbidden, whether or not any such sessions actually exist.  
-
-
-<a id="ID4EKB"></a>
-
-
-## URI parameters
-
-| Parameter| Type| Description|
-| --- | --- | --- | --- | --- | --- |
-| scid| GUID| Service configuration identifier (SCID). Part 1 of the session ID.|
-| keyword| string| A keyword used to filter results to just sessions identified with that string.|
-| xuid| GUID| Xbox user IDs for the users for whom to retrieve sessions. The users must be active in the sessions. |
-| reservations| string| Value indicating if the list of sessions includes those that the users have not accepted. This parameter can only be set to true. This setting requires the caller to have server-level access to the session, or the caller's XUID claim to match the Xbox user ID filter. |
-| inactive| string| Value indicating if the list of sessions includes those that the users have accepted but are not actively playing. This parameter can only be set to true. |
-| private| string| Value indicating if the list of sessions includes private sessions. This parameter can only be set to true. It is valid only when querying your own sessions, or when querying server-to-server. Setting this parameter to true requires the caller to have server-level access to the session, or the caller's XUID claim to match the Xbox user ID filter. |
-| visibility| string| An enumeration value indicating visibility status used in filtering results. Currently this parameter can only be set to Open to include open sessions. See <b>MultiplayerSessionVisibility</b>. |
-| version| string| A positive integer indicating the major session version or lower of the sessions to include. The value must be less than or equal to the request's contract version modulo 100. |
-| take| string| A positive integer indicating the maximum number of sessions to retrieve.|
-
-<a id="ID4EXB"></a>
-
-
-## HTTP status codes
 The service returns an HTTP status code as it applies to MPSD.  
-<a id="ID4EAC"></a>
 
 
-## Request body
+## Request body <a id="ID4EAC"></a>
 
 No objects are sent in the body of this request.
 
-<a id="ID4EKC"></a>
-
-
-## Response body
+## Response body <a id="ID4EKC"></a>
 
 The return from this method is a JSON array of session references, with some session data included inline.
-
 
 ```cpp
 {
@@ -94,18 +76,11 @@ The return from this method is a JSON array of session references, with some ses
         }
     ]
 }
-
 ```
 
+## See also <a id="ID4EUC"></a>
 
-<a id="ID4EUC"></a>
+### Parent <a id="ID4EWC"></a>
 
+[/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/session-directory/uri-serviceconfigsscidsessiontemplatessessiontemplatenamesessions.md)
 
-## See also
-
-<a id="ID4EWC"></a>
-
-
-##### Parent
-
-[/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions](uri-serviceconfigsscidsessiontemplatessessiontemplatenamesessions.md)

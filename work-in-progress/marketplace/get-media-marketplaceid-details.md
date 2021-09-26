@@ -1,64 +1,48 @@
 ---
-title: GET (/media/{marketplaceId}/details)
+ms.localizationpriority: medium
+ms.topic: article
+keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
 assetID: 7c222fc7-d70a-84ac-5aaf-f22d186f7a43
 permalink: en-us/docs/xboxlive/rest/uri-medialocaledetailsget.html
-
-description: ' GET (/media/{marketplaceId}/details)'
 ms.date: 10/12/2017
-ms.topic: article
-keywords: xbox live, xbox, games, uwp, windows 10, xbox one
-ms.localizationpriority: medium
+title: 'GET (/media/{marketplaceId}/details)'
+description: 'GET (/media/{marketplaceId}/details)'
 ---
-# GET (/media/{marketplaceId}/details)
-Returns offer details and metadata about one or more items.
-The domain for these URIs is `eds.xboxlive.com`.
 
-  * [Remarks](#ID4EV)
-  * [URI parameters](#ID4ECB)
-  * [Query string parameters](#ID4ERB)
-  * [Response body](#ID4EYF)
+# GET \(/media/{marketplaceId}/details\)
 
-<a id="ID4EV"></a>
+Returns offer details and metadata about one or more items. The domain for these URIs is `eds.xboxlive.com`.
 
+* [Remarks](get-media-marketplaceid-details.md#ID4EV)
+* [URI parameters](get-media-marketplaceid-details.md#ID4ECB)
+* [Query string parameters](get-media-marketplaceid-details.md#ID4ERB)
+* [Response body](get-media-marketplaceid-details.md#ID4EYF)
 
-## Remarks
+## Remarks <a id="ID4EV"></a>
 
-**SandboxId** is now retrieved from the claim in the XToken and enforced. If the **SandboxId** is not present, then Entertainment Discovery Services (EDS) will throw a 400 Bad request error.
+**SandboxId** is now retrieved from the claim in the XToken and enforced. If the **SandboxId** is not present, then Entertainment Discovery Services \(EDS\) will throw a 400 Bad request error.
 
-<a id="ID4ECB"></a>
+## URI parameters <a id="ID4ECB"></a>
 
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| marketplaceId | string | Required. String value obtained from the **Windows.Xbox.ApplicationModel.Store.Configuration.MarketplaceId**. |
 
-## URI parameters
+## Query string parameters <a id="ID4ERB"></a>
 
-| Parameter| Type| Description|
-| --- | --- | --- |
-| marketplaceId| string| Required. String value obtained from the <b>Windows.Xbox.ApplicationModel.Store.Configuration.MarketplaceId</b>.|
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| ids | string\[\] | Required. All of the IDs \(up to 10\) for which details will be returned. Note that any ID that contains characters illegal to put in a URL \(the ProviderContentId type IDs are normally full URLs themselves and thus contain illegal characters\) **MUST** be URL-encoded to be properly sent to Entertainment Discovery Services \(EDS\). Also note that this can only be a single value if the ID type is ProviderContentId. If more than one ProviderContentId is desired, multiple calls must be made to EDS. |
+| IdType | string | Optional. The type of the IDs which are passed in to the 'ids' parameter. Valid values are:  |
+| DesiredMediaItemTypes | string | **Required if MediaGroup is not passed. Both should not be passed.** The media item typs of the IDs. All provided IDs must share the same type. If multiple types are desired, pass in all possible types as described in the IdType above. This value defaults to "Unknown" if it is not present, which may not be valied for all ID types. |
+| MediaGroup | string | **Required if DesiredMediaItemTypes is not passed. Both should not be passed.** |
+| ConditionSets | string | **Optional**. Clients may request **Availability** pruning based on condition sets, which are key-value pairs specified through this query string. They are used to match on the condition sets of an availability. The list of keys that can be used to match the condition sets is as follows.  |
 
-<a id="ID4ERB"></a>
+## Response body <a id="ID4EYF"></a>
 
-
-## Query string parameters
-
-| Parameter| Type| Description|
-| --- | --- | --- | --- | --- | --- |
-| ids| string[]| Required. All of the IDs (up to 10) for which details will be returned. Note that any ID that contains characters illegal to put in a URL (the ProviderContentId type IDs are normally full URLs themselves and thus contain illegal characters) <b>MUST</b> be URL-encoded to be properly sent to Entertainment Discovery Services (EDS). Also note that this can only be a single value if the ID type is ProviderContentId. If more than one ProviderContentId is desired, multiple calls must be made to EDS.|
-| IdType| string| Optional. The type of the IDs which are passed in to the 'ids' parameter. Valid values are: <ul><li><b>Canonical</b> (Bing/Marketplace) </li><li><b>ZuneCatalog</b></li><li><b>ZuneMediaInstance</b> (eg 132 kb WMA music file) </li><li><b>AMG</b></li><li><b>MediaNet</b> (pre-MusiWave) </li><li><b>XboxHexTitle</b> (App playing on the console) </li></ul>|
-| DesiredMediaItemTypes| string| <b>Required if MediaGroup is not passed. Both should not be passed.</b> The media item typs of the IDs. All provided IDs must share the same type. If multiple types are desired, pass in all possible types as described in the IdType above. This value defaults to "Unknown" if it is not present, which may not be valied for all ID types. |
-| MediaGroup| string| <b>Required if DesiredMediaItemTypes is not passed. Both should not be passed.</b>|
-| ConditionSets| string| <b>Optional</b>. Clients may request <b>Availability</b> pruning based on condition sets, which are key-value pairs specified through this query string. They are used to match on the condition sets of an availability. The list of keys that can be used to match the condition sets is as follows. <ul><li><b>Platforms</b>: Where the product is built and can be played.</li><li><b>Subscriptions</b>: List of supported subscriptions for this availability (Gold or Silver).</li><li><b>EntitlementIds</b>: Tracked after users buy the game.</li></ul> | 
-
-<a id="ID4EYF"></a>
-
-
-## Response body
-
-<a id="ID4E5F"></a>
-
-
-### Sample response
+### Sample response <a id="ID4E5F"></a>
 
 The JSON code below is in response to the call `/media/en-us/details?ids=6c5402e4-3cd5-4b29-a9c4-bec7d2c7514a&mediaGroup=GameType`.
-
 
 ```cpp
 {
@@ -168,34 +152,23 @@ The JSON code below is in response to the call `/media/en-us/details?ids=6c5402e
     }],
     "ImpressionGuid": "8e6bddc2-ded7-4921-b766-b3a887381caa"
 }
-
 ```
 
+## See also <a id="ID4ENG"></a>
 
-<a id="ID4ENG"></a>
+#### Parent <a id="ID4EPG"></a>
 
+[/media/{marketplaceId}/details](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/marketplace/uri-medialocaledetails.md)
 
-## See also
+#### Further Information <a id="ID4EZG"></a>
 
-<a id="ID4EPG"></a>
+[EDS Common Headers](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edscommonheaders.md)
 
+[EDS Parameters](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edsparameters.md)
 
-##### Parent
+[EDS Query Refiners](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edsqueryrefiners.md)
 
-[/media/{marketplaceId}/details](uri-medialocaledetails.md)
+[Marketplace URIs](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/marketplace/atoc-reference-marketplace.md)
 
+[Additional Reference](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/atoc-xboxlivews-reference-additional.md)
 
-<a id="ID4EZG"></a>
-
-
-##### Further Information
-
-[EDS Common Headers](../../additional/edscommonheaders.md)
-
- [EDS Parameters](../../additional/edsparameters.md)
-
- [EDS Query Refiners](../../additional/edsqueryrefiners.md)
-
- [Marketplace URIs](atoc-reference-marketplace.md)
-
- [Additional Reference](../../additional/atoc-xboxlivews-reference-additional.md)
