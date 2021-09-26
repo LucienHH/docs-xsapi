@@ -1,114 +1,50 @@
----
-ms.localizationpriority: medium
-ms.topic: article
-keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
-assetID: bd0b18fe-8a6d-d591-5b13-bcd9643e945a
-permalink: en-us/docs/xboxlive/rest/uri-usersbatchpost.html
-ms.date: 10/12/2017
-title: POST (/users/batch)
-description: POST (/users/batch)
----
+# POST /users/batch
 
-# POST \(/users/batch\)
+{% api-method method="post" host="https://userpresence.xboxlive.com" path="/users/batch" %}
+        {% api-method-description %}
+        Get presence for a batch of users. The domain for these URIs is 
+        {% endapi-method-description %}
+        {% api-method-summary %}
+        Get presence for a batch of users. The domain for these URIs is 
+        {% endapi-method-summary %}
+        {% api-method-spec %}
+        {% api-method-request %}
+        {% api-method-headers %}
+        
+            {% api-method-parameter name="Authorization" type="string" required=true %}
+            Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=
+            {% endapi-method-parameter %}
 
-Get presence for a batch of users. The domain for these URIs is `userpresence.xboxlive.com`.
+            {% api-method-parameter name="x-xbl-contract-version" type="string" required=true %}
+            Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Example values: 3, vnext.
+            {% endapi-method-parameter %}
 
-* [Remarks](post-users-batch.md#ID4EV)
-* [Authorization](post-users-batch.md#ID4EAB)
-* [Effect of privacy settings on resource](post-users-batch.md#ID4EDC)
-* [Required Request Headers](post-users-batch.md#ID4EYF)
-* [Optional Request Headers](post-users-batch.md#ID4EGAAC)
-* [Request body](post-users-batch.md#ID4EGBAC)
-* [Response body](post-users-batch.md#ID4ESEAC)
+            {% api-method-parameter name="Accept" type="string" required=true %}
+            Content-Types that are acceptable. The only one supported by Presence is application/json, but it must be specified in the header.
+            {% endapi-method-parameter %}
 
-## Remarks <a id="ID4EV"></a>
+            {% api-method-parameter name="Accept-Language" type="string" required=true %}
+            Acceptable locale for strings in the response. Example values: en-US.
+            {% endapi-method-parameter %}
 
-This method should be used by any client, service, or title wanting to learn presence information for a batch of users.
+            {% api-method-parameter name="Host" type="string" required=true %}
+            Domain name of the server. Example value: presencebeta.xboxlive.com.
+            {% endapi-method-parameter %}
 
-The responses for this batch request can be filters by depth and path. Consumers can use this to find out and display the presence about a set of users. The filters on this API work as ORs in a property, but ANDs across properties.
-
-## Authorization <a id="ID4EAB"></a>
-
-| Type | Required | Description | Response if missing |
-| :--- | :--- | :--- | :--- |
-| XUID | Yes | Xbox User ID \(XUID\) of the caller | 403 Forbidden |
-
-## Effect of privacy settings on resource <a id="ID4EDC"></a>
-
-This method always returns 200 OK, but might not return content in the response body.
-
-| Requesting User | Target User's Privacy Setting | Behavior |
-| :--- | :--- | :--- |
-| me | - | 200 OK |
-| friend | everyone | 200 OK |
-| friend | friends only | 200 OK |
-| friend | blocked | 200 OK |
-| non-friend user | everyone | 200 OK |
-| non-friend user | friends only | 200 OK |
-| non-friend user | blocked | 200 OK |
-| third-party site | everyone | 200 OK |
-| third-party site | friends only | 200 OK |
-| third-party site | blocked | 200 OK |
-
-## Required Request Headers <a id="ID4EYF"></a>
-
-| Header | Type | Description |
-| :--- | :--- | :--- |
-| Authorization | string | Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=&lt;userhash&gt;;&lt;token&gt;". |
-| x-xbl-contract-version | string | Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Example values: 3, vnext. |
-| Accept | string | Content-Types that are acceptable. The only one supported by Presence is application/json, but it must be specified in the header. |
-| Accept-Language | string | Acceptable locale for strings in the response. Example values: en-US. |
-| Host | string | Domain name of the server. Example value: presencebeta.xboxlive.com. |
-| Content-Length | string | The length of the request body. Example value: 312. |
-
-## Optional Request Headers <a id="ID4EGAAC"></a>
-
-| Header | Type | Description |
-| :--- | :--- | :--- |
-| X-RequestedServiceVersion |  | Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Default value: 1. |
-
-## Request body <a id="ID4EGBAC"></a>
-
-### Required members <a id="ID4EMBAC"></a>
-
-| Member | Description |
-| :--- | :--- |
-| users | List XUIDs of users whose presence you want to learn, with a maximum of 1100 XUIDs at a time. |
-
-### Optional members <a id="ID4EHCAC"></a>
-
-| Member | Description |
-| :--- | :--- |
-| deviceTypes | List of device types used by the users you want to know about. If the array is left empty, it defaults to all possible device types \(that is, none are filtered out\). |
-| titles | List of device types whose users you want to know about. If the array is left empty, it defaults to all possible titles \(that is, none are filtered out\). |
-| level | Possible values:   The default is "title". |
-| onlineOnly | If this property is true, the batch operation will filter out records for offline users \(including cloaked ones\). If it is not supplied, both online and offline users will be returned. |
-
-### Prohibited members <a id="ID4E4DAC"></a>
-
-All other members are prohibited in a request.
-
-### Sample request <a id="ID4EIEAC"></a>
-
-```cpp
-{
-  users:
-  [
-    "1234567890",
-    "4567890123",
-    "7890123456"
-  ]
-}
-```
-
-## Response body <a id="ID4ESEAC"></a>
-
-### Sample response <a id="ID4E1EAC"></a>
-
-This method returns a [PresenceRecord](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/json/json-presencerecord.md).
-
-```cpp
-{
+            {% api-method-parameter name="Content-Length" type="string" required=true %}
+            The length of the request body. Example value: 312.
+            {% endapi-method-parameter %}
+        {% endapi-method-headers %}
+{% endapi-method-request %}
+        {% api-method-response %}
+        
+        {% api-method-response-example httpCode=200 %}
+        {% api-method-response-example-description %}
+        
+        {% endapi-method-response-example-description %}
+        
+        ```text
+        {
   xuid:"0123456789",
   state:"online",
   devices:
@@ -154,11 +90,24 @@ This method returns a [PresenceRecord](https://github.com/LucienHH/docs-xsapi/tr
     }]
   }]
 }
-```
 
-## See also <a id="ID4EKFAC"></a>
+        ```
+        {% endapi-method-response-example %}
+        {% endapi-method-response %}
+        
+        {% endapi-method-spec %}
+        {% endapi-method %}
+                    ```text
+                    # Sample Request
 
-#### Parent <a id="ID4EMFAC"></a>
+                    {
+  users:
+  [
+    "1234567890",
+    "4567890123",
+    "7890123456"
+  ]
+}
 
-[/users/batch](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/presence/uri-usersbatch.md)
-
+                    ```
+                    

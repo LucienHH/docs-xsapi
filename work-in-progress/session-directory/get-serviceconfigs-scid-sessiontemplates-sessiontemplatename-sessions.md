@@ -1,86 +1,65 @@
----
-ms.localizationpriority: medium
-ms.topic: article
-keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
-assetID: 9daac964-0b25-3430-fcfd-0f8658aceee1
-permalink: >-
-  en-us/docs/xboxlive/rest/uri-serviceconfigsscidsessiontemplatessessiontemplatenamesessionsget.html
-ms.date: 10/12/2017
-title: 'GET (/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions)'
-description: 'GET (/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions)'
----
+# GET /serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions
 
-# GET \(/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions\)
+{% api-method method="get" host="https://undefined" path="/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions" %}
+        {% api-method-description %}
+        Retrieves session template documents.
+        {% endapi-method-description %}
+        {% api-method-summary %}
+        Retrieves session template documents.
+        {% endapi-method-summary %}
+        {% api-method-spec %}
+        {% api-method-request %}
+        {% api-method-path-parameters %}
+        
+            {% api-method-parameter name="scid" type="string" required=true %}
+            Service configuration identifier (SCID). Part 1 of the session ID.
+            {% endapi-method-parameter %}
 
-Retrieves session template documents.
+            {% api-method-parameter name="keyword" type="string" required=true %}
+            A keyword used to filter results to just sessions identified with that string.
+            {% endapi-method-parameter %}
 
-> \[!IMPORTANT\] This URI method requires a header element of X-Xbl-Contract-Version: 104/105 or later on every request.
+            {% api-method-parameter name="xuid" type="string" required=true %}
+            Xbox user IDs for the users for whom to retrieve sessions. The users must be active in the sessions.
+            {% endapi-method-parameter %}
 
-* [Remarks](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename-sessions.md#ID4ET)
-* [URI parameters](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename-sessions.md#ID4EKB)
-* [HTTP status codes](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename-sessions.md#ID4EXB)
-* [Request body](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename-sessions.md#ID4EAC)
-* [Response body](get-serviceconfigs-scid-sessiontemplates-sessiontemplatename-sessions.md#ID4EKC)
+            {% api-method-parameter name="reservations" type="string" required=true %}
+            Value indicating if the list of sessions includes those that the users have not accepted. This parameter can only be set to true. This setting requires the caller to have server-level access to the session, or the caller's XUID claim to match the Xbox user ID filter.
+            {% endapi-method-parameter %}
 
-## Remarks <a id="ID4ET"></a>
+            {% api-method-parameter name="inactive" type="string" required=true %}
+            Value indicating if the list of sessions includes those that the users have accepted but are not actively playing. This parameter can only be set to true.
+            {% endapi-method-parameter %}
 
-This HTTP/REST method retrieves session template information for the supplied filters. This method can be wrapped by **Microsoft.Xbox.Services.Multiplayer.MultiplayerService.GetSessionsAsync**.
+            {% api-method-parameter name="private" type="string" required=true %}
+            Value indicating if the list of sessions includes private sessions. This parameter can only be set to true. It is valid only when querying your own sessions, or when querying server-to-server. Setting this parameter to true requires the caller to have server-level access to the session, or the caller's XUID claim to match the Xbox user ID filter.
+            {% endapi-method-parameter %}
 
-> \[!NOTE\] For 2015 Multiplayer, this method is called by **Microsoft.Xbox.Services.Multiplayer.MultiplayerService.GetSessionsForUsersFilterAsync**.
->
-> \[!NOTE\] Every call to this method must include either a keyword, an Xbox user ID filter, or both. If the caller does not have correct permissions for the private and reservations parameters, the method returns an error code of 403 Forbidden, whether or not any such sessions actually exist.
+            {% api-method-parameter name="visibility" type="string" required=true %}
+            An enumeration value indicating visibility status used in filtering results. Currently this parameter can only be set to Open to include open sessions. See 
+            {% endapi-method-parameter %}
 
-## URI parameters <a id="ID4EKB"></a>
+            {% api-method-parameter name="version" type="string" required=true %}
+            A positive integer indicating the major session version or lower of the sessions to include. The value must be less than or equal to the request's contract version modulo 100.
+            {% endapi-method-parameter %}
 
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| scid | GUID | Service configuration identifier \(SCID\). Part 1 of the session ID. |
-| keyword | string | A keyword used to filter results to just sessions identified with that string. |
-| xuid | GUID | Xbox user IDs for the users for whom to retrieve sessions. The users must be active in the sessions. |
-| reservations | string | Value indicating if the list of sessions includes those that the users have not accepted. This parameter can only be set to true. This setting requires the caller to have server-level access to the session, or the caller's XUID claim to match the Xbox user ID filter. |
-| inactive | string | Value indicating if the list of sessions includes those that the users have accepted but are not actively playing. This parameter can only be set to true. |
-| private | string | Value indicating if the list of sessions includes private sessions. This parameter can only be set to true. It is valid only when querying your own sessions, or when querying server-to-server. Setting this parameter to true requires the caller to have server-level access to the session, or the caller's XUID claim to match the Xbox user ID filter. |
-| visibility | string | An enumeration value indicating visibility status used in filtering results. Currently this parameter can only be set to Open to include open sessions. See **MultiplayerSessionVisibility**. |
-| version | string | A positive integer indicating the major session version or lower of the sessions to include. The value must be less than or equal to the request's contract version modulo 100. |
-| take | string | A positive integer indicating the maximum number of sessions to retrieve. |
-
-## HTTP status codes <a id="ID4EXB"></a>
-
-The service returns an HTTP status code as it applies to MPSD.  
-
-
-## Request body <a id="ID4EAC"></a>
-
-No objects are sent in the body of this request.
-
-## Response body <a id="ID4EKC"></a>
-
-The return from this method is a JSON array of session references, with some session data included inline.
-
-```cpp
-{
-    "results": [ {
-            "xuid": "9876",    // If the session was found from a xuid, that xuid.
-            "startTime": "2009-06-15T13:45:30.0900000Z",
-            "sessionRef": {
-                "scid": "foo",
-                "templateName": "bar",
-                "name": "session-seven"
-            },
-            "accepted": 4,    // Approximate number of non-reserved members.
-            "status": "active",    // or "reserved" or "inactive". This is the state of the user in the session, not the session itself. Only present if the session was found using a xuid.
-            "visibility": "open",    // or "private", "visible", or "full"
-            "joinRestriction": "local",    // or "followed". Only present if 'visibility' is "open" or "full" and the session has a join restriction.
-            "myTurn": true,    // Not present is the same as 'false'. Only present if the session was found using a xuid.
-            "keywords": [ "one", "two" ]
-        }
-    ]
-}
-```
-
-## See also <a id="ID4EUC"></a>
-
-### Parent <a id="ID4EWC"></a>
-
-[/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/session-directory/uri-serviceconfigsscidsessiontemplatessessiontemplatenamesessions.md)
-
+            {% api-method-parameter name="take" type="string" required=true %}
+            A positive integer indicating the maximum number of sessions to retrieve.
+            {% endapi-method-parameter %}
+        {% endapi-method-path-parameters %}
+{% endapi-method-request %}
+        {% api-method-response %}
+        
+        {% api-method-response-example httpCode=200 %}
+        {% api-method-response-example-description %}
+        
+        {% endapi-method-response-example-description %}
+        
+        ```text
+        
+        ```
+        {% endapi-method-response-example %}
+        {% endapi-method-response %}
+        
+        {% endapi-method-spec %}
+        {% endapi-method %}

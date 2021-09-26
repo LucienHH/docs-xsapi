@@ -1,104 +1,54 @@
----
-ms.localizationpriority: medium
-ms.topic: article
-keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
-assetID: 890e3f93-4fdc-955f-d849-ba9579d5c1eb
-permalink: en-us/docs/xboxlive/rest/uri-usersxuidscidsscidstatsgetvaluemetadata.html
-ms.date: 10/12/2017
-title: 'GET (/users/xuid({xuid})/scids/{scid}/stats?include=valuemetadata)'
-description: 'GET (/users/xuid({xuid})/scids/{scid}/stats?include=valuemetadata)'
----
+# GET /users/xuid({xuid})/scids/{scid}/stats?include=valuemetadata
 
-# GET \(/users/xuid\({xuid}\)/scids/{scid}/stats\?include=valuemetadata\)
+{% api-method method="get" host="https://userstats.xboxlive.com" path="/users/xuid({xuid})/scids/{scid}/stats?include=valuemetadata" %}
+        {% api-method-description %}
+        undefined
+        {% endapi-method-description %}
+        {% api-method-summary %}
+        undefined
+        {% endapi-method-summary %}
+        {% api-method-spec %}
+        {% api-method-request %}
+        {% api-method-path-parameters %}
+        
+            {% api-method-parameter name="xuid" type="string" required=true %}
+            Xbox User ID (XUID) of the user on whose behalf to access the service configuration.
+            {% endapi-method-parameter %}
 
-Gets a list of specified statistics, including metadata associated with the statistic values, for a user in a specified service configuration. The domain for these URIs is `userstats.xboxlive.com`.
+            {% api-method-parameter name="scid" type="string" required=true %}
+            Identifier of the service configuration that contains the resource being accessed.
+            {% endapi-method-parameter %}
+        {% endapi-method-path-parameters %}
+        {% api-method-query-parameters %}
+        
+            {% api-method-parameter name="statNames" type="string" required=false %}
+            A comma delimited list of user statistic names.For example, the following URI informs the service that four statistics are requested on behalf of the user id specified in the URI.{::nomakrdown}
+            {% endapi-method-parameter %}
 
-* [Remarks](get-users-xuid-xuid-scids-scid-stats-include-valuemetadata.md#ID4EV)
-* [URI parameters](get-users-xuid-xuid-scids-scid-stats-include-valuemetadata.md#ID4EAB)
-* [Query string parameters](get-users-xuid-xuid-scids-scid-stats-include-valuemetadata.md#ID4ELB)
-* [Authorization](get-users-xuid-xuid-scids-scid-stats-include-valuemetadata.md#ID4EWC)
-* [Required Request Headers](get-users-xuid-xuid-scids-scid-stats-include-valuemetadata.md#ID4ERD)
-* [Optional Request Headers](get-users-xuid-xuid-scids-scid-stats-include-valuemetadata.md#ID4EDF)
-* [Request body](get-users-xuid-xuid-scids-scid-stats-include-valuemetadata.md#ID4EHG)
-* [HTTP status codes](get-users-xuid-xuid-scids-scid-stats-include-valuemetadata.md#ID4ESG)
-* [Response body](get-users-xuid-xuid-scids-scid-stats-include-valuemetadata.md#ID4EJCAC)
+            {% api-method-parameter name="include=valuemetadata" type="string" required=false %}
+            Indicates that the response includes any value metadata associated with the uset stat values.
+            {% endapi-method-parameter %}
+        {% endapi-method-query-parameters %}
+        {% api-method-headers %}
+        
+            {% api-method-parameter name="Authorization" type="string" required=true %}
+            Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=
+            {% endapi-method-parameter %}
 
-## Remarks <a id="ID4EV"></a>
-
-The ?include=valuemetadata query parameter allows the response to include any metadata associated with the user stat values, such as the model and color of a car used to achieve a time on a race track.
-
-To include value metadata in the response, the request call must also set the header value X-Xbl-Contract-Version to 3.
-
-## URI parameters <a id="ID4EAB"></a>
-
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| xuid | GUID | Xbox User ID \(XUID\) of the user on whose behalf to access the service configuration. |
-| scid | GUID | Identifier of the service configuration that contains the resource being accessed. |
-
-## Query string parameters <a id="ID4ELB"></a>
-
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| statNames | string | A comma delimited list of user statistic names.For example, the following URI informs the service that four statistics are requested on behalf of the user id specified in the URI.{::nomakrdown}  `https://userstats.xboxlive.com/users/xuid({xuid})/scids/{scid}/stats/wins,kills,kdratio,headshots?include=valuemetadata` |
-| include=valuemetadata | string | Indicates that the response includes any value metadata associated with the uset stat values. |
-
-## Authorization <a id="ID4EWC"></a>
-
-There is authorization logic implemented for content-isolation and access-control scenarios.
-
-* Both leaderboards and user statistics can be read from clients on any platform, provided that the caller submits a valid XSTS token with the request. Writes are limited to clients supported by the Player Data system.
-* Title developers can mark statistics as open or restricted with Partner Center. Leaderboards are open statistics. Open statistics can be accessed by Smartglass, as well as iOS, Android, Windows, Windows Phone, and web applications, as long as the user is authorized to the sandbox. User authorization to a sandbox is managed through Partner Center.
-
-Pseudo-code for the check looks like this:
-
-```cpp
-If (!checkAccess(serviceConfigId, resource, CLAIM[userid, deviceid, titleid]))
-{
-        Reject request as Unauthorized
-}
-
-// else accept request.
-```
-
-## Required Request Headers <a id="ID4ERD"></a>
-
-| Header | Type | Description |
-| :--- | :--- | :--- |
-| Authorization | string | Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=&lt;userhash&gt;;&lt;token&gt;". |
-| X-Xbl-Contract-Version | string | Indicates which version of the API to use. This value must be set to "3" in order to include value metadata in the response. |
-
-## Optional Request Headers <a id="ID4EDF"></a>
-
-| Header | Type | Description |
-| :--- | :--- | :--- |
-| X-RequestedServiceVersion |  | Build name/number of the service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the authentication token, and so on. Default value: 1. |
-
-## Request body <a id="ID4EHG"></a>
-
-No objects are sent in the body of this request.
-
-## HTTP status codes <a id="ID4ESG"></a>
-
-The service returns one of the status codes in this section in response to a request made with this method on this resource. For a complete list of standard HTTP status codes used with Xbox Live Services, see [Standard HTTP status codes](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/httpstatuscodes.md).
-
-| Code | Reason phrase | Description |
-| :--- | :--- | :--- |
-| 200 | OK | The session was successfully retrieved. |
-| 304 | Not Modified | Resource not been modified since last requested. |
-| 400 | Bad Request | Service could not understand malformed request. Typically an invalid parameter. |
-| 401 | Unauthorized | The request requires user authentication. |
-| 403 | Forbidden | The request is not allowed for the user or service. |
-| 404 | Not Found | The specified resource could not be found. |
-| 406 | Not Acceptable | Resource version is not supported. |
-| 408 | Request Timeout | Resource version is not supported; should be rejected by the MVC layer. |
-
-## Response body <a id="ID4EJCAC"></a>
-
-### Sample response <a id="ID4EPCAC"></a>
-
-```cpp
-{
+            {% api-method-parameter name="X-Xbl-Contract-Version" type="string" required=true %}
+            Indicates which version of the API to use. This value must be set to "3" in order to include value metadata in the response.
+            {% endapi-method-parameter %}
+        {% endapi-method-headers %}
+{% endapi-method-request %}
+        {% api-method-response %}
+        
+        {% api-method-response-example httpCode=200 %}
+        {% api-method-response-example-description %}
+        
+        {% endapi-method-response-example-description %}
+        
+        ```text
+        {
   "user": {
     "xuid": "123456789",
     "gamertag": "WarriorSaint",
@@ -130,11 +80,10 @@ The service returns one of the status codes in this section in response to a req
     ],
   }
 }
-```
 
-## See also <a id="ID4EZCAC"></a>
-
-#### Parent <a id="ID4E2CAC"></a>
-
-[/users/xuid\({xuid}\)/scids/{scid}/stats](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/user-statistics/uri-usersxuidscidsscidstats.md)
-
+        ```
+        {% endapi-method-response-example %}
+        {% endapi-method-response %}
+        
+        {% endapi-method-spec %}
+        {% endapi-method %}

@@ -1,94 +1,78 @@
----
-ms.localizationpriority: medium
-ms.topic: article
-keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
-assetID: a63f595a-61dd-5885-c405-9833230abb94
-permalink: en-us/docs/xboxlive/rest/uri-usersxuidlistspinslistnameget.html
-ms.date: 10/12/2017
-title: 'GET (/users/xuid(xuid)/lists/PINS/{listname})'
-description: 'GET (/users/xuid(xuid)/lists/PINS/{listname})'
----
+# GET /users/xuid(xuid)/lists/PINS/{listname}
 
-# GET \(/users/xuid\(xuid\)/lists/PINS/{listname}\)
+{% api-method method="get" host="https://eplists.xboxlive.com" path="/users/xuid(xuid)/lists/PINS/{listname}" %}
+        {% api-method-description %}
+        Returns the contents of a list. The domain for these URIs is 
+        {% endapi-method-description %}
+        {% api-method-summary %}
+        Returns the contents of a list. The domain for these URIs is 
+        {% endapi-method-summary %}
+        {% api-method-spec %}
+        {% api-method-request %}
+        {% api-method-path-parameters %}
+        
+            {% api-method-parameter name="xuid" type="string" required=true %}
+            Xbox User ID (XUID).
+            {% endapi-method-parameter %}
 
-Returns the contents of a list. The domain for these URIs is `eplists.xboxlive.com`.
+            {% api-method-parameter name="listtype" type="string" required=true %}
+            Type of the list (how it is used and how it acts). Always "PINS" for these related methods.
+            {% endapi-method-parameter %}
 
-* [Remarks](get-users-xuid-xuid-lists-pins-listname.md#ID4EV)
-* [URI parameters](get-users-xuid-xuid-lists-pins-listname.md#ID4EIB)
-* [Query string parameters](get-users-xuid-xuid-lists-pins-listname.md#ID4ETB)
-* [Authorization](get-users-xuid-xuid-lists-pins-listname.md#ID4ESD)
-* [Required Request Headers](get-users-xuid-xuid-lists-pins-listname.md#ID4E6D)
-* [Request body](get-users-xuid-xuid-lists-pins-listname.md#ID4EVF)
-* [HTTP status codes](get-users-xuid-xuid-lists-pins-listname.md#ID4EAG)
-* [Response body](get-users-xuid-xuid-lists-pins-listname.md#ID4E5CAC)
+            {% api-method-parameter name="listname" type="string" required=true %}
+            Name of the list (which list of a given listtype to act on). Always "XBLPins" for items in Pins.
+            {% endapi-method-parameter %}
+        {% endapi-method-path-parameters %}
+        {% api-method-query-parameters %}
+        
+            {% api-method-parameter name="skipItems" type="string" required=false %}
+            Optional. Number of items to skip in the enumeration before returning results. Default value: 0.
+            {% endapi-method-parameter %}
 
-## Remarks <a id="ID4EV"></a>
+            {% api-method-parameter name="maxItems" type="string" required=false %}
+            Optional. Maximum number of items to return. The default is 25 items if no maximum is specified in the request. The service does not place a maximum on this value; if the value is greater than the number of items in the list, then all items will be returned with no error.
+            {% endapi-method-parameter %}
 
-The **listCount** field in the data returned indicates how many items are in the total list maintained by the service -- as such, it can be used to determine where the end of the list is, and this is potentially a different number from how many specific items were returned by the request.
+            {% api-method-parameter name="filterItemId" type="string" required=false %}
+            Optional. Specifies the item to find in the list. Returns all instances of the item in the list. Allows the client to quickly determine if and where an item is in a list. Handy for large lists to determine all instances of an item without iterating through the entire list. Default value: null.
+            {% endapi-method-parameter %}
 
-If the list does not yet exist, then the results will contain no list items, the **listCount** will be zero and the **listVersion** will be zero.
+            {% api-method-parameter name="filterContentType" type="string" required=false %}
+            Optional. Specifies a comma-separated list of content types to return (will not return types not in the list). Used to only get certain content types from a list. A comma-separated list of content types is used for this filter. (Multiple content types can be queried in one call.) Content types supported include all the media types defined by Entertainment Discovery Services (EDS). Default value: null (all content types).
+            {% endapi-method-parameter %}
 
-## URI parameters <a id="ID4EIB"></a>
+            {% api-method-parameter name="filterDeviceType" type="string" required=false %}
+            Optional. Specifies a comma-separated list of device types to return (will not return types not in the list). Filters the return set to only return items which have been inserted from a specific set of device types. A comma-separated list of device types is used for this filter (multiple device types can be queried in one call). Possible values: XboxOne, MCapensis, WindowsPhone, WindowsPhone7, Web, PC, MoLive. Default value: null (all content types).
+            {% endapi-method-parameter %}
+        {% endapi-method-query-parameters %}
+        {% api-method-headers %}
+        
+            {% api-method-parameter name="Authorization" type="string" required=true %}
+            Contains the STS token used to authenticate and authorize the request. Must be a token from XSTS service and include the XUID as one of the claims.
+            {% endapi-method-parameter %}
 
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| xuid | string | Xbox User ID \(XUID\). |
-| listtype | string | Type of the list \(how it is used and how it acts\). Always "PINS" for these related methods. |
-| listname | string | Name of the list \(which list of a given listtype to act on\). Always "XBLPins" for items in Pins. |
+            {% api-method-parameter name="X-XBL-Contract-Version" type="string" required=true %}
+            Specifies which API version is being requested (positive integers). Pins supports version 2. If this header is missing or the value is not supported then the service will return a 400 – Bad request with "Unsupported or missing contract version header" in the status description.
+            {% endapi-method-parameter %}
 
-## Query string parameters <a id="ID4ETB"></a>
+            {% api-method-parameter name="Content-Type" type="string" required=true %}
+            Specifies whether the content of request/response bodies will be in json or xml. Supported values are "application/json" and "application/xml"
+            {% endapi-method-parameter %}
 
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| skipItems | 32-bit signed integer | Optional. Number of items to skip in the enumeration before returning results. Default value: 0. |
-| maxItems | 32-bit signed integer | Optional. Maximum number of items to return. The default is 25 items if no maximum is specified in the request. The service does not place a maximum on this value; if the value is greater than the number of items in the list, then all items will be returned with no error. |
-| filterItemId | string | Optional. Specifies the item to find in the list. Returns all instances of the item in the list. Allows the client to quickly determine if and where an item is in a list. Handy for large lists to determine all instances of an item without iterating through the entire list. Default value: null. |
-| filterContentType | string | Optional. Specifies a comma-separated list of content types to return \(will not return types not in the list\). Used to only get certain content types from a list. A comma-separated list of content types is used for this filter. \(Multiple content types can be queried in one call.\) Content types supported include all the media types defined by Entertainment Discovery Services \(EDS\). Default value: null \(all content types\). |
-| filterDeviceType | string | Optional. Specifies a comma-separated list of device types to return \(will not return types not in the list\). Filters the return set to only return items which have been inserted from a specific set of device types. A comma-separated list of device types is used for this filter \(multiple device types can be queried in one call\). Possible values: XboxOne, MCapensis, WindowsPhone, WindowsPhone7, Web, PC, MoLive. Default value: null \(all content types\). |
-
-## Authorization <a id="ID4ESD"></a>
-
-This call expects an XSTS SAML token in the **Authorization** header. A Xuid claim must exist within that SAML token to identify the caller. This value is used to determine if the caller has access rights to the list data in question. The list itself will be identified by the Xuid as well and will be included in the URI for the list. Using this, we may in the future support shared access to lists, but that is not a feature at this time. Currently, all lists that a user accesses will be their own and there is no shared access. Thus the Xuid in the URI must match the Xuid in the SAML claims token.
-
-> \[!NOTE\] Both XBL Auth 2.0 and 3.0 tokens are supported at present.
-
-## Required Request Headers <a id="ID4E6D"></a>
-
-| Header | Description |
-| :--- | :--- |
-| Authorization | Contains the STS token used to authenticate and authorize the request. Must be a token from XSTS service and include the XUID as one of the claims. |
-| X-XBL-Contract-Version | Specifies which API version is being requested \(positive integers\). Pins supports version 2. If this header is missing or the value is not supported then the service will return a 400 – Bad request with "Unsupported or missing contract version header" in the status description. |
-| Content-Type | Specifies whether the content of request/response bodies will be in json or xml. Supported values are "application/json" and "application/xml" |
-| If-Match | This header must contain the current version number of a list when making modify requests. Modify requests use PUT, POST, or DELETE verbs. If the version in the "If-Match" header does not match the current version of the list, the request will be rejected with an HTTP 412 – precondition failed return code. \(optional\) Can also be used for GETs, if present and the passed in version matches the current list version then no list data and an HTTP 304 – Not Modified code will be returned. |
-
-## Request body <a id="ID4EVF"></a>
-
-No objects are sent in the body of this request.
-
-## HTTP status codes <a id="ID4EAG"></a>
-
-The service returns one of the status codes in this section in response to a request made with this method on this resource. For a complete list of standard HTTP status codes used with Xbox Live Services, see [Standard HTTP status codes](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/httpstatuscodes.md).
-
-| Code | Reason phrase | Description |
-| :--- | :--- | :--- |
-| 200 | OK | The request completed successfully. The response body should contain the requested resource \(for a GET\). POST and PUT requests will receive up-to-date list metadata \(list version, count, etc.\). |
-| 201 | Created | A new list has been created. This is returned on the initial insert to a list. The response includes up-to-date metadata on the list and the location header contains the URI for the list. |
-| 304 | Not Modified | Returned on GETs. Indicates that the client has the latest version of the list. The service compares the value in the **If-Match** header to the list version. If they are equal, then a 304 gets returned with no data. |
-| 400 | Bad Request | The request was malformed. Could be an invalid value or type for a URI or query string parameter. Can also be the result of a missing required parameter or data value, or the request indicated a missing or invalid version of the API. See the **X-XBL-Contract-Version** header. |
-| 401 | Unauthorized | The request requires user authentication. |
-| 403 | Forbidden | The request is not allowed for the user or service. |
-| 404 | Not Found | The caller does not have access to the resource. This indicates that no such list has been created. |
-| 412 | Precondition Failed | Indicates that the version of the list has changed and a modify request has failed. A modify request is an insert, update, or remove. The service checks the **If-Match** header for the list version. If it does not match the current version of the list, then the operation fails and this is returned along with the current list metadata \(which includes the current version\). |
-| 500 | Internal Server Error | The service is refusing the request due to a server-side error. |
-| 501 | Not Implemented | The caller requested a URI that has not been implemented on the server. \(Currently only used when a request is made for a list name that is not allow listed.\) |
-| 503 | Service Unavailable | The server is refusing the request, usually due to excessive load. After a delay \(see the **Retry-after** header\), the request can be retried. |
-
-## Response body <a id="ID4E5CAC"></a>
-
-### Sample response <a id="ID4EEDAC"></a>
-
-```cpp
-{ 
+            {% api-method-parameter name="If-Match" type="string" required=true %}
+            This header must contain the current version number of a list when making modify requests. Modify requests use PUT, POST, or DELETE verbs. If the version in the "If-Match" header does not match the current version of the list, the request will be rejected with an HTTP 412 – precondition failed return code. (optional) Can also be used for GETs, if present and the passed in version matches the current list version then no list data and an HTTP 304 – Not Modified code will be returned.
+            {% endapi-method-parameter %}
+        {% endapi-method-headers %}
+{% endapi-method-request %}
+        {% api-method-response %}
+        
+        {% api-method-response-example httpCode=200 %}
+        {% api-method-response-example-description %}
+        
+        {% endapi-method-response-example-description %}
+        
+        ```text
+        { 
 "ListMetadata":
   {"ListVersion": 12,
    "ListCount": 6,
@@ -119,17 +103,11 @@ The service returns one of the status codes in this section in response to a req
     }
   }]
 }
-```
+         
 
-## See also <a id="ID4EODAC"></a>
-
-#### Parent <a id="ID4EQDAC"></a>
-
-[/users/xuid\(xuid\)/lists/PINS/{listname}](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/lists/uri-usersxuidlistspinslistname.md)
-
-#### Further Information <a id="ID4E1DAC"></a>
-
-[Marketplace URIs](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/marketplace/atoc-reference-marketplace.md)
-
-[Additional Reference](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/atoc-xboxlivews-reference-additional.md)
-
+        ```
+        {% endapi-method-response-example %}
+        {% endapi-method-response %}
+        
+        {% endapi-method-spec %}
+        {% endapi-method %}

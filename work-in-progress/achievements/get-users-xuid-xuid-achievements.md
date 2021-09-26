@@ -1,77 +1,78 @@
----
-ms.localizationpriority: medium
-ms.topic: article
-keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
-assetID: 381d49d1-7a4b-4a1e-1baf-cf674f7e0d54
-permalink: en-us/docs/xboxlive/rest/uri-achievementsusersxuidachievementsgetv2.html
-ms.date: 10/12/2017
-title: 'GET (/users/xuid({xuid})/achievements)'
-description: 'GET (/users/xuid({xuid})/achievements)'
----
+# GET /users/xuid({xuid})/achievements
 
-# GET \(/users/xuid\({xuid}\)/achievements\)
+{% api-method method="get" host="https://achievements.xboxlive.com" path="/users/xuid({xuid})/achievements" %}
+        {% api-method-description %}
+        Gets the list of achievements defined on the title, those unlocked by the user, or those the user has in progress. The domain for these URIs is 
+        {% endapi-method-description %}
+        {% api-method-summary %}
+        Gets the list of achievements defined on the title, those unlocked by the user, or those the user has in progress. The domain for these URIs is 
+        {% endapi-method-summary %}
+        {% api-method-spec %}
+        {% api-method-request %}
+        {% api-method-path-parameters %}
+        
+            {% api-method-parameter name="xuid" type="string" required=true %}
+            Xbox User ID (XUID) of the user whose (resource) is being accessed. Must match the XUID of the authenticated user.
+            {% endapi-method-parameter %}
+        {% endapi-method-path-parameters %}
+        {% api-method-query-parameters %}
+        
+            {% api-method-parameter name="skipItems" type="string" required=false %}
+            Return items beginning after the given number of items. For example, 
+            {% endapi-method-parameter %}
 
-Gets the list of achievements defined on the title, those unlocked by the user, or those the user has in progress. The domain for these URIs is `achievements.xboxlive.com`.
+            {% api-method-parameter name="continuationToken" type="string" required=false %}
+            Return the items starting at the given continuation token.
+            {% endapi-method-parameter %}
 
-* [URI parameters](get-users-xuid-xuid-achievements.md#ID4EX)
-* [Query string parameters](get-users-xuid-xuid-achievements.md#ID4ECB)
-* [Authorization](get-users-xuid-xuid-achievements.md#ID4ENF)
-* [Required Request Headers](get-users-xuid-xuid-achievements.md#ID4ESG)
-* [Optional Request Headers](get-users-xuid-xuid-achievements.md#ID4ESH)
-* [Request body](get-users-xuid-xuid-achievements.md#ID4EIBAC)
-* [Response body](get-users-xuid-xuid-achievements.md#ID4ETBAC)
+            {% api-method-parameter name="maxItems" type="string" required=false %}
+            Maximum number of items to return from the collection, which can be combined with 
+            {% endapi-method-parameter %}
 
-## URI parameters <a id="ID4EX"></a>
+            {% api-method-parameter name="titleId" type="string" required=false %}
+            A filter for the returned results. Accepts one or more comma-delimited, decimal title identifiers.
+            {% endapi-method-parameter %}
 
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| xuid | 64-bit unsigned integer | Xbox User ID \(XUID\) of the user whose \(resource\) is being accessed. Must match the XUID of the authenticated user. |
+            {% api-method-parameter name="unlockedOnly" type="string" required=false %}
+            Filter for the returned results. If set to 
+            {% endapi-method-parameter %}
 
-## Query string parameters <a id="ID4ECB"></a>
+            {% api-method-parameter name="possibleOnly" type="string" required=false %}
+            Filter for the returned results. If set to 
+            {% endapi-method-parameter %}
 
-| Parameter | Required | Type | Description |
-| :--- | :--- | :--- | :--- |
-| **skipItems** | No | 32-bit signed integer | Return items beginning after the given number of items. For example, **skipItems="3"** will retrieve items beginning with the fourth item retrieved. |
-| **continuationToken** | No | string | Return the items starting at the given continuation token. |
-| **maxItems** | No | 32-bit signed integer | Maximum number of items to return from the collection, which can be combined with **skipItems** and **continuationToken** to return a range of items. The service may provide a default value if **maxItems** is not present, and may return fewer than **maxItems**, even if the last page of results has not yet been returned. |
-| **titleId** | No | string | A filter for the returned results. Accepts one or more comma-delimited, decimal title identifiers. |
-| **unlockedOnly** | No | Boolean value | Filter for the returned results. If set to **true**, will only return the achievements unlocked for the user. Defaults to **false**. |
-| **possibleOnly** | No | Boolean value | Filter for the returned results. If set to **true**, will return all possible results but not unlocked metadata - just the achievement information from XMS. Defaults to **false**. |
-| **types** | No | string | A filter for the returned results. Can be "Persistent" or "Challenge". Default is all supported types. |
-| **orderBy** | No | string | Specifies the order in which to return the results. Can be "Unordered", "Title", "UnlockTime", or "EndingSoon". The default is "Unordered". |
+            {% api-method-parameter name="types" type="string" required=false %}
+            A filter for the returned results. Can be "Persistent" or "Challenge". Default is all supported types.
+            {% endapi-method-parameter %}
 
-## Authorization <a id="ID4ENF"></a>
+            {% api-method-parameter name="orderBy" type="string" required=false %}
+            Specifies the order in which to return the results. Can be "Unordered", "Title", "UnlockTime", or "EndingSoon". The default is "Unordered".
+            {% endapi-method-parameter %}
+        {% endapi-method-query-parameters %}
+        {% api-method-headers %}
+        
+            {% api-method-parameter name="X-RequestedServiceVersion" type="string" required=true %}
+            Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, etc. Default value: 1.
+            {% endapi-method-parameter %}
 
-| Claim | Required? | Description | Behavior if missing |
-| :--- | :--- | :--- | :--- |
-| User | Caller is an authorized Xbox LIVE user. | The caller needs to be a valid user on Xbox LIVE. | 403 Forbidden |
+            {% api-method-parameter name="x-xbl-contract-version" type="string" required=true %}
+            If present and set to 2, the V2 version of this API will be used. Otherwise, V1.
+            {% endapi-method-parameter %}
 
-## Required Request Headers <a id="ID4ESG"></a>
-
-| Header | Type | Description |
-| :--- | :--- | :--- |
-| Authorization | string | Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=&lt;userhash&gt;;&lt;token&gt;". |
-
-## Optional Request Headers <a id="ID4ESH"></a>
-
-| Header | Type | Description |
-| :--- | :--- | :--- |
-| **X-RequestedServiceVersion** | string | Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, etc. Default value: 1. |
-| **x-xbl-contract-version** | 32-bit unsigned integer | If present and set to 2, the V2 version of this API will be used. Otherwise, V1. |
-| **Accept-Language** | string | List of desired locales and fallbacks \(e.g., fr-FR, fr, en-GB, en-WW, en-US\). The Achievements service will work through the list until it finds matching localized strings. If none are found, it attempts to match the location defined in the user token, which comes from the user's IP address. If still no matching localized strings are found, it uses the default strings provided by the title developer/publisher. |
-
-## Request body <a id="ID4EIBAC"></a>
-
-No objects are sent in the body of this request.
-
-## Response body <a id="ID4ETBAC"></a>
-
-If the call is successful, the service returns an array of [Achievement \(JSON\)](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/json/json-achievementv2.md) objects and a [PagingInfo \(JSON\)](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/json/json-paginginfo.md) object.
-
-### Sample response <a id="ID4ECCAC"></a>
-
-```cpp
-{
+            {% api-method-parameter name="Accept-Language" type="string" required=true %}
+            List of desired locales and fallbacks (e.g., fr-FR, fr, en-GB, en-WW, en-US). The Achievements service will work through the list until it finds matching localized strings. If none are found, it attempts to match the location defined in the user token, which comes from the user's IP address. If still no matching localized strings are found, it uses the default strings provided by the title developer/publisher.
+            {% endapi-method-parameter %}
+        {% endapi-method-headers %}
+{% endapi-method-request %}
+        {% api-method-response %}
+        
+        {% api-method-response-example httpCode=200 %}
+        {% api-method-response-example-description %}
+        
+        {% endapi-method-response-example-description %}
+        
+        ```text
+        {
     "achievements":
     [{
         "id":"3",
@@ -133,19 +134,11 @@ If the call is successful, the service returns an array of [Achievement \(JSON\)
                 "totalRecords":1
         }
 }
-```
+         
 
-## See also <a id="ID4EPCAC"></a>
-
-#### Parent <a id="ID4ERCAC"></a>
-
-[/users/xuid\({xuid}\)/achievements](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/achievements/uri-achievementsusersxuidachievementsv2.md)
-
-#### Reference <a id="ID4E2CAC"></a>
-
-[Achievement \(JSON\)](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/json/json-achievementv2.md)
-
-[PagingInfo \(JSON\)](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/json/json-paginginfo.md)
-
-[Paging Parameters](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/pagingparameters.md)
-
+        ```
+        {% endapi-method-response-example %}
+        {% endapi-method-response %}
+        
+        {% endapi-method-spec %}
+        {% endapi-method %}

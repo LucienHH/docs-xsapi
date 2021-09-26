@@ -1,50 +1,40 @@
----
-ms.localizationpriority: medium
-ms.topic: article
-keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
-assetID: 7c509af1-8dce-f419-c4de-2fad54fd1edb
-permalink: en-us/docs/xboxlive/rest/uri-localecrossmediagroupsearchget.html
-ms.date: 10/12/2017
-title: 'GET (/media/{marketplaceId}/crossMediaGroupSearch)'
-description: 'GET (/media/{marketplaceId}/crossMediaGroupSearch)'
----
+# GET /media/{marketplaceId}/crossMediaGroupSearch
 
-# GET \(/media/{marketplaceId}/crossMediaGroupSearch\)
+{% api-method method="get" host="https://eds.xboxlive.com" path="/media/{marketplaceId}/crossMediaGroupSearch" %}
+        {% api-method-description %}
+        Gets items from several different media groups. The domain for these URIs is 
+        {% endapi-method-description %}
+        {% api-method-summary %}
+        Gets items from several different media groups. The domain for these URIs is 
+        {% endapi-method-summary %}
+        {% api-method-spec %}
+        {% api-method-request %}
+        {% api-method-path-parameters %}
+        
+            {% api-method-parameter name="marketplaceId" type="string" required=true %}
+            Required. String value obtained from the 
+            {% endapi-method-parameter %}
+        {% endapi-method-path-parameters %}
+        {% api-method-query-parameters %}
+        
+            {% api-method-parameter name="continuationToken" type="string" required=false %}
+            Optional. See the ContinuationToken parameter.
+            {% endapi-method-parameter %}
 
-Gets items from several different media groups. The domain for these URIs is `eds.xboxlive.com`.
-
-* [Remarks](get-media-marketplaceid-crossmediagroupsearch.md#ID4EV)
-* [URI parameters](get-media-marketplaceid-crossmediagroupsearch.md#ID4EEB)
-* [Query string parameters](get-media-marketplaceid-crossmediagroupsearch.md#ID4EPB)
-* [Response body](get-media-marketplaceid-crossmediagroupsearch.md#ID4ETC)
-
-## Remarks <a id="ID4EV"></a>
-
-The cross-group API allows clients to search for items from several different media groups. This API requires the use of a forward-only continuation token for paging through results. This API accepts Query Refiners.
-
-**SandboxId** is now retrieved from the claim in the XToken and enforced. If the **SandboxId** is not present, then Entertainment Discovery Services \(EDS\) will throw a 400 Bad request error.
-
-## URI parameters <a id="ID4EEB"></a>
-
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| marketplaceId | string | Required. String value obtained from the **Windows.Xbox.ApplicationModel.Store.Configuration.MarketplaceId**. |
-
-## Query string parameters <a id="ID4EPB"></a>
-
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| continuationToken | string | Optional. See the ContinuationToken parameter. |
-| q | string | Required. Query term used in search. |
-
-## Response body <a id="ID4ETC"></a>
-
-### Sample response <a id="ID4EZC"></a>
-
-The JSON code below is in response to the call `/media/en-us/crossMediaGroupSearch?q=vector&maxItems=25&fields=all`.
-
-```cpp
-{
+            {% api-method-parameter name="q" type="string" required=false %}
+            Required. Query term used in search.
+            {% endapi-method-parameter %}
+        {% endapi-method-query-parameters %}
+{% endapi-method-request %}
+        {% api-method-response %}
+        
+        {% api-method-response-example httpCode=200 %}
+        {% api-method-response-example-description %}
+        
+        {% endapi-method-response-example-description %}
+        
+        ```text
+        {
     "Items": [{
         "MediaGroup": "GameType",
         "MediaItemType": "DGame",
@@ -176,23 +166,11 @@ The JSON code below is in response to the call `/media/en-us/crossMediaGroupSear
     "ContinuationToken": "1-----1",
     "ImpressionGuid": "9e41e6e4-1b2e-4710-abe4-b01ffbaa7605"
 }
-```
+         
 
-## See also <a id="ID4EID"></a>
-
-#### Parent <a id="ID4EKD"></a>
-
-[/media/{marketplaceId}/crossMediaGroupSearch](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/marketplace/uri-localecrossmediagroupsearch.md)
-
-#### Further Information <a id="ID4EUD"></a>
-
-[EDS Common Headers](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edscommonheaders.md)
-
-[EDS Parameters](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edsparameters.md)
-
-[EDS Query Refiners](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edsqueryrefiners.md)
-
-[Marketplace URIs](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/marketplace/atoc-reference-marketplace.md)
-
-[Additional Reference](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/atoc-xboxlivews-reference-additional.md)
-
+        ```
+        {% endapi-method-response-example %}
+        {% endapi-method-response %}
+        
+        {% endapi-method-spec %}
+        {% endapi-method %}

@@ -1,97 +1,58 @@
----
-ms.localizationpriority: medium
-ms.topic: article
-keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
-assetID: c97ef943-8bea-8a41-90d7-faea874284c8
-permalink: en-us/docs/xboxlive/rest/uri-usersxuidget.html
-ms.date: 10/12/2017
-title: 'GET (/users/xuid({xuid}))'
-description: 'GET (/users/xuid({xuid}))'
----
+# GET /users/xuid({xuid})
 
-# GET \(/users/xuid\({xuid}\)\)
+{% api-method method="get" host="https://userpresence.xboxlive.com" path="/users/xuid({xuid})" %}
+        {% api-method-description %}
+        Discover the presence of another user or client. The domain for these URIs is 
+        {% endapi-method-description %}
+        {% api-method-summary %}
+        Discover the presence of another user or client. The domain for these URIs is 
+        {% endapi-method-summary %}
+        {% api-method-spec %}
+        {% api-method-request %}
+        {% api-method-path-parameters %}
+        
+            {% api-method-parameter name="xuid" type="string" required=true %}
+            Xbox User ID (XUID) of the target user.
+            {% endapi-method-parameter %}
+        {% endapi-method-path-parameters %}
+        {% api-method-query-parameters %}
+        
+            {% api-method-parameter name="level" type="string" required=false %}
+            Optional. 
+            {% endapi-method-parameter %}
+        {% endapi-method-query-parameters %}
+        {% api-method-headers %}
+        
+            {% api-method-parameter name="Authorization" type="string" required=true %}
+            Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=
+            {% endapi-method-parameter %}
 
-Discover the presence of another user or client. The domain for these URIs is `userpresence.xboxlive.com`.
+            {% api-method-parameter name="x-xbl-contract-version" type="string" required=true %}
+            Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Example values: 3, vnext.
+            {% endapi-method-parameter %}
 
-* [Remarks](get-users-xuid-xuid.md#ID4EV)
-* [URI parameters](get-users-xuid-xuid.md#ID4EDB)
-* [Query string parameters](get-users-xuid-xuid.md#ID4EOB)
-* [Authorization](get-users-xuid-xuid.md#ID4E4C)
-* [Effect of privacy settings on resource](get-users-xuid-xuid.md#ID4EAE)
-* [Required Request Headers](get-users-xuid-xuid.md#ID4EVH)
-* [Optional Request Headers](get-users-xuid-xuid.md#ID4E1BAC)
-* [Request body](get-users-xuid-xuid.md#ID4E1CAC)
-* [Response body](get-users-xuid-xuid.md#ID4EFDAC)
+            {% api-method-parameter name="Accept" type="string" required=true %}
+            Content-Types that are acceptable. The only one supported by Presence is application/json, but it must be specified in the header.
+            {% endapi-method-parameter %}
 
-## Remarks <a id="ID4EV"></a>
+            {% api-method-parameter name="Accept-Language" type="string" required=true %}
+            Acceptable locale for strings in the response. Example values: en-US.
+            {% endapi-method-parameter %}
 
-The response can be filtered to provide part of the [PresenceRecord](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/json/json-presencerecord.md) if the consumer is not interested in the entire object.
-
-> \[!NOTE\] The data returned is constrained by privacy and content isolation rules.
-
-## URI parameters <a id="ID4EDB"></a>
-
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| xuid | 64-bit unsigned integer | Xbox User ID \(XUID\) of the target user. |
-
-## Query string parameters <a id="ID4EOB"></a>
-
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| level | string | Optional.  |
-
-## Authorization <a id="ID4E4C"></a>
-
-| Type | Required | Description | Response if missing |
-| :--- | :--- | :--- | :--- |
-| XUID | Yes | Xbox User ID \(XUID\) of the caller | 403 Forbidden |
-
-## Effect of privacy settings on resource <a id="ID4EAE"></a>
-
-This method always returns 200 OK, but might not return content in the response body.
-
-| Requesting User | Target User's Privacy Setting | Behavior |
-| :--- | :--- | :--- |
-| me | - | 200 OK |
-| friend | everyone | 200 OK |
-| friend | friends only | 200 OK |
-| friend | blocked | 200 OK |
-| non-friend user | everyone | 200 OK |
-| non-friend user | friends only | 200 OK |
-| non-friend user | blocked | 200 OK |
-| third-party site | everyone | 200 OK |
-| third-party site | friends only | 200 OK |
-| third-party site | blocked | 200 OK |
-
-## Required Request Headers <a id="ID4EVH"></a>
-
-| Header | Type | Description |
-| :--- | :--- | :--- |
-| Authorization | string | Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=&lt;userhash&gt;;&lt;token&gt;". |
-| x-xbl-contract-version | string | Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Example values: 3, vnext. |
-| Accept | string | Content-Types that are acceptable. The only one supported by Presence is application/json, but it must be specified in the header. |
-| Accept-Language | string | Acceptable locale for strings in the response. Example values: en-US. |
-| Host | string | Domain name of the server. Example value: presencebeta.xboxlive.com. |
-
-## Optional Request Headers <a id="ID4E1BAC"></a>
-
-| Header | Type | Description |
-| :--- | :--- | :--- |
-| X-RequestedServiceVersion |  | Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Default value: 1. |
-
-## Request body <a id="ID4E1CAC"></a>
-
-No objects are sent in the body of this request.
-
-## Response body <a id="ID4EFDAC"></a>
-
-### Sample response <a id="ID4ELDAC"></a>
-
-If there is no existing record for the user, a record with no devices is returned.
-
-```javascript
-{
+            {% api-method-parameter name="Host" type="string" required=true %}
+            Domain name of the server. Example value: presencebeta.xboxlive.com.
+            {% endapi-method-parameter %}
+        {% endapi-method-headers %}
+{% endapi-method-request %}
+        {% api-method-response %}
+        
+        {% api-method-response-example httpCode=200 %}
+        {% api-method-response-example-description %}
+        
+        {% endapi-method-response-example-description %}
+        
+        ```text
+        {
   xuid:"0123456789",
   state:"online",
   devices:
@@ -137,11 +98,10 @@ If there is no existing record for the user, a record with no devices is returne
     }]
   }]
 }
-```
 
-## See also <a id="ID4EXDAC"></a>
-
-#### Parent <a id="ID4EZDAC"></a>
-
-[/users/xuid\({xuid}\)](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/presence/uri-usersxuid.md)
-
+        ```
+        {% endapi-method-response-example %}
+        {% endapi-method-response %}
+        
+        {% endapi-method-spec %}
+        {% endapi-method %}

@@ -1,18 +1,18 @@
-# undefined /inventory/{itemID}
+# GET /media/{marketplaceId}/metadata/mediaItemTypes/{mediaitemtype}/queryrefiners/{queryRefiner}/subQueryRefinerValues
 
-{% api-method method="options" host="https://inventory.xboxlive.com" path="/inventory/{itemID}" %}
+{% api-method method="get" host="https://eds.xboxlive.com" path="/media/{marketplaceId}/metadata/mediaItemTypes/{mediaitemtype}/queryrefiners/{queryRefiner}/subQueryRefinerValues" %}
         {% api-method-description %}
-        Provides the full set of details for a specific inventory item. The domain for these URIs is 
+        Get the list of sub-values for a given query refiner value (e.g., "subgenres in a given genre"). The domain for these URIs is 
         {% endapi-method-description %}
         {% api-method-summary %}
-        Provides the full set of details for a specific inventory item. The domain for these URIs is 
+        Get the list of sub-values for a given query refiner value (e.g., "subgenres in a given genre"). The domain for these URIs is 
         {% endapi-method-summary %}
         {% api-method-spec %}
         {% api-method-request %}
         {% api-method-path-parameters %}
         
-            {% api-method-parameter name="itemID" type="string" required=true %}
-            the ID unique to each user for a singular inventory item
+            {% api-method-parameter name="marketplaceId" type="string" required=true %}
+            Required. String value obtained from the 
             {% endapi-method-parameter %}
         {% endapi-method-path-parameters %}
 {% endapi-method-request %}
@@ -24,9 +24,7 @@
         {% endapi-method-response-example-description %}
         
         ```text
-        {inventoryItem}
-         
-
+        
         ```
         {% endapi-method-response-example %}
         {% endapi-method-response %}

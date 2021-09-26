@@ -1,11 +1,11 @@
-# PUT /serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions/{sessionName}
+# DELETE /serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions/{sessionName}/servers/{server-name}
 
-{% api-method method="put" host="https://undefined" path="/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions/{sessionName}" %}
+{% api-method method="delete" host="https://undefined" path="/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions/{sessionName}/servers/{server-name}" %}
         {% api-method-description %}
-        Creates, updates, or joins a session.
+        Removes the specified server from a session.
         {% endapi-method-description %}
         {% api-method-summary %}
-        Creates, updates, or joins a session.
+        Removes the specified server from a session.
         {% endapi-method-summary %}
         {% api-method-spec %}
         {% api-method-request %}

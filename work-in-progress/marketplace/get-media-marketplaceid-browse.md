@@ -1,49 +1,30 @@
----
-ms.localizationpriority: medium
-ms.topic: article
-keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
-assetID: 024447a0-c615-e08b-f867-3b6c4c0db5dc
-permalink: en-us/docs/xboxlive/rest/uri-medialocalebrowseget.html
-ms.date: 10/12/2017
-title: 'GET (media/{marketplaceId}/browse)'
-description: 'GET (media/{marketplaceId}/browse)'
----
+# GET media/{marketplaceId}/browse
 
-# GET \(media/{marketplaceId}/browse\)
-
-Allows browsing for items within a single media group. The domain for these URIs is `eds.xboxlive.com`.
-
-* [Remarks](get-media-marketplaceid-browse.md#ID4EV)
-* [URI parameters](get-media-marketplaceid-browse.md#ID4EFB)
-* [Query string parameters](get-media-marketplaceid-browse.md#ID4EQB)
-* [Response body](get-media-marketplaceid-browse.md#ID4E6B)
-
-## Remarks <a id="ID4EV"></a>
-
-Pages of data returned from this search can be accessed non-sequentially using the skipItems parameter instead of using the continuation token. This API accepts Query Refiners.
-
-**SandboxId** is now retrieved from the claim in the XToken and enforced. If the **SandboxId** is not present, then Entertainment Discovery Services \(EDS\) will throw a 400 Bad request error.
-
-## URI parameters <a id="ID4EFB"></a>
-
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| marketplaceId | string | Required. String value obtained from the **Windows.Xbox.ApplicationModel.Store.Configuration.MarketplaceId**. |
-
-## Query string parameters <a id="ID4EQB"></a>
-
-This API accepts the following query parameters: combinedContentRating, desiredMediaItemTypes, fields, maxItems, preferredProvider, q, queryRefiners, skipItems, firstPartyOnly, freeOnly, hasTrailer, latestOnly, subscriptionLevel, and topRatedOnly.
-
-See [EDS Parameters](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edsparameters.md) for more information on these parameters.
-
-## Response body <a id="ID4E6B"></a>
-
-### Sample response <a id="ID4EFC"></a>
-
-The JSON code below is in response to the call `/media/en-us/browse?orderBy=releaseDate&desiredMediaItemTypes=DGame&fields=all`.
-
-```cpp
-{
+{% api-method method="get" host="https://eds.xboxlive.com" path="media/{marketplaceId}/browse" %}
+        {% api-method-description %}
+        Allows browsing for items within a single media group. The domain for these URIs is 
+        {% endapi-method-description %}
+        {% api-method-summary %}
+        Allows browsing for items within a single media group. The domain for these URIs is 
+        {% endapi-method-summary %}
+        {% api-method-spec %}
+        {% api-method-request %}
+        {% api-method-path-parameters %}
+        
+            {% api-method-parameter name="marketplaceId" type="string" required=true %}
+            Required. String value obtained from the 
+            {% endapi-method-parameter %}
+        {% endapi-method-path-parameters %}
+{% endapi-method-request %}
+        {% api-method-response %}
+        
+        {% api-method-response-example httpCode=200 %}
+        {% api-method-response-example-description %}
+        
+        {% endapi-method-response-example-description %}
+        
+        ```text
+        {
     "Items": [{
         "MediaGroup": "GameType",
         "MediaItemType": "DGame",
@@ -184,23 +165,11 @@ The JSON code below is in response to the call `/media/en-us/browse?orderBy=rele
     }],
     "ImpressionGuid": "5d3085cf-7d17-43b4-a9c1-a1ccfe764eb1"
 }
-```
+         
 
-## See also <a id="ID4EUC"></a>
-
-#### Parent <a id="ID4EWC"></a>
-
-[/media/{marketplaceId}/browse](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/marketplace/uri-medialocalebrowse.md)
-
-#### Further Information <a id="ID4EAD"></a>
-
-[EDS Common Headers](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edscommonheaders.md)
-
-[EDS Parameters](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edsparameters.md)
-
-[EDS Query Refiners](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/edsqueryrefiners.md)
-
-[Marketplace URIs](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/marketplace/atoc-reference-marketplace.md)
-
-[Additional Reference](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/atoc-xboxlivews-reference-additional.md)
-
+        ```
+        {% endapi-method-response-example %}
+        {% endapi-method-response %}
+        
+        {% endapi-method-spec %}
+        {% endapi-method %}

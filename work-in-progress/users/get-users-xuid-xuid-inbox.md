@@ -1,112 +1,44 @@
----
-ms.localizationpriority: medium
-ms.topic: article
-keywords: 'xbox live, xbox, games, uwp, windows 10, xbox one'
-assetID: c603910d-b430-f157-2634-ceddea89f2bd
-permalink: en-us/docs/xboxlive/rest/uri-usersxuidinboxget.html
-ms.date: 10/12/2017
-title: 'GET (/users/xuid({xuid})/inbox)'
-description: 'GET (/users/xuid({xuid})/inbox)'
----
+# GET /users/xuid({xuid})/inbox
 
-# GET \(/users/xuid\({xuid}\)/inbox\)
+{% api-method method="get" host="https://msg.xboxlive.com" path="/users/xuid({xuid})/inbox" %}
+        {% api-method-description %}
+        Retrieves a specified number of user message summaries from the service. The domain for these URIs is 
+        {% endapi-method-description %}
+        {% api-method-summary %}
+        Retrieves a specified number of user message summaries from the service. The domain for these URIs is 
+        {% endapi-method-summary %}
+        {% api-method-spec %}
+        {% api-method-request %}
+        {% api-method-path-parameters %}
+        
+            {% api-method-parameter name="xuid" type="string" required=true %}
+            The Xbox User ID (XUID) of the player who is making the request.
+            {% endapi-method-parameter %}
+        {% endapi-method-path-parameters %}
+        {% api-method-query-parameters %}
+        
+            {% api-method-parameter name="maxItems" type="string" required=false %}
+            Maximum number of messages returned.
+            {% endapi-method-parameter %}
 
-Retrieves a specified number of user message summaries from the service. The domain for these URIs is `msg.xboxlive.com`.
+            {% api-method-parameter name="continuationToken" type="string" required=false %}
+            String returned in a previous enumeration call; used to continue enumeration.
+            {% endapi-method-parameter %}
 
-* [Remarks](get-users-xuid-xuid-inbox.md#ID4EV)
-* [URI parameters](get-users-xuid-xuid-inbox.md#ID4EEB)
-* [Query string parameters](get-users-xuid-xuid-inbox.md#ID4EIC)
-* [Authorization](get-users-xuid-xuid-inbox.md#ID4EGE)
-* [Effect of privacy settings on resource](get-users-xuid-xuid-inbox.md#ID4ETE)
-* [HTTP status codes](get-users-xuid-xuid-inbox.md#ID4E5E)
-* [JavaScript Object Notation \(JSON\) Response](get-users-xuid-xuid-inbox.md#ID4EMH)
-
-## Remarks <a id="ID4EV"></a>
-
-A user message summary contains only the message subject. For user-generated messages, this is currently the first 20 characters of the message text. System messages may provide an alternate subject, such as "LIVE System".
-
-Messages are returned in the reverse of the order they were sent; that is, newer messages are returned first.
-
-The only content type this API supports is "application/json", which is required in the HTTP headers of each call.
-
-## URI parameters <a id="ID4EEB"></a>
-
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| xuid | unsigned 64-bit integer | The Xbox User ID \(XUID\) of the player who is making the request. |
-
-## Query string parameters <a id="ID4EIC"></a>
-
-| Property | Type | Maximum Length | Remarks |
-| :--- | :--- | :--- | :--- |
-| maxItems | int | 100 | Maximum number of messages returned. |
-| continuationToken | string |  | String returned in a previous enumeration call; used to continue enumeration. |
-| skipItems | int | 100 | Number of messages to skip; ignored if continuationToken is present. |
-
-## Authorization <a id="ID4EGE"></a>
-
-You must have your own user claim to retrieve a user message summary.
-
-## Effect of privacy settings on resource <a id="ID4ETE"></a>
-
-Only you can enumerate your own user messages.
-
-## HTTP status codes <a id="ID4E5E"></a>
-
-The service returns one of the status codes in this section in response to a request made with this method on this resource. For a complete list of standard HTTP status codes used with Xbox Live Services, see [Standard HTTP status codes](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/httpstatuscodes.md).
-
-| Code | Description |
-| :--- | :--- |
-| 200 | The request was successful. |
-| 400 | Service could not understand malformed request. Typically an invalid parameter. |
-| 403 | The request is not allowed for the user or service. |
-| 404 | A valid XUID is missing in the URI. |
-| 409 | The underlying collection changed based on the continuation token that was passed. |
-| 416 | The number of items to skip is larger than the number of available items. |
-| 500 | General server-side error. |
-
-## JavaScript Object Notation \(JSON\) Response <a id="ID4EMH"></a>
-
-If called successfully, the service returns the results data in a JSON format.
-
-| Property | Type | Maximum Length | Remarks |
-| :--- | :--- | :--- | :--- |
-| results | Message\[\] | 100 | Array of user messages |
-| pagingInfo | PagingInfo |  | Paging information for the current set of results |
-
-### Message
-
-| Property | Type | Maximum Length | Remarks |
-| :--- | :--- | :--- | :--- |
-| header | Header |  | User message header |
-| messageSummary | string | 20 | UTF-8; usually first 20 characters of message |
-
-### Header
-
-| Property | Type | Maximum Length | Remarks |
-| :--- | :--- | :--- | :--- |
-| id | string | 50 | Message identifier, used for retrieving message details or deleting messages. |
-| isRead | bool |  | Flag indicating that the user has already read the message details. |
-| sent | DateTime |  | UTC date and time the message was sent. \(Provided by the service.\) |
-| expiration | DateTime |  | UTC date and time the message expires. \(All messages have a maximum lifetime, to be determined in the future.\) |
-| messageType | string | 50 | Message types: User, System, FriendRequest, Video, QuickChat, VideoChat, PartyChat, Title, GameInvite. |
-| senderXuid | ulong |  | XUID of sender. |
-| sender | string | 15 | Gamertag of sender. |
-| hasAudio | bool |  | Whether the message has an audio \(voice\) attachment. |
-| hasPhoto | bool |  | Whether the message has a photo attachment. |
-| hasText | bool |  | Whether the message contains text. |
-
-### Paging Info
-
-| Property | Type | Maximum Length | Remarks |
-| :--- | :--- | :--- | :--- |
-| continuationToken | string | 100 | Optionally returned by server. Allows later calls to continue enumeration. |
-| totalItems | int |  | Total number of messages in inbox. |
-
-### Sample response
-
-```cpp
-{
+            {% api-method-parameter name="skipItems" type="string" required=false %}
+            Number of messages to skip; ignored if continuationToken is present.
+            {% endapi-method-parameter %}
+        {% endapi-method-query-parameters %}
+{% endapi-method-request %}
+        {% api-method-response %}
+        
+        {% api-method-response-example httpCode=200 %}
+        {% api-method-response-example-description %}
+        
+        {% endapi-method-response-example-description %}
+        
+        ```text
+        {
           "results":
           [
             {
@@ -133,23 +65,10 @@ If called successfully, the service returns the results data in a JSON format.
           "totalItems":5,
           }
         }
-```
 
-### Error Response
-
-In case of error, the service may return an errorResponse object, which may contain values from the environment of the service.
-
-| Property | Type | Description |
-| :--- | :--- | :--- |
-| errorSource | string | An indication of where the error originated. |
-| errorCode | int | Numeric code associated with the error \(can be null\). |
-| errorMessage | string | Details of the error if configured to show details. |
-
-## See also <a id="ID4EIKAC"></a>
-
-#### Parent <a id="ID4EKKAC"></a>
-
-[/users/xuid\({xuid}\)/inbox](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/work-in-progress/users/uri-usersxuidinbox.md)
-
-#### Reference  [Standard HTTP status codes](https://github.com/LucienHH/docs-xsapi/tree/8aaeb3d77dec37e3bd2a1d99ea913649665f2490/additional/httpstatuscodes.md) <a id="ID4EWKAC"></a>
-
+        ```
+        {% endapi-method-response-example %}
+        {% endapi-method-response %}
+        
+        {% endapi-method-spec %}
+        {% endapi-method %}
