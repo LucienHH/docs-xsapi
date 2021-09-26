@@ -2,18 +2,24 @@
 
 {% api-method method="get" host="https://userpresence.xboxlive.com" path="/users/me/groups/{moniker}" %}{% api-method-description %}
 Gets the PresenceRecord for my group. The domain for these URIs is 
-{% endapi-method-description %}{% api-method-summary %}
-Gets the PresenceRecord for my group. The domain for these URIs is 
-{% endapi-method-summary %}{% api-method-spec %}
-{% api-method-request %}{% api-method-path-parameters %}
+{% endapi-method-description %}
+{% api-method-summary %}
+undefined
+{% endapi-method-summary %}
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-path-parameters %}
 {% api-method-parameter name="moniker" type="string" required=true %}
 String defining the group of users. The only accepted moniker at present is "People" with an uppercase 'P'.
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}{% api-method-query-parameters %}
+{% endapi-method-path-parameters %}
+{% api-method-query-parameters %}
 {% api-method-parameter name="level" type="string" required=false %}
 Returns the level of detail as specified by this query string. Valid options include "user", "device", "title", and "all".The level "user" is the PresenceRecord object without the DeviceRecord nested object. The level "device" is the PresenceRecord and DeviceRecord objects without the TitleRecord nested object. The level "title" is the PresenceRecord, DeviceRecord, and TitleRecord objects without the ActivityRecord nested object. The level "all" is the entire record, including all nested objects.If this parameter is not provided, the service defaults to the title level (that is, it returns presence for this user down to the details of title).
 {% endapi-method-parameter %}
-{% endapi-method-query-parameters %}{% api-method-headers %}
+{% endapi-method-query-parameters %}
+{% api-method-headers %}
 {% api-method-parameter name="Authorization" type="string" required=true %}
 Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=
 {% endapi-method-parameter %}
@@ -30,7 +36,8 @@ Acceptable locale for strings in the response. Example value: en-US.
 Domain name of the server. Example value: userpresence.xboxlive.com.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
-{% endapi-method-request %}{% api-method-response %}
+{% endapi-method-request %}
+{% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
@@ -111,8 +118,8 @@ Domain name of the server. Example value: userpresence.xboxlive.com.
      }
  ]
          
-
 ```
 {% endapi-method-response-example %}
-{% endapi-method-response %}{% endapi-method-spec %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
 {% endapi-method %}

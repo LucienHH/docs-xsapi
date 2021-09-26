@@ -2,17 +2,22 @@
 
 {% api-method method="post" host="https://undefined" path="/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/batch" %}{% api-method-description %}
 Creates a batch query on multiple Xbox user IDs.
-{% endapi-method-description %}{% api-method-summary %}
-Creates a batch query on multiple Xbox user IDs.
-{% endapi-method-summary %}{% api-method-spec %}
-{% api-method-request %}{% api-method-path-parameters %}
+{% endapi-method-description %}
+{% api-method-summary %}
+undefined
+{% endapi-method-summary %}
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-path-parameters %}
 {% api-method-parameter name="scid" type="string" required=true %}
 Service configuration identifier (SCID). Part 1 of the session identifier.
 {% endapi-method-parameter %}
 {% api-method-parameter name="sessionTemplateName" type="string" required=true %}
 Name of the current instance of the session template. Part 2 of the session identifier.
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}{% api-method-query-parameters %}
+{% endapi-method-path-parameters %}
+{% api-method-query-parameters %}
 {% api-method-parameter name="keyword" type="string" required=false %}
 A keyword, for example, "foo", that must be found in sessions or templates if they are to be retrieved.
 {% endapi-method-parameter %}
@@ -38,15 +43,16 @@ The maximum session version that should be included. For example, a value of 2 s
 The maximum number of sessions to retrieve. This number must be between 0 and 100.
 {% endapi-method-parameter %}
 {% endapi-method-query-parameters %}
-{% endapi-method-request %}{% api-method-response %}
+{% endapi-method-request %}
+{% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
 {% endapi-method-response-example-description %}
 
 ```text
-
 ```
 {% endapi-method-response-example %}
-{% endapi-method-response %}{% endapi-method-spec %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
 {% endapi-method %}

@@ -2,14 +2,19 @@
 
 {% api-method method="post" host="https://social.xboxlive.com" path="/users/{ownerId}/people/xuids" %}{% api-method-description %}
 Gets people by XUID from caller's people collection. The domain for these URIs is 
-{% endapi-method-description %}{% api-method-summary %}
-Gets people by XUID from caller's people collection. The domain for these URIs is 
-{% endapi-method-summary %}{% api-method-spec %}
-{% api-method-request %}{% api-method-path-parameters %}
+{% endapi-method-description %}
+{% api-method-summary %}
+undefined
+{% endapi-method-summary %}
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-path-parameters %}
 {% api-method-parameter name="ownerId" type="string" required=true %}
 Identifier of the user whose resource is being accessed. Must match the authenticated user. The possible values are "me", xuid({xuid}), or gt({gamertag}).
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}{% api-method-headers %}
+{% endapi-method-path-parameters %}
+{% api-method-headers %}
 {% api-method-parameter name="Authorization" type="string" required=true %}
 String. Authorization data for Xbox LIVE. This is typically an encrypted XSTS token. Example value: 
 {% endapi-method-parameter %}
@@ -26,7 +31,8 @@ Build name/number of the Xbox LIVE service to which this request should be direc
 String. Content-Types that the caller accepts in the response. All responses are 
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
-{% endapi-method-request %}{% api-method-response %}
+{% endapi-method-request %}
+{% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
@@ -56,11 +62,12 @@ String. Content-Types that the caller accepts in the response. All responses are
     "totalCount": 3
 }
          
-
 ```
 {% endapi-method-response-example %}
-{% endapi-method-response %}{% endapi-method-spec %}
-{% endapi-method %}```text
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+```text
 # Sample Request
 
 {

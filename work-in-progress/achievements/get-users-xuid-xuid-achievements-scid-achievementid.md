@@ -2,10 +2,14 @@
 
 {% api-method method="get" host="https://achievements.xboxlive.com" path="/users/xuid({xuid})/achievements/{scid}/{achievementid}" %}{% api-method-description %}
 Gets the details of the Achievement. The domain for these URIs is 
-{% endapi-method-description %}{% api-method-summary %}
-Gets the details of the Achievement. The domain for these URIs is 
-{% endapi-method-summary %}{% api-method-spec %}
-{% api-method-request %}{% api-method-path-parameters %}
+{% endapi-method-description %}
+{% api-method-summary %}
+undefined
+{% endapi-method-summary %}
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-path-parameters %}
 {% api-method-parameter name="xuid" type="string" required=true %}
 Xbox User ID (XUID) of the user whose resource is being accessed. Must match the XUID of the authenticated user.
 {% endapi-method-parameter %}
@@ -15,7 +19,8 @@ Unique identifier of the service configuration whose achievement is being access
 {% api-method-parameter name="achievementid" type="string" required=true %}
 Unique (within the specified SCID) identifier of the achievement that is being accessed.
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}{% api-method-headers %}
+{% endapi-method-path-parameters %}
+{% api-method-headers %}
 {% api-method-parameter name="X-RequestedServiceVersion" type="string" required=true %}
 Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Default value: 1.
 {% endapi-method-parameter %}
@@ -26,7 +31,8 @@ Defaults to V1.
 List of desired locales and fallbacks (e.g., fr-FR, fr, en-GB, en-WW, en-US). The Achievements service will work through the list until it finds matching localized strings. If none are found, it attempts to match the location defined in the user token, which comes from the user's IP address. If still no matching localized strings are found, it uses the default strings provided by the title developer/publisher.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
-{% endapi-method-request %}{% api-method-response %}
+{% endapi-method-request %}
+{% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
@@ -90,8 +96,8 @@ List of desired locales and fallbacks (e.g., fr-FR, fr, en-GB, en-WW, en-US). Th
     }
 }
          
-
 ```
 {% endapi-method-response-example %}
-{% endapi-method-response %}{% endapi-method-spec %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
 {% endapi-method %}

@@ -2,10 +2,14 @@
 
 {% api-method method="put" host="https://titlestorage.xboxlive.com" path="/json/users/xuid({xuid})/scids/{scid}/data/{pathAndFileName},json" %}{% api-method-description %}
 Uploads a file. Multi-block upload is not supported for data of type json. The domain for these URIs is 
-{% endapi-method-description %}{% api-method-summary %}
-Uploads a file. Multi-block upload is not supported for data of type json. The domain for these URIs is 
-{% endapi-method-summary %}{% api-method-spec %}
-{% api-method-request %}{% api-method-path-parameters %}
+{% endapi-method-description %}
+{% api-method-summary %}
+undefined
+{% endapi-method-summary %}
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-path-parameters %}
 {% api-method-parameter name="xuid" type="string" required=true %}
 The Xbox User ID (XUID) of the player who making the request.
 {% endapi-method-parameter %}
@@ -15,7 +19,8 @@ the ID of the service config to look up.
 {% api-method-parameter name="pathAndFileName" type="string" required=true %}
 Path and file name for the item to be accessed. Valid characters for the path portion (up to and including the final forward slash) include uppercase letters (A-Z), lowercase letters (a-z), numbers (0-9), underscore (
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}{% api-method-headers %}
+{% endapi-method-path-parameters %}
+{% api-method-headers %}
 {% api-method-parameter name="x-xbl-contract-version" type="string" required=true %}
 API contract version.
 {% endapi-method-parameter %}
@@ -29,15 +34,16 @@ Specifies an ETag that must match an exisitng item to complete the operation.
 Specifies an ETag that must not match any exisitng items to complete the operation.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
-{% endapi-method-request %}{% api-method-response %}
+{% endapi-method-request %}
+{% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
 {% endapi-method-response-example-description %}
 
 ```text
-
 ```
 {% endapi-method-response-example %}
-{% endapi-method-response %}{% endapi-method-spec %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
 {% endapi-method %}

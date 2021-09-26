@@ -2,10 +2,14 @@
 
 {% api-method method="get" host="https://eplists.xboxlive.com" path="/users/xuid(xuid)/lists/PINS/{listname}" %}{% api-method-description %}
 Returns the contents of a list. The domain for these URIs is 
-{% endapi-method-description %}{% api-method-summary %}
-Returns the contents of a list. The domain for these URIs is 
-{% endapi-method-summary %}{% api-method-spec %}
-{% api-method-request %}{% api-method-path-parameters %}
+{% endapi-method-description %}
+{% api-method-summary %}
+undefined
+{% endapi-method-summary %}
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-path-parameters %}
 {% api-method-parameter name="xuid" type="string" required=true %}
 Xbox User ID (XUID).
 {% endapi-method-parameter %}
@@ -15,7 +19,8 @@ Type of the list (how it is used and how it acts). Always "PINS" for these relat
 {% api-method-parameter name="listname" type="string" required=true %}
 Name of the list (which list of a given listtype to act on). Always "XBLPins" for items in Pins.
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}{% api-method-query-parameters %}
+{% endapi-method-path-parameters %}
+{% api-method-query-parameters %}
 {% api-method-parameter name="skipItems" type="string" required=false %}
 Optional. Number of items to skip in the enumeration before returning results. Default value: 0.
 {% endapi-method-parameter %}
@@ -31,7 +36,8 @@ Optional. Specifies a comma-separated list of content types to return (will not 
 {% api-method-parameter name="filterDeviceType" type="string" required=false %}
 Optional. Specifies a comma-separated list of device types to return (will not return types not in the list). Filters the return set to only return items which have been inserted from a specific set of device types. A comma-separated list of device types is used for this filter (multiple device types can be queried in one call). Possible values: XboxOne, MCapensis, WindowsPhone, WindowsPhone7, Web, PC, MoLive. Default value: null (all content types).
 {% endapi-method-parameter %}
-{% endapi-method-query-parameters %}{% api-method-headers %}
+{% endapi-method-query-parameters %}
+{% api-method-headers %}
 {% api-method-parameter name="Authorization" type="string" required=true %}
 Contains the STS token used to authenticate and authorize the request. Must be a token from XSTS service and include the XUID as one of the claims.
 {% endapi-method-parameter %}
@@ -45,7 +51,8 @@ Specifies whether the content of request/response bodies will be in json or xml.
 This header must contain the current version number of a list when making modify requests. Modify requests use PUT, POST, or DELETE verbs. If the version in the "If-Match" header does not match the current version of the list, the request will be rejected with an HTTP 412 – precondition failed return code. (optional) Can also be used for GETs, if present and the passed in version matches the current list version then no list data and an HTTP 304 – Not Modified code will be returned.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
-{% endapi-method-request %}{% api-method-response %}
+{% endapi-method-request %}
+{% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
@@ -84,8 +91,8 @@ This header must contain the current version number of a list when making modify
   }]
 }
          
-
 ```
 {% endapi-method-response-example %}
-{% endapi-method-response %}{% endapi-method-spec %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
 {% endapi-method %}

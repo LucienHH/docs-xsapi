@@ -2,18 +2,24 @@
 
 {% api-method method="get" host="https://userpresence.xboxlive.com" path="/users/xuid({xuid})" %}{% api-method-description %}
 Discover the presence of another user or client. The domain for these URIs is 
-{% endapi-method-description %}{% api-method-summary %}
-Discover the presence of another user or client. The domain for these URIs is 
-{% endapi-method-summary %}{% api-method-spec %}
-{% api-method-request %}{% api-method-path-parameters %}
+{% endapi-method-description %}
+{% api-method-summary %}
+undefined
+{% endapi-method-summary %}
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-path-parameters %}
 {% api-method-parameter name="xuid" type="string" required=true %}
 Xbox User ID (XUID) of the target user.
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}{% api-method-query-parameters %}
+{% endapi-method-path-parameters %}
+{% api-method-query-parameters %}
 {% api-method-parameter name="level" type="string" required=false %}
 Optional. 
 {% endapi-method-parameter %}
-{% endapi-method-query-parameters %}{% api-method-headers %}
+{% endapi-method-query-parameters %}
+{% api-method-headers %}
 {% api-method-parameter name="Authorization" type="string" required=true %}
 Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=
 {% endapi-method-parameter %}
@@ -30,7 +36,8 @@ Acceptable locale for strings in the response. Example values: en-US.
 Domain name of the server. Example value: presencebeta.xboxlive.com.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
-{% endapi-method-request %}{% api-method-response %}
+{% endapi-method-request %}
+{% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
@@ -83,8 +90,8 @@ Domain name of the server. Example value: presencebeta.xboxlive.com.
     }]
   }]
 }
-
 ```
 {% endapi-method-response-example %}
-{% endapi-method-response %}{% endapi-method-spec %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
 {% endapi-method %}

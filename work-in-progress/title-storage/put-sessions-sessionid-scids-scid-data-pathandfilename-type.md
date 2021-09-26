@@ -2,10 +2,14 @@
 
 {% api-method method="put" host="https://titlestorage.xboxlive.com" path="/sessions/{sessionId}/scids/{scid}/data/{pathAndFileName},{type}" %}{% api-method-description %}
 Uploads a file. The data can be uploaded in a full upload in which the data and metadata are sent in a single message, or as a multi-block upload in which the data and metadata are sent in a series of smaller blocks. Only files that are smaller than four megabytes can be sent as a single message. Multi-block upload is not supported for data of type json. The domain for these URIs is 
-{% endapi-method-description %}{% api-method-summary %}
-Uploads a file. The data can be uploaded in a full upload in which the data and metadata are sent in a single message, or as a multi-block upload in which the data and metadata are sent in a series of smaller blocks. Only files that are smaller than four megabytes can be sent as a single message. Multi-block upload is not supported for data of type json. The domain for these URIs is 
-{% endapi-method-summary %}{% api-method-spec %}
-{% api-method-request %}{% api-method-path-parameters %}
+{% endapi-method-description %}
+{% api-method-summary %}
+undefined
+{% endapi-method-summary %}
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-path-parameters %}
 {% api-method-parameter name="sessionId" type="string" required=true %}
 the ID of the session to look up.
 {% endapi-method-parameter %}
@@ -18,7 +22,8 @@ Path and file name for the item to be accessed. Valid characters for the path po
 {% api-method-parameter name="type" type="string" required=true %}
 The format of the data. Possible values are binary or json.
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}{% api-method-headers %}
+{% endapi-method-path-parameters %}
+{% api-method-headers %}
 {% api-method-parameter name="x-xbl-contract-version" type="string" required=true %}
 API contract version.
 {% endapi-method-parameter %}
@@ -32,7 +37,8 @@ Specifies an ETag that must match an exisitng item to complete the operation.
 Specifies an ETag that must not match any exisitng items to complete the operation.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
-{% endapi-method-request %}{% api-method-response %}
+{% endapi-method-request %}
+{% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
@@ -43,8 +49,8 @@ Specifies an ETag that must not match any exisitng items to complete the operati
     "continuationToken":"abcd1234-1111-2222-3333-abcd12345678-1"
 }
          
-
 ```
 {% endapi-method-response-example %}
-{% endapi-method-response %}{% endapi-method-spec %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
 {% endapi-method %}

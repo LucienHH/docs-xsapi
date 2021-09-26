@@ -2,10 +2,14 @@
 
 {% api-method method="get" host="https://titlestorage.xboxlive.com" path="/untrustedplatform/users/xuid({xuid})/scids/{scid}/data/{path}" %}{% api-method-description %}
 Lists file information at a specified path. The domain for these URIs is 
-{% endapi-method-description %}{% api-method-summary %}
-Lists file information at a specified path. The domain for these URIs is 
-{% endapi-method-summary %}{% api-method-spec %}
-{% api-method-request %}{% api-method-path-parameters %}
+{% endapi-method-description %}
+{% api-method-summary %}
+undefined
+{% endapi-method-summary %}
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-path-parameters %}
 {% api-method-parameter name="xuid" type="string" required=true %}
 The Xbox User ID (XUID) of the player who making the request.
 {% endapi-method-parameter %}
@@ -15,7 +19,8 @@ the ID of the service config to look up.
 {% api-method-parameter name="path" type="string" required=true %}
 The path to the data items to return. All matching directories and subdirectories get returned. Valid characters include uppercase letters (A-Z), lowercase letters (a-z), numbers (0-9), underscore (_), and forward slash (/). May be empty. Max length of 256.
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}{% api-method-headers %}
+{% endapi-method-path-parameters %}
+{% api-method-headers %}
 {% api-method-parameter name="x-xbl-contract-version" type="string" required=true %}
 API contract version.
 {% endapi-method-parameter %}
@@ -23,7 +28,8 @@ API contract version.
 STS authentication token. STSTokenString is replaced by the token returned by the authentication request. See Authenticating and Authorizing Xbox LIVE Services Requests for additional information about retrieving an STS token and creating an authorization header.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
-{% endapi-method-request %}{% api-method-response %}
+{% endapi-method-request %}
+{% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
@@ -58,8 +64,8 @@ STS authentication token. STSTokenString is replaced by the token returned by th
     }
 }
          
-
 ```
 {% endapi-method-response-example %}
-{% endapi-method-response %}{% endapi-method-spec %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
 {% endapi-method %}

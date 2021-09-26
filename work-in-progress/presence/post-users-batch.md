@@ -2,10 +2,14 @@
 
 {% api-method method="post" host="https://userpresence.xboxlive.com" path="/users/batch" %}{% api-method-description %}
 Get presence for a batch of users. The domain for these URIs is 
-{% endapi-method-description %}{% api-method-summary %}
-Get presence for a batch of users. The domain for these URIs is 
-{% endapi-method-summary %}{% api-method-spec %}
-{% api-method-request %}{% api-method-headers %}
+{% endapi-method-description %}
+{% api-method-summary %}
+undefined
+{% endapi-method-summary %}
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-headers %}
 {% api-method-parameter name="Authorization" type="string" required=true %}
 Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=
 {% endapi-method-parameter %}
@@ -25,7 +29,8 @@ Domain name of the server. Example value: presencebeta.xboxlive.com.
 The length of the request body. Example value: 312.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
-{% endapi-method-request %}{% api-method-response %}
+{% endapi-method-request %}
+{% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
@@ -78,11 +83,12 @@ The length of the request body. Example value: 312.
     }]
   }]
 }
-
 ```
 {% endapi-method-response-example %}
-{% endapi-method-response %}{% endapi-method-spec %}
-{% endapi-method %}```text
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+```text
 # Sample Request
 
 {

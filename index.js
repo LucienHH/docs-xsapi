@@ -201,7 +201,7 @@ class ApiRequest {
 	}
 
 	setSummary(summary) {
-		this.body += `{% api-method-summary %}\n${summary}\n{% endapi-method-summary %}`;
+		this.body += `\n{% api-method-summary %}\n${this.path}\n{% endapi-method-summary %}`;
 		return this;
 	}
 
@@ -212,25 +212,25 @@ class ApiRequest {
 	}
 
 	setRequest(pathParams, queryParams, headers) {
-		this.body += '{% api-method-spec %}\n{% api-method-request %}';
+		this.body += '\n{% api-method-spec %}\n{% api-method-request %}\n';
 
 		if (pathParams) {
-			this.body += `{% api-method-path-parameters %}\n${this._createParameters(pathParams)}\n{% endapi-method-path-parameters %}`;
+			this.body += `\n{% api-method-path-parameters %}\n${this._createParameters(pathParams)}\n{% endapi-method-path-parameters %}`;
 		}
 		if (queryParams) {
-			this.body += `{% api-method-query-parameters %}\n${this._createParameters(queryParams)}\n{% endapi-method-query-parameters %}`;
+			this.body += `\n{% api-method-query-parameters %}\n${this._createParameters(queryParams)}\n{% endapi-method-query-parameters %}`;
 		}
 		if (headers.length > 1) {
-			this.body += `{% api-method-headers %}\n${this._createParameters(headers)}\n{% endapi-method-headers %}`;
+			this.body += `\n{% api-method-headers %}\n${this._createParameters(headers)}\n{% endapi-method-headers %}`;
 		}
 
-		this.body += '\n{% endapi-method-request %}';
+		this.body += '\n{% endapi-method-request %}\n';
 		return this;
 	}
 
 	setResponse(responses) {
 		this.body += `{% api-method-response %}\n${this._createResponses(responses)}\n{% endapi-method-response %}`;
-		return this.body += '{% endapi-method-spec %}\n{% endapi-method %}';
+		return this.body += '\n{% endapi-method-spec %}\n{% endapi-method %}\n';
 	}
 
 	_createResponses(responses) {

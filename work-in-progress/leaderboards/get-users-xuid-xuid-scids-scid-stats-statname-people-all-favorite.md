@@ -2,10 +2,14 @@
 
 {% api-method method="get" host="https://https://leaderboards.xboxlive.com/users/xuid(2533274916402282)/scids/c1ba92a9-0000-0000-0000-000000000000/stats/EnemyDefeats/people/all?sort=descending" path="/users/xuid({xuid})/scids/{scid}/stats/{statname)/people/{all|favorite}" %}{% api-method-description %}
 undefined
-{% endapi-method-description %}{% api-method-summary %}
+{% endapi-method-description %}
+{% api-method-summary %}
 undefined
-{% endapi-method-summary %}{% api-method-spec %}
-{% api-method-request %}{% api-method-path-parameters %}
+{% endapi-method-summary %}
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-path-parameters %}
 {% api-method-parameter name="xuid" type="string" required=true %}
 Identifier of the user.
 {% endapi-method-parameter %}
@@ -18,7 +22,8 @@ Unique identifier of the user stat resource being accessed.
 {% api-method-parameter name="all" type="string" required=true %}
 enumeration
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}{% api-method-query-parameters %}
+{% endapi-method-path-parameters %}
+{% api-method-query-parameters %}
 {% api-method-parameter name="maxItems" type="string" required=false %}
 Maximum number of leaderboard records to return in a page of results. If not specified, a default number will be returned (10). The max value for maxItems is still undefined, but we want to avoid large data sets, so this value should probably target the largest set that a tuner UI could handle per call.
 {% endapi-method-parameter %}
@@ -34,7 +39,8 @@ If a previous call returned a
 {% api-method-parameter name="sort" type="string" required=false %}
 Specify whether to rank the list of players from low-to-high value order ("ascending") or high-to-low value order ("descending"). This is an optional parameter; the default is descending order.
 {% endapi-method-parameter %}
-{% endapi-method-query-parameters %}{% api-method-headers %}
+{% endapi-method-query-parameters %}
+{% api-method-headers %}
 {% api-method-parameter name="Authorization" type="string" required=true %}
 String. Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=
 {% endapi-method-parameter %}
@@ -48,7 +54,8 @@ Build name/number of the Xbox LIVE service to which this request should be direc
 String. Acceptable Content-Type values. Example value: "application/json".
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
-{% endapi-method-request %}{% api-method-response %}
+{% endapi-method-request %}
+{% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
@@ -98,8 +105,8 @@ String. Acceptable Content-Type values. Example value: "application/json".
         }
     ]
 }
-
 ```
 {% endapi-method-response-example %}
-{% endapi-method-response %}{% endapi-method-spec %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
 {% endapi-method %}
