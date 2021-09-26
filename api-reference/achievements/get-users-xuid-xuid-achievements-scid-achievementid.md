@@ -21,6 +21,9 @@ Unique (within the specified SCID) identifier of the achievement that is being a
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% api-method-headers %}
+{% api-method-parameter name="Authorization" type="string" required=true %}
+Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=
+{% endapi-method-parameter %}
 {% api-method-parameter name="X-RequestedServiceVersion" type="string" required=true %}
 Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Default value: 1.
 {% endapi-method-parameter %}

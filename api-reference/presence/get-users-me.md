@@ -30,6 +30,9 @@ Acceptable locale for strings in the response. Example values: en-US.
 {% api-method-parameter name="Host" type="string" required=true %}
 Domain name of the server. Example value: presencebeta.xboxlive.com.
 {% endapi-method-parameter %}
+{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=true %}
+Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Default value: 1.
+{% endapi-method-parameter %}
 {% endapi-method-headers %}
 {% endapi-method-request %}
 {% api-method-response %}

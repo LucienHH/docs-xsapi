@@ -22,6 +22,14 @@ Identifier of the service configuration that contains the resource being accesse
 The only query string parameter is the comma delimited user statistic name URI noun.For example, the following URI informs the service that four statistics are requested on behalf of the user id specified in the URI. 
 {% endapi-method-parameter %}
 {% endapi-method-query-parameters %}
+{% api-method-headers %}
+{% api-method-parameter name="Authorization" type="string" required=true %}
+Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=
+{% endapi-method-parameter %}
+{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=true %}
+Build name/number of the service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the authentication token, and so on. Default value: 1.
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
 {% endapi-method-request %}
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}

@@ -18,6 +18,9 @@ Identifier of the user whose data is being retrieved from the owner's People lis
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% api-method-headers %}
+{% api-method-parameter name="Authorization" type="string" required=true %}
+String. Authorization data for Xbox LIVE. This is typically an encrypted XSTS token. Example value: 
+{% endapi-method-parameter %}
 {% api-method-parameter name="X-RequestedServiceVersion" type="string" required=true %}
 Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, etc. Default value: 1.
 {% endapi-method-parameter %}

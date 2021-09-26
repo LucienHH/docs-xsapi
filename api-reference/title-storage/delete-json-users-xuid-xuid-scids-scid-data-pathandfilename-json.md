@@ -27,6 +27,9 @@ API contract version.
 {% api-method-parameter name="Authorization" type="string" required=true %}
 STS authentication token. STSTokenString is replaced by the token returned by the authentication request. See Authenticating and Authorizing Xbox LIVE Services Requests for additional information about retrieving an STS token and creating an authorization header.
 {% endapi-method-parameter %}
+{% api-method-parameter name="If-Match" type="string" required=true %}
+Specifies an ETag that must match an exisitng item to complete the operation.
+{% endapi-method-parameter %}
 {% endapi-method-headers %}
 {% endapi-method-request %}
 {% api-method-response %}
