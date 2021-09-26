@@ -1,6 +1,6 @@
-# undefined /users/xuid(xuid)/lists/PINS/{listname}/RemoveItems
+# POST /users/xuid(xuid)/lists/PINS/{listname}/RemoveItems
 
-{% api-method method="options" host="https://eplists.xboxlive.com" path="/users/xuid(xuid)/lists/PINS/{listname}/RemoveItems" %}{% api-method-description %}
+{% api-method method="post" host="https://eplists.xboxlive.com" path="/users/xuid(xuid)/lists/PINS/{listname}/RemoveItems" %}{% api-method-description %}
 Removes items from a list by itemId. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}

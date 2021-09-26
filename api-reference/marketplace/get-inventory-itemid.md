@@ -1,6 +1,6 @@
-# undefined /inventory/{itemID}
+# GET /inventory/{itemID}
 
-{% api-method method="options" host="https://eds.xboxlive.com" path="/inventory/{itemID}" %}{% api-method-description %}
+{% api-method method="get" host="https://eds.xboxlive.com" path="/inventory/{itemID}" %}{% api-method-description %}
 Provides the full set of details for a specific inventory item. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}

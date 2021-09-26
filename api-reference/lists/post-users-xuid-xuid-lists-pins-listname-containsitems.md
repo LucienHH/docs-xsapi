@@ -1,6 +1,6 @@
-# undefined /users/xuid(xuid)/lists/PINS/{listname}/ContainsItems
+# POST /users/xuid(xuid)/lists/PINS/{listname}/ContainsItems
 
-{% api-method method="options" host="https://eplists.xboxlive.com" path="/users/xuid(xuid)/lists/PINS/{listname}/ContainsItems" %}{% api-method-description %}
+{% api-method method="post" host="https://eplists.xboxlive.com" path="/users/xuid(xuid)/lists/PINS/{listname}/ContainsItems" %}{% api-method-description %}
 Determines whether a list contains a set of items (specified by itemId) without retrieving the entire list. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
