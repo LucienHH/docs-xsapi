@@ -4,7 +4,7 @@
 Gets a service configuration scoped by a comma-delimited list of user statistic names on behalf of the specified user. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/xuid({xuid})/scids/{scid}/stats
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

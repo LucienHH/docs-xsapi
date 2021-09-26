@@ -4,7 +4,7 @@
 Gets the statistics for a hopper.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/serviceconfigs/{scid}/hoppers/{name}/stats
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

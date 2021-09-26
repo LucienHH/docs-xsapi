@@ -4,7 +4,7 @@
 Gets a predefined global leaderboard.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/scids/{scid}/leaderboards/{leaderboardname}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

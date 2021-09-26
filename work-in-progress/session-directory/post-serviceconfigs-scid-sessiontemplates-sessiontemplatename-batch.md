@@ -4,7 +4,7 @@
 Creates a batch query on multiple Xbox user IDs.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/batch
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

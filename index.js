@@ -163,7 +163,7 @@ async function main() {
 				let request = new ApiRequest(reqInfo)
 					.setTitle(`${reqInfo.method} ${reqInfo.path}`)
 					.setDescription(reqInfo.description)
-					.setSummary(reqInfo.description)
+					.setSummary(reqInfo.path)
 					.setRequest(uriParams, queryParams, headersFormated)
 					.setResponse([response]);
 
@@ -201,7 +201,7 @@ class ApiRequest {
 	}
 
 	setSummary(summary) {
-		this.body += `\n{% api-method-summary %}\n${this.path}\n{% endapi-method-summary %}`;
+		this.body += `\n{% api-method-summary %}\n${summary}\n{% endapi-method-summary %}`;
 		return this;
 	}
 

@@ -4,7 +4,7 @@
 Removes a member from a session.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions/{sessionName}/members/me
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

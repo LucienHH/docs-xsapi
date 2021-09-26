@@ -4,7 +4,7 @@
 Update a title with a user's presence. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/xuid({xuid})/devices/current/titles/current
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

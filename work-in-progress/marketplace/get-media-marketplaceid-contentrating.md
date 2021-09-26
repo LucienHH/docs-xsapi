@@ -4,7 +4,7 @@
 Get the content rating token. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/media/{marketplaceId}/contentRating
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

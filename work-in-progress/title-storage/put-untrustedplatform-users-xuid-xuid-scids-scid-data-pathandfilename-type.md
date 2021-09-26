@@ -4,7 +4,7 @@
 Uploads a file. The data can be uploaded in a full upload in which the data and metadata are sent in a single message, or as a multi-block upload in which the data and metadata are sent in a series of smaller blocks. Only files that are smaller than four megabytes can be sent as a single message. Multi-block upload is not supported for data of type json. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/untrustedplatform/users/xuid({xuid})/scids/{scid}/data/{pathAndFileName},{type}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

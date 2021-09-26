@@ -4,7 +4,7 @@
 Provides the set of inventory currently associated with the provided user back to the caller. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/me/inventory
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

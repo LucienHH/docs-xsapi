@@ -4,7 +4,7 @@
 Gets the Avoid list for a user.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/{ownerId}/people/avoid
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

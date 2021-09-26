@@ -4,7 +4,7 @@
 Creates queries for session handles.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/handles/query
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

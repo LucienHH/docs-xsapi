@@ -4,7 +4,7 @@
 Gets a yes-or-no answer about whether the user is allowed to perform the specified action with a target user.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/{requestorId}/permission/validate
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

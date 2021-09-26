@@ -4,7 +4,7 @@
 Gets summary data about the owner from the caller's perspective.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/{ownerId}/summary
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

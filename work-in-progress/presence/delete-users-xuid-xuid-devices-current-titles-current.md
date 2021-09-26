@@ -4,7 +4,7 @@
 Remove the presence of a closing title, instead of waiting for the 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/xuid({xuid})/devices/current/titles/current
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

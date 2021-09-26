@@ -4,7 +4,7 @@
 Sends a specified message to a list of recipients. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/xuid({xuid})/outbox
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

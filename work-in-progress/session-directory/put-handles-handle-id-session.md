@@ -4,7 +4,7 @@
 Creates or updates a session by dereferencing a handle.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/handles/{handle-id}/session
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

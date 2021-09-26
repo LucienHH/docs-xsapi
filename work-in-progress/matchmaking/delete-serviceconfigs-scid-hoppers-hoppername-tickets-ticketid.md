@@ -4,7 +4,7 @@
 Removes a match ticket.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/serviceconfigs/{scid}/hoppers/{hoppername}/tickets/{ticketid}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

@@ -4,7 +4,7 @@
 Downloads a file. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/global/scids/{scid}/data/{pathAndFileName},{type}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

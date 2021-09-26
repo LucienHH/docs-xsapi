@@ -4,7 +4,7 @@
 Uploads a 1080x1080 gamerpic.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/me/gamerpic
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

@@ -4,7 +4,7 @@
 Gets a session object for the specified handle identifier.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/handles/{handleId}/session
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

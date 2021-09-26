@@ -4,7 +4,7 @@
 Lists the available mediaItemTypes per media group for the given version of EDS. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/media/{marketplaceId}/metadata/mediaGroups/{mediagroup}/mediaItemTypes
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

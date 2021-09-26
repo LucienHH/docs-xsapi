@@ -4,7 +4,7 @@
 Retrieves a specified number of user message summaries from the service. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/xuid({xuid})/inbox
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

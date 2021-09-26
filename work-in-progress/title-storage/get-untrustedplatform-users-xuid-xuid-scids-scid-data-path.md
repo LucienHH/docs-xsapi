@@ -4,7 +4,7 @@
 Lists file information at a specified path. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/untrustedplatform/users/xuid({xuid})/scids/{scid}/data/{path}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

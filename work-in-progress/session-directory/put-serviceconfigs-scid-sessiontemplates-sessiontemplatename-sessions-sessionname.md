@@ -4,7 +4,7 @@
 Creates, updates, or joins a session.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions/{sessionName}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

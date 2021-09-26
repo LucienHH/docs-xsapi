@@ -4,7 +4,7 @@
 Obtain the current user's 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/me
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

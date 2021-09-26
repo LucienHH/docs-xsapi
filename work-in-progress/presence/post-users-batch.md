@@ -4,7 +4,7 @@
 Get presence for a batch of users. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/batch
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

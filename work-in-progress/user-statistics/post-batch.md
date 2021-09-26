@@ -4,7 +4,7 @@
 POST method that functions as a GET method for complex batch requests for multiple player statistics across multiple titles. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/batch
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

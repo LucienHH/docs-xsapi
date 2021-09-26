@@ -4,7 +4,7 @@
 Lists all supported mediaGroups for the given EDS version. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/media/{marketplaceId}/metadata/mediaGroups
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

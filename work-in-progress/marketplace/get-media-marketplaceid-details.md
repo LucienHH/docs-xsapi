@@ -4,7 +4,7 @@
 Returns offer details and metadata about one or more items. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/media/{marketplaceId}/details
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

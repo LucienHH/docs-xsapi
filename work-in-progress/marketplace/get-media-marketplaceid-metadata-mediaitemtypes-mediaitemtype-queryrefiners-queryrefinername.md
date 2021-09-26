@@ -4,7 +4,7 @@
 Lists the acceptable values for the given query refiner name and given media item type. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/media/{marketplaceId}/metadata/mediaItemTypes/{mediaitemtype}/queryrefiners/{queryrefinername}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

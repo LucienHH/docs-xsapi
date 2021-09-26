@@ -4,7 +4,7 @@
 Gets caller's people collection. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/{ownerId}/people
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

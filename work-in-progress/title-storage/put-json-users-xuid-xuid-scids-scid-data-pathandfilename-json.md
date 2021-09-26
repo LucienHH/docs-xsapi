@@ -4,7 +4,7 @@
 Uploads a file. Multi-block upload is not supported for data of type json. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/json/users/xuid({xuid})/scids/{scid}/data/{pathAndFileName},json
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

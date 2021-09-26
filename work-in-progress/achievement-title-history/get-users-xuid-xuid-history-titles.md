@@ -4,7 +4,7 @@
 Gets a list of titles for which the user has unlocked or made progress on its achievements. This API does not return a user's full history of titles played or launched. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/xuid({xuid})/history/titles
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

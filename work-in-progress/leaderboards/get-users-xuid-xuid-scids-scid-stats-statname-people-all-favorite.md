@@ -4,7 +4,7 @@
 undefined
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/xuid({xuid})/scids/{scid}/stats/{statname)/people/{all|favorite}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

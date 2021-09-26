@@ -4,7 +4,7 @@
 Deletes handles specified by handle ID.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/handles/{handleId}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

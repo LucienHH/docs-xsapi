@@ -4,7 +4,7 @@
 Creates the specified match ticket.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/serviceconfigs/{scid}/hoppers/{hoppername}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

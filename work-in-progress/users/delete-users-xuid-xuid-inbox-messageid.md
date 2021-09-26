@@ -4,7 +4,7 @@
 Deletes a user message in the user's inbox. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/xuid({xuid})/inbox/{messageId}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

@@ -4,7 +4,7 @@
 Inserts items into the list at the index based on the query string parameter 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/xuid(xuid)/lists/PINS/{listname}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

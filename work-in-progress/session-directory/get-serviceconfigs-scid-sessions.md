@@ -4,7 +4,7 @@
 Retrieves specified session information.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/serviceconfigs/{scid}/sessions
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

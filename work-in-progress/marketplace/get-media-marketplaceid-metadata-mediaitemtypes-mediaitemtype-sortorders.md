@@ -4,7 +4,7 @@
 Lists available sort orders for a given mediaitem type and a given version of EDS. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/media/{marketplaceId}/metadata/mediaItemTypes/{mediaitemtype}/sortorders
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

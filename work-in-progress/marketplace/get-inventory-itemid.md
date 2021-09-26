@@ -4,7 +4,7 @@
 Provides the full set of details for a specific inventory item. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/inventory/{itemID}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

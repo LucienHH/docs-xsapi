@@ -4,7 +4,7 @@
 Accepts an array of strings for validation and returns an array of results of equal size. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/system/strings/validate
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

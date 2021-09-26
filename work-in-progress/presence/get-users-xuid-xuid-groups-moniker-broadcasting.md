@@ -4,7 +4,7 @@
 Retrieves the presence record of the broadcasting users specified by the groups moniker related to the XUID that appears in the URI. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/xuid({xuid})/groups/{moniker}/broadcasting
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

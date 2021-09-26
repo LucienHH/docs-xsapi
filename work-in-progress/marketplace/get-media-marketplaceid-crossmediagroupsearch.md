@@ -4,7 +4,7 @@
 Gets items from several different media groups. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/media/{marketplaceId}/crossMediaGroupSearch
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

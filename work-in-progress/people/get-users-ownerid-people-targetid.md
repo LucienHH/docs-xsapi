@@ -4,7 +4,7 @@
 Gets a person by target ID from caller's people collection. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/{ownerId}/people/{targetid}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

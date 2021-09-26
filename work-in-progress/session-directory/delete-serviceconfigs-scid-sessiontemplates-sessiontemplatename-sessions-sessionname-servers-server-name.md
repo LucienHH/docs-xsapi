@@ -4,7 +4,7 @@
 Removes the specified server from a session.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}/sessions/{sessionName}/servers/{server-name}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

@@ -4,7 +4,7 @@
 Gets the mute list for a user.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/{ownerId}/people/mute
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

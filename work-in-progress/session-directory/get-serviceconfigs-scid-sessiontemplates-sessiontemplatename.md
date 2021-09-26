@@ -4,7 +4,7 @@
 Retrieves a set of session template names.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/serviceconfigs/{scid}/sessiontemplates/{sessionTemplateName}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

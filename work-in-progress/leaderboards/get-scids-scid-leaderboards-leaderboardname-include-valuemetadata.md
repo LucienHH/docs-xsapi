@@ -4,7 +4,7 @@
 Gets a predefined global leaderboard along with any metadata associated with the leaderboard values.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/scids/{scid}/leaderboards/{leaderboardname}?include=valuemetadata
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

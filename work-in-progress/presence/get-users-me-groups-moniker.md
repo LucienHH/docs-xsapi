@@ -4,7 +4,7 @@
 Gets the PresenceRecord for my group. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/users/me/groups/{moniker}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

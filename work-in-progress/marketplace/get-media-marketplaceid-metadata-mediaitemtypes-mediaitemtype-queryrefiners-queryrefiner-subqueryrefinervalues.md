@@ -4,7 +4,7 @@
 Get the list of sub-values for a given query refiner value (e.g., "subgenres in a given genre"). The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/media/{marketplaceId}/metadata/mediaItemTypes/{mediaitemtype}/queryrefiners/{queryRefiner}/subQueryRefinerValues
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

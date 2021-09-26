@@ -4,7 +4,7 @@
 Retrieves a set of MPSD session templates.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/serviceconfigs/{scid}/sessiontemplates
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

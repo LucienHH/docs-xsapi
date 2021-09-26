@@ -4,7 +4,7 @@
 Creates queries for session handles that include related session information.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/handles/query?include=relatedInfo
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

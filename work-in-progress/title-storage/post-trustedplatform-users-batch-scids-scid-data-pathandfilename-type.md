@@ -4,7 +4,7 @@
 Downloads multiple files from multiple users with the same filename. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/trustedplatform/users/batch/scids/{scid}/data/{pathAndFileName},{type}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

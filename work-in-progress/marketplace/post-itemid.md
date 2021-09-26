@@ -4,7 +4,7 @@
 Indicates that all or a portion of a consumable inventory item has been used and decrements the quantity of the consumable by the requested amount. The domain for these URIs is 
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+{itemID}
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}

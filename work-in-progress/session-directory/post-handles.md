@@ -4,7 +4,7 @@
 Sets the multiplayer session for the user's current activity, and invites session members if required.
 {% endapi-method-description %}
 {% api-method-summary %}
-undefined
+/handles
 {% endapi-method-summary %}
 {% api-method-spec %}
 {% api-method-request %}
