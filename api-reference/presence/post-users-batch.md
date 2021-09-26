@@ -28,7 +28,7 @@ Domain name of the server. Example value: presencebeta.xboxlive.com.
 {% api-method-parameter name="Content-Length" type="string" required=true %}
 The length of the request body. Example value: 312.
 {% endapi-method-parameter %}
-{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=true %}
+{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=false %}
 Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Default value: 1.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}

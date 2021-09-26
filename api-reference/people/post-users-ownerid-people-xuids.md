@@ -24,10 +24,10 @@ String. Authorization data for Xbox LIVE. This is typically an encrypted XSTS to
 {% api-method-parameter name="Content-Type" type="string" required=true %}
 String. MIME type of the request body. This must be 
 {% endapi-method-parameter %}
-{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=true %}
+{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=false %}
 Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, etc. Default value: 1.
 {% endapi-method-parameter %}
-{% api-method-parameter name="Accept" type="string" required=true %}
+{% api-method-parameter name="Accept" type="string" required=false %}
 String. Content-Types that the caller accepts in the response. All responses are 
 {% endapi-method-parameter %}
 {% endapi-method-headers %}

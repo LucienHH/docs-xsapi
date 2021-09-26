@@ -26,10 +26,10 @@ Maximum number of items to return from the collection, which can be combined wit
 {% endapi-method-parameter %}
 {% endapi-method-query-parameters %}
 {% api-method-headers %}
-{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=true %}
+{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=false %}
 Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, etc.
 {% endapi-method-parameter %}
-{% api-method-parameter name="x-xbl-contract-version" type="string" required=true %}
+{% api-method-parameter name="x-xbl-contract-version" type="string" required=false %}
 If present and set to 2, the V2 version of this API will be used. Otherwise, V1.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}

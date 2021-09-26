@@ -47,7 +47,7 @@ String. Build name/number of the Xbox LIVE service to which this request should 
 {% api-method-parameter name="Accept" type="string" required=true %}
 String. Content-Types that are acceptable. Example value: 
 {% endapi-method-parameter %}
-{% api-method-parameter name="If-None-Match" type="string" required=true %}
+{% api-method-parameter name="If-None-Match" type="string" required=false %}
 String. Entity tag, used if client supports caching. Example value: 
 {% endapi-method-parameter %}
 {% endapi-method-headers %}

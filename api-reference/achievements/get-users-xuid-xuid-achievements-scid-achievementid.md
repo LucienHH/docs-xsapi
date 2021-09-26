@@ -24,13 +24,13 @@ Unique (within the specified SCID) identifier of the achievement that is being a
 {% api-method-parameter name="Authorization" type="string" required=true %}
 Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=
 {% endapi-method-parameter %}
-{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=true %}
+{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=false %}
 Build name/number of the Xbox LIVE service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, and so on. Default value: 1.
 {% endapi-method-parameter %}
-{% api-method-parameter name="x-xbl-contract-version" type="string" required=true %}
+{% api-method-parameter name="x-xbl-contract-version" type="string" required=false %}
 Defaults to V1.
 {% endapi-method-parameter %}
-{% api-method-parameter name="Accept-Language" type="string" required=true %}
+{% api-method-parameter name="Accept-Language" type="string" required=false %}
 List of desired locales and fallbacks (e.g., fr-FR, fr, en-GB, en-WW, en-US). The Achievements service will work through the list until it finds matching localized strings. If none are found, it attempts to match the location defined in the user token, which comes from the user's IP address. If still no matching localized strings are found, it uses the default strings provided by the title developer/publisher.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}

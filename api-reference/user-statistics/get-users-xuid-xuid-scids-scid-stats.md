@@ -26,7 +26,7 @@ The only query string parameter is the comma delimited user statistic name URI n
 {% api-method-parameter name="Authorization" type="string" required=true %}
 Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=
 {% endapi-method-parameter %}
-{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=true %}
+{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=false %}
 Build name/number of the service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the authentication token, and so on. Default value: 1.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}

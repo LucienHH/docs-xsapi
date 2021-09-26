@@ -18,10 +18,10 @@ Identifier of the user whose resource is being accessed. The possible values are
 {% api-method-parameter name="Authorization" type="string" required=true %}
 Authorization data for . This is typically an encrypted XSTS token. Example value: 
 {% endapi-method-parameter %}
-{% api-method-parameter name="x-xbl-contract-version" type="string" required=true %}
+{% api-method-parameter name="x-xbl-contract-version" type="string" required=false %}
 Build name/number of the service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the auth token, etc. Example values: 1
 {% endapi-method-parameter %}
-{% api-method-parameter name="Accept" type="string" required=true %}
+{% api-method-parameter name="Accept" type="string" required=false %}
 Content-Types that are acceptable. All responses will be 
 {% endapi-method-parameter %}
 {% endapi-method-headers %}

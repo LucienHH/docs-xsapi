@@ -32,7 +32,7 @@ Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=
 {% api-method-parameter name="X-Xbl-Contract-Version" type="string" required=true %}
 Indicates which version of the API to use. This value must be set to "3" in order to include value metadata in the response.
 {% endapi-method-parameter %}
-{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=true %}
+{% api-method-parameter name="X-RequestedServiceVersion" type="string" required=false %}
 Build name/number of the service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the authentication token, and so on. Default value: 1.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
