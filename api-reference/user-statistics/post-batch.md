@@ -1,23 +1,27 @@
 # POST /batch
 
-{% api-method method="post" host="https://userstats.xboxlive.com" path="/batch" %}{% api-method-description %}
-POST method that functions as a GET method for complex batch requests for multiple player statistics across multiple titles. The domain for these URIs is 
-{% endapi-method-description %}
+{% api-method method="post" host="https://userstats.xboxlive.com" path="/batch" %}
 {% api-method-summary %}
 /batch
 {% endapi-method-summary %}
+
+{% api-method-description %}
+POST method that functions as a GET method for complex batch requests for multiple player statistics across multiple titles. The domain for these URIs is
+{% endapi-method-description %}
+
 {% api-method-spec %}
 {% api-method-request %}
-
 {% api-method-headers %}
 {% api-method-parameter name="Authorization" type="string" required=true %}
 Authentication credentials for HTTP authentication. Example value: "XBL3.0 x=
 {% endapi-method-parameter %}
+
 {% api-method-parameter name="X-RequestedServiceVersion" type="string" required=false %}
 Build name/number of the service to which this request should be directed. The request will only be routed to that service after verifying the validity of the header, the claims in the authentication token, and so on. Default value: 1.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 {% endapi-method-request %}
+
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
@@ -94,12 +98,12 @@ Build name/number of the service to which this request should be directed. The r
           }],
                    }]
 }
-         
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
 ```text
 # Sample Request
 
@@ -125,6 +129,5 @@ Build name/number of the service to which this request should be directed. The r
                 }
             ] 
 }
-      
-
 ```
+

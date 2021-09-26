@@ -1,20 +1,23 @@
-# POST /users/xuid({xuid})/outbox
+# POST /users/xuid\({xuid}\)/outbox
 
-{% api-method method="post" host="https://msg.xboxlive.com" path="/users/xuid({xuid})/outbox" %}{% api-method-description %}
-Sends a specified message to a list of recipients. The domain for these URIs is 
-{% endapi-method-description %}
+{% api-method method="post" host="https://msg.xboxlive.com" path="/users/xuid\({xuid}\)/outbox" %}
 {% api-method-summary %}
-/users/xuid({xuid})/outbox
+/users/xuid\({xuid}\)/outbox
 {% endapi-method-summary %}
+
+{% api-method-description %}
+Sends a specified message to a list of recipients. The domain for these URIs is
+{% endapi-method-description %}
+
 {% api-method-spec %}
 {% api-method-request %}
-
 {% api-method-path-parameters %}
 {% api-method-parameter name="xuid" type="string" required=true %}
-The Xbox User ID (XUID) of the player who is making the request.
+The Xbox User ID \(XUID\) of the player who is making the request.
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
+
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
@@ -22,11 +25,13 @@ The Xbox User ID (XUID) of the player who is making the request.
 {% endapi-method-response-example-description %}
 
 ```text
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
 ```text
 # Sample Request
 
@@ -39,5 +44,5 @@ The Xbox User ID (XUID) of the player who is making the request.
           },
           "messageText":"random user text"
         }
-
 ```
+

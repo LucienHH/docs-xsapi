@@ -1,34 +1,41 @@
 # GET /sessions/{sessionId}/scids/{scid}/data/{path}
 
-{% api-method method="get" host="https://titlestorage.xboxlive.com" path="/sessions/{sessionId}/scids/{scid}/data/{path}" %}{% api-method-description %}
-Lists file information at a specified path. The domain for these URIs is 
-{% endapi-method-description %}
+{% api-method method="get" host="https://titlestorage.xboxlive.com" path="/sessions/{sessionId}/scids/{scid}/data/{path}" %}
 {% api-method-summary %}
 /sessions/{sessionId}/scids/{scid}/data/{path}
 {% endapi-method-summary %}
+
+{% api-method-description %}
+Lists file information at a specified path. The domain for these URIs is
+{% endapi-method-description %}
+
 {% api-method-spec %}
 {% api-method-request %}
-
 {% api-method-path-parameters %}
 {% api-method-parameter name="sessionId" type="string" required=true %}
 the ID of the session to look up.
 {% endapi-method-parameter %}
+
 {% api-method-parameter name="scid" type="string" required=true %}
 The ID of the service config to look up.
 {% endapi-method-parameter %}
+
 {% api-method-parameter name="path" type="string" required=true %}
-The path to the data items to return. All matching directories and subdirectories get returned. Valid characters include uppercase letters (A-Z), lowercase letters (a-z), numbers (0-9), underscore (_), and forward slash (/). May be empty. Max length of 256.
+The path to the data items to return. All matching directories and subdirectories get returned. Valid characters include uppercase letters \(A-Z\), lowercase letters \(a-z\), numbers \(0-9\), underscore \(\_\), and forward slash \(/\). May be empty. Max length of 256.
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
+
 {% api-method-headers %}
 {% api-method-parameter name="x-xbl-contract-version" type="string" required=true %}
 API contract version.
 {% endapi-method-parameter %}
+
 {% api-method-parameter name="Authorization" type="string" required=true %}
 STS authentication token. STSTokenString is replaced by the token returned by the authentication request. See Authenticating and Authorizing Xbox LIVE Services Requests for additional information about retrieving an STS token and creating an authorization header.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 {% endapi-method-request %}
+
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
@@ -63,9 +70,9 @@ STS authentication token. STSTokenString is replaced by the token returned by th
         "continuationToken":"54",
     }
 }
-         
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+

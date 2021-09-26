@@ -1,26 +1,31 @@
 # POST /untrustedplatform/users/batch/scids/{scid}/data/{pathAndFileName},{type}
 
-{% api-method method="post" host="https://titlestorage.xboxlive.com" path="/untrustedplatform/users/batch/scids/{scid}/data/{pathAndFileName},{type}" %}{% api-method-description %}
-Downloads multiple files from multiple users with the same filename. The domain for these URIs is 
-{% endapi-method-description %}
+{% api-method method="post" host="https://titlestorage.xboxlive.com" path="/untrustedplatform/users/batch/scids/{scid}/data/{pathAndFileName},{type}" %}
 {% api-method-summary %}
 /untrustedplatform/users/batch/scids/{scid}/data/{pathAndFileName},{type}
 {% endapi-method-summary %}
+
+{% api-method-description %}
+Downloads multiple files from multiple users with the same filename. The domain for these URIs is
+{% endapi-method-description %}
+
 {% api-method-spec %}
 {% api-method-request %}
-
 {% api-method-path-parameters %}
 {% api-method-parameter name="scid" type="string" required=true %}
 the ID of the service config to look up.
 {% endapi-method-parameter %}
+
 {% api-method-parameter name="pathAndFileName" type="string" required=true %}
-Path and file name for the item to be accessed. Valid characters for the path portion (up to and including the final forward slash) include uppercase letters (A-Z), lowercase letters (a-z), numbers (0-9), underscore (
+Path and file name for the item to be accessed. Valid characters for the path portion \(up to and including the final forward slash\) include uppercase letters \(A-Z\), lowercase letters \(a-z\), numbers \(0-9\), underscore \(
 {% endapi-method-parameter %}
+
 {% api-method-parameter name="type" type="string" required=true %}
 The format of the data. Possible values are binary json.
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
+
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
@@ -60,6 +65,7 @@ HttpStatusCode: 404
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
 ```text
 # Sample Request
 
@@ -71,6 +77,5 @@ HttpStatusCode: 404
       78901
     ]
 }
-      
-
 ```
+

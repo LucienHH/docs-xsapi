@@ -1,28 +1,33 @@
 # GET /media/{marketplaceId}/crossMediaGroupSearch
 
-{% api-method method="get" host="https://eds.xboxlive.com" path="/media/{marketplaceId}/crossMediaGroupSearch" %}{% api-method-description %}
-Gets items from several different media groups. The domain for these URIs is 
-{% endapi-method-description %}
+{% api-method method="get" host="https://eds.xboxlive.com" path="/media/{marketplaceId}/crossMediaGroupSearch" %}
 {% api-method-summary %}
 /media/{marketplaceId}/crossMediaGroupSearch
 {% endapi-method-summary %}
+
+{% api-method-description %}
+Gets items from several different media groups. The domain for these URIs is
+{% endapi-method-description %}
+
 {% api-method-spec %}
 {% api-method-request %}
-
 {% api-method-path-parameters %}
 {% api-method-parameter name="marketplaceId" type="string" required=true %}
-Required. String value obtained from the 
+Required. String value obtained from the
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
+
 {% api-method-query-parameters %}
 {% api-method-parameter name="continuationToken" type="string" required=false %}
 Optional. See the ContinuationToken parameter.
 {% endapi-method-parameter %}
+
 {% api-method-parameter name="q" type="string" required=false %}
 Required. Query term used in search.
 {% endapi-method-parameter %}
 {% endapi-method-query-parameters %}
 {% endapi-method-request %}
+
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
@@ -162,9 +167,9 @@ Required. Query term used in search.
     "ContinuationToken": "1-----1",
     "ImpressionGuid": "9e41e6e4-1b2e-4710-abe4-b01ffbaa7605"
 }
-         
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+

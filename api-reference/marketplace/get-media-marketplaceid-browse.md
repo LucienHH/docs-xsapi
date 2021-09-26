@@ -1,20 +1,23 @@
 # GET media/{marketplaceId}/browse
 
-{% api-method method="get" host="https://eds.xboxlive.com" path="media/{marketplaceId}/browse" %}{% api-method-description %}
-Allows browsing for items within a single media group. The domain for these URIs is 
-{% endapi-method-description %}
+{% api-method method="get" host="https://eds.xboxlive.com" path="media/{marketplaceId}/browse" %}
 {% api-method-summary %}
 media/{marketplaceId}/browse
 {% endapi-method-summary %}
+
+{% api-method-description %}
+Allows browsing for items within a single media group. The domain for these URIs is
+{% endapi-method-description %}
+
 {% api-method-spec %}
 {% api-method-request %}
-
 {% api-method-path-parameters %}
 {% api-method-parameter name="marketplaceId" type="string" required=true %}
-Required. String value obtained from the 
+Required. String value obtained from the
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
+
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
@@ -163,9 +166,9 @@ Required. String value obtained from the
     }],
     "ImpressionGuid": "5d3085cf-7d17-43b4-a9c1-a1ccfe764eb1"
 }
-         
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
